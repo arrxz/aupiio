@@ -1,385 +1,667 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-bs-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Katalog IEM, DAC, Amp, dan Aksesoris Audiophile - aupiio">
-  <title>Katalog Produk Audio | aupiio</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Katalog IEM, DAC, Amp, dan Aksesoris Audiophile - aupiio"
+    />
+    <title>Katalog Produk Audio | aupiio</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Top Announcement Bar -->
-  <div class="top-bar py-1">
-    <div class="container d-flex justify-content-between align-items-center">
-      <span><i class="bi bi-shield-check text-warning me-1"></i> Gratis ongkir min. Rp 500.000 · Garansi resmi distributor</span>
-      <span class="d-none d-md-inline text-muted">Butuh saran? Hubungi WhatsApp: <strong class="text-light">0812-3456-7890</strong></span>
-    </div>
-  </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Header Clean Minimalist -->
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-2">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center gap-2 me-4"
+            href="index.html"
+          >
+            <i
+              class="bi bi-headphones"
+              style="color: var(--accent); font-size: 1.5rem"
+            ></i>
+            <span>aup<span style="color: var(--accent)">iio</span></span>
+          </a>
 
-  <!-- Header -->
-  <header class="site-header sticky-top">
-    <nav class="navbar navbar-expand-lg py-2">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2 me-4" href="index.html">
-          <i class="bi bi-headphones" style="color: var(--accent); font-size: 1.5rem;"></i>
-          <span>aup<span style="color: var(--accent);">iio</span></span>
-        </a>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMain"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
-            <li class="nav-item"><a class="nav-link active" href="catalog.html">Katalog Produk</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">Panduan</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Kontak & Garansi</a></li>
-          </ul>
-
-          <div class="d-flex align-items-center gap-3">
-            <a href="cart.html" class="btn btn-accent btn-sm px-3 d-flex align-items-center gap-2">
-              <i class="bi bi-bag"></i>
-              <span class="d-none d-sm-inline">Keranjang</span>
-              <span id="cart-count-badge" class="badge rounded-pill bg-danger" style="display: none; font-size: 0.65rem;">0</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- 5.3 Breadcrumb Bar -->
-  <div class="py-3 border-bottom" style="background-color: var(--surface);">
-    <div class="container d-flex justify-content-between align-items-center">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 small">
-          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none" style="color: var(--accent);">Beranda</a></li>
-          <li class="breadcrumb-item active" aria-current="page" style="color: var(--text-muted);">Katalog Produk Audio</li>
-        </ol>
-      </nav>
-
-      <!-- Tombol Filter Mobile (Offcanvas Trigger 5.3) -->
-      <button class="btn btn-ghost btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
-        <i class="bi bi-funnel me-1"></i> Filter Audio
-      </button>
-    </div>
-  </div>
-
-  <main class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        
-        <!-- 5.3 Filter Desktop (col-lg-3) -->
-        <aside class="col-lg-3 d-none d-lg-block">
-          <div class="p-4 rounded-3" style="background-color: var(--surface); border: 1px solid var(--border);">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h5 class="fw-bold mb-0" style="color: var(--text);"><i class="bi bi-sliders me-1" style="color: var(--accent);"></i> Filter Audio</h5>
-              <a href="catalog.html" class="small text-decoration-none text-muted">Reset</a>
-            </div>
-
-            <!-- Rentang Harga -->
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Harga</label>
-              <select class="form-select form-select-sm">
-                <option value="all">Semua Harga</option>
-                <option value="entry">&lt; Rp 500.000 (Entry Level)</option>
-                <option value="mid">Rp 500.000 - Rp 2.000.000 (Mid-Fi)</option>
-                <option value="high">&gt; Rp 2.000.000 (Hi-Fi Flagship)</option>
-              </select>
-            </div>
-
-            <!-- Jenis Driver -->
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Jenis Driver</label>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="dd" checked>
-                <label class="form-check-label small" for="dd">Dynamic Driver (DD)</label>
-              </div>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="planar">
-                <label class="form-check-label small" for="planar">Planar Magnetic</label>
-              </div>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="ba">
-                <label class="form-check-label small" for="ba">Balanced Armature (BA)</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="hybrid">
-                <label class="form-check-label small" for="hybrid">Hybrid (DD + BA/Planar)</label>
-              </div>
-            </div>
-
-            <!-- Konektor -->
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Konektor</label>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="pin078" checked>
-                <label class="form-check-label small" for="pin078">0.78mm 2-Pin</label>
-              </div>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="mmcx">
-                <label class="form-check-label small" for="mmcx">MMCX</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="qdc">
-                <label class="form-check-label small" for="qdc">QDC 2-Pin</label>
-              </div>
-            </div>
-
-            <!-- Plug Termination -->
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Jack Plug</label>
-              <div class="form-check mb-1">
-                <input class="form-check-input" type="checkbox" id="p35" checked>
-                <label class="form-check-label small" for="p35">3.5mm Single-Ended</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="p44">
-                <label class="form-check-label small" for="p44">4.4mm Balanced</label>
-              </div>
-            </div>
-
-            <!-- Sound Signature -->
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Sound Signature</label>
-              <div class="d-flex flex-wrap gap-1">
-                <span class="chip active">Warm</span>
-                <span class="chip">Neutral</span>
-                <span class="chip">V-shaped</span>
-                <span class="chip">Bright</span>
-                <span class="chip">Analitis</span>
-              </div>
-            </div>
-
-            <!-- Stok -->
-            <div class="mb-3">
-              <label class="form-label small fw-bold text-uppercase text-muted mb-2">Ketersediaan</label>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="inStock" checked>
-                <label class="form-check-label small" for="inStock">Hanya yang Tersedia</label>
-              </div>
-            </div>
-
-            <button class="btn btn-accent btn-sm w-100 mt-2">Terapkan Filter</button>
-          </div>
-        </aside>
-
-        <!-- 5.3 Listing Produk (col-lg-9) -->
-        <section class="col-lg-9">
-          <!-- Top Bar: Filter aktif & Sorting -->
-          <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center pb-3 mb-4 border-bottom gap-3" style="border-color: var(--border) !important;">
-            <div>
-              <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="small text-muted">Filter aktif:</span>
-                <span class="chip active">In-Ear Monitor <i class="bi bi-x"></i></span>
-                <span class="chip active">Tersedia <i class="bi bi-x"></i></span>
-              </div>
-              <span class="small text-muted">Menampilkan 5 produk audio terkurasi</span>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Beranda</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Katalog
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="catalog.html">Semua Produk</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=dac">DAC & Amp</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=dap">Digital Audio Player (DAP)</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=kabel">Kabel & Eartips</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Panduan Audio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Tentang Kami</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Kontak & Garansi</a>
+              </li>
+            </ul>
 
             <div class="d-flex align-items-center gap-2">
-              <label for="sortSelect" class="small text-muted text-nowrap">Urutkan:</label>
-              <select id="sortSelect" class="form-select form-select-sm" style="width: 170px;">
-                <option value="featured">Paling Populer</option>
-                <option value="price-asc">Harga: Terendah</option>
-                <option value="price-desc">Harga: Tertinggi</option>
-                <option value="rating">Rating Tertinggi</option>
-              </select>
+              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Wishlist">
+                <i class="bi bi-heart"></i>
+              </a>
+              <a
+                href="cart.html"
+                class="btn btn-accent btn-sm px-3 py-1 d-flex align-items-center gap-2 position-relative"
+              >
+                <i class="bi bi-bag"></i>
+                <span class="d-none d-sm-inline">Keranjang</span>
+                <span
+                  id="cart-count-badge"
+                  class="badge rounded-pill bg-danger"
+                  style="display: none; font-size: 0.65rem"
+                  >0</span
+                >
+              </a>
             </div>
           </div>
+        </div>
+      </nav>
+    </header>
 
-          <!-- Product Grid: row g-3 g-lg-4, kartu col-6 col-md-4 col-xl-3 (2.6.2 & 7.3) -->
-          <div class="row g-3 g-lg-4">
-            
-            <!-- Item 1: Tangzu Wan'er -->
-            <div class="col-6 col-md-4 col-xl-4">
-              <article class="product-card">
-                <a href="product-detail.html?id=iem-001" class="d-block thumb" title="Tangzu Wan'er S.G">
-                  <i class="bi bi-headphones thumb-placeholder"></i>
-                </a>
-                <div class="p-3 d-flex flex-column flex-grow-1">
-                  <div class="brand">Tangzu Audio</div>
-                  <h3 class="h6 mb-2">
-                    <a href="product-detail.html?id=iem-001" class="card-title-link">Tangzu Wan'er S.G</a>
-                  </h3>
-                  <div class="d-flex flex-wrap gap-1 mb-2">
-                    <span class="chip">Warm</span>
-                    <span class="chip">1 DD</span>
-                  </div>
-                  <div class="mt-auto">
-                    <div class="price mb-1">Rp 320.000</div>
-                    <small style="color: var(--success);"><i class="bi bi-check-circle-fill me-1"></i>Tersedia</small>
-                  </div>
+    <!-- 5.3 Breadcrumb Bar -->
+    <div class="py-3 border-bottom" style="background-color: var(--surface)">
+      <div class="container d-flex justify-content-between align-items-center">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item">
+              <a
+                href="index.html"
+                class="text-decoration-none"
+                style="color: var(--accent)"
+                >Beranda</a
+              >
+            </li>
+            <li
+              class="breadcrumb-item active"
+              aria-current="page"
+              style="color: var(--text-muted)"
+            >
+              Katalog Produk Audio
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Tombol Filter Mobile (Offcanvas Trigger 5.3) -->
+        <button
+          class="btn btn-ghost btn-sm d-lg-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#filterOffcanvas"
+        >
+          <i class="bi bi-funnel me-1"></i> Filter Audio
+        </button>
+      </div>
+    </div>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- 5.3 Filter Desktop (col-lg-3) -->
+          <aside class="col-lg-3 d-none d-lg-block">
+            <div
+              class="p-4 rounded-3"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--border);
+              "
+            >
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="fw-bold mb-0" style="color: var(--text)">
+                  <i
+                    class="bi bi-sliders me-1"
+                    style="color: var(--accent)"
+                  ></i>
+                  Filter Audio
+                </h5>
+                <a
+                  href="catalog.html"
+                  class="small text-decoration-none text-muted"
+                  >Reset</a
+                >
+              </div>
+
+              <!-- Rentang Harga -->
+              <div class="mb-4">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Harga</label
+                >
+                <select class="form-select form-select-sm">
+                  <option value="all">Semua Harga</option>
+                  <option value="entry">&lt; Rp 500.000 (Entry Level)</option>
+                  <option value="mid">
+                    Rp 500.000 - Rp 2.000.000 (Mid-Fi)
+                  </option>
+                  <option value="high">
+                    &gt; Rp 2.000.000 (Hi-Fi Flagship)
+                  </option>
+                </select>
+              </div>
+
+              <!-- Jenis Driver -->
+              <div class="mb-4">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Jenis Driver</label
+                >
+                <div class="form-check mb-1">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="dd"
+                    checked
+                  />
+                  <label class="form-check-label small" for="dd"
+                    >Dynamic Driver (DD)</label
+                  >
                 </div>
-              </article>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="planar" />
+                  <label class="form-check-label small" for="planar"
+                    >Planar Magnetic</label
+                  >
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="ba" />
+                  <label class="form-check-label small" for="ba"
+                    >Balanced Armature (BA)</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="hybrid" />
+                  <label class="form-check-label small" for="hybrid"
+                    >Hybrid (DD + BA/Planar)</label
+                  >
+                </div>
+              </div>
+
+              <!-- Konektor -->
+              <div class="mb-4">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Konektor</label
+                >
+                <div class="form-check mb-1">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="pin078"
+                    checked
+                  />
+                  <label class="form-check-label small" for="pin078"
+                    >0.78mm 2-Pin</label
+                  >
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="mmcx" />
+                  <label class="form-check-label small" for="mmcx">MMCX</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="qdc" />
+                  <label class="form-check-label small" for="qdc"
+                    >QDC 2-Pin</label
+                  >
+                </div>
+              </div>
+
+              <!-- Plug Termination -->
+              <div class="mb-4">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Jack Plug</label
+                >
+                <div class="form-check mb-1">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="p35"
+                    checked
+                  />
+                  <label class="form-check-label small" for="p35"
+                    >3.5mm Single-Ended</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="p44" />
+                  <label class="form-check-label small" for="p44"
+                    >4.4mm Balanced</label
+                  >
+                </div>
+              </div>
+
+              <!-- Sound Signature -->
+              <div class="mb-4">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Sound Signature</label
+                >
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="chip active">Warm</span>
+                  <span class="chip">Neutral</span>
+                  <span class="chip">V-shaped</span>
+                  <span class="chip">Bright</span>
+                  <span class="chip">Analitis</span>
+                </div>
+              </div>
+
+              <!-- Stok -->
+              <div class="mb-3">
+                <label
+                  class="form-label small fw-bold text-uppercase text-muted mb-2"
+                  >Ketersediaan</label
+                >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inStock"
+                    checked
+                  />
+                  <label class="form-check-label small" for="inStock"
+                    >Hanya yang Tersedia</label
+                  >
+                </div>
+              </div>
+
+              <button class="btn btn-accent btn-sm w-100 mt-2">
+                Terapkan Filter
+              </button>
+            </div>
+          </aside>
+
+          <!-- 5.3 Listing Produk (col-lg-9) -->
+          <section class="col-lg-9">
+            <!-- Top Bar: Filter aktif & Sorting -->
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center pb-3 mb-4 border-bottom gap-3"
+              style="border-color: var(--border) !important"
+            >
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="small text-muted">Filter aktif:</span>
+                  <span class="chip active"
+                    >In-Ear Monitor <i class="bi bi-x"></i
+                  ></span>
+                  <span class="chip active"
+                    >Tersedia <i class="bi bi-x"></i
+                  ></span>
+                </div>
+                <span class="small text-muted"
+                  >Menampilkan 5 produk audio terkurasi</span
+                >
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <label for="sortSelect" class="small text-muted text-nowrap"
+                  >Urutkan:</label
+                >
+                <select
+                  id="sortSelect"
+                  class="form-select form-select-sm"
+                  style="width: 170px"
+                >
+                  <option value="featured">Paling Populer</option>
+                  <option value="price-asc">Harga: Terendah</option>
+                  <option value="price-desc">Harga: Tertinggi</option>
+                  <option value="rating">Rating Tertinggi</option>
+                </select>
+              </div>
             </div>
 
-            <!-- Item 2: Moondrop Chu II -->
-            <div class="col-6 col-md-4 col-xl-4">
-              <article class="product-card">
-                <a href="product-detail.html?id=iem-002" class="d-block thumb" title="Moondrop Chu II">
-                  <i class="bi bi-headphones thumb-placeholder"></i>
-                </a>
-                <div class="p-3 d-flex flex-column flex-grow-1">
-                  <div class="brand">Moondrop</div>
-                  <h3 class="h6 mb-2">
-                    <a href="product-detail.html?id=iem-002" class="card-title-link">Moondrop Chu II</a>
-                  </h3>
-                  <div class="d-flex flex-wrap gap-1 mb-2">
-                    <span class="chip">Neutral</span>
-                    <span class="chip">Al-Mg DD</span>
+            <!-- Product Grid: row g-3 g-lg-4, kartu col-6 col-md-4 col-xl-3 (2.6.2 & 7.3) -->
+            <div class="row g-3 g-lg-4">
+              <!-- Item 1: Tangzu Wan'er -->
+              <div class="col-6 col-md-4 col-xl-4">
+                <article class="product-card">
+                  <a
+                    href="product-detail.html?id=iem-001"
+                    class="d-block thumb"
+                    title="Tangzu Wan'er S.G"
+                  >
+                    <i class="bi bi-headphones thumb-placeholder"></i>
+                  </a>
+                  <div class="p-3 d-flex flex-column flex-grow-1">
+                    <div class="brand">Tangzu Audio</div>
+                    <h3 class="h6 mb-2">
+                      <a
+                        href="product-detail.html?id=iem-001"
+                        class="card-title-link"
+                        >Tangzu Wan'er S.G</a
+                      >
+                    </h3>
+                    <div class="d-flex flex-wrap gap-1 mb-2">
+                      <span class="chip">Warm</span>
+                      <span class="chip">1 DD</span>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="price mb-1">Rp 320.000</div>
+                      <small style="color: var(--success)"
+                        ><i class="bi bi-check-circle-fill me-1"></i
+                        >Tersedia</small
+                      >
+                    </div>
                   </div>
-                  <div class="mt-auto">
-                    <div class="price mb-1">Rp 350.000</div>
-                    <small style="color: var(--success);"><i class="bi bi-check-circle-fill me-1"></i>Tersedia</small>
+                </article>
+              </div>
+
+              <!-- Item 2: Moondrop Chu II -->
+              <div class="col-6 col-md-4 col-xl-4">
+                <article class="product-card">
+                  <a
+                    href="product-detail.html?id=iem-002"
+                    class="d-block thumb"
+                    title="Moondrop Chu II"
+                  >
+                    <i class="bi bi-headphones thumb-placeholder"></i>
+                  </a>
+                  <div class="p-3 d-flex flex-column flex-grow-1">
+                    <div class="brand">Moondrop</div>
+                    <h3 class="h6 mb-2">
+                      <a
+                        href="product-detail.html?id=iem-002"
+                        class="card-title-link"
+                        >Moondrop Chu II</a
+                      >
+                    </h3>
+                    <div class="d-flex flex-wrap gap-1 mb-2">
+                      <span class="chip">Neutral</span>
+                      <span class="chip">Al-Mg DD</span>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="price mb-1">Rp 350.000</div>
+                      <small style="color: var(--success)"
+                        ><i class="bi bi-check-circle-fill me-1"></i
+                        >Tersedia</small
+                      >
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </div>
+
+              <!-- Item 3: 7Hz Timeless -->
+              <div class="col-6 col-md-4 col-xl-4">
+                <article class="product-card">
+                  <a
+                    href="product-detail.html?id=iem-003"
+                    class="d-block thumb"
+                    title="7Hz Timeless Planar"
+                  >
+                    <i class="bi bi-headphones thumb-placeholder"></i>
+                  </a>
+                  <div class="p-3 d-flex flex-column flex-grow-1">
+                    <div class="brand">7Hz Audio</div>
+                    <h3 class="h6 mb-2">
+                      <a
+                        href="product-detail.html?id=iem-003"
+                        class="card-title-link"
+                        >7Hz Timeless Planar</a
+                      >
+                    </h3>
+                    <div class="d-flex flex-wrap gap-1 mb-2">
+                      <span class="chip">Analitis</span>
+                      <span class="chip">Planar</span>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="price mb-1">Rp 3.150.000</div>
+                      <small style="color: var(--warning)"
+                        ><i class="bi bi-exclamation-circle-fill me-1"></i>Sisa
+                        2 unit</small
+                      >
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Item 4: FiiO KA13 -->
+              <div class="col-6 col-md-4 col-xl-4">
+                <article class="product-card">
+                  <a
+                    href="product-detail.html?id=dac-001"
+                    class="d-block thumb"
+                    title="FiiO KA13 Dongle DAC"
+                  >
+                    <i class="bi bi-lightning-charge thumb-placeholder"></i>
+                  </a>
+                  <div class="p-3 d-flex flex-column flex-grow-1">
+                    <div class="brand">FiiO</div>
+                    <h3 class="h6 mb-2">
+                      <a
+                        href="product-detail.html?id=dac-001"
+                        class="card-title-link"
+                        >FiiO KA13 Dongle DAC</a
+                      >
+                    </h3>
+                    <div class="d-flex flex-wrap gap-1 mb-2">
+                      <span class="chip">Dual CS43131</span>
+                      <span class="chip">4.4mm</span>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="price mb-1">Rp 1.150.000</div>
+                      <small style="color: var(--success)"
+                        ><i class="bi bi-check-circle-fill me-1"></i
+                        >Tersedia</small
+                      >
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Item 5: SpinFit CP100+ -->
+              <div class="col-6 col-md-4 col-xl-4">
+                <article class="product-card">
+                  <a
+                    href="product-detail.html?id=acc-001"
+                    class="d-block thumb"
+                    title="SpinFit CP100+"
+                  >
+                    <i class="bi bi-disc thumb-placeholder"></i>
+                  </a>
+                  <div class="p-3 d-flex flex-column flex-grow-1">
+                    <div class="brand">SpinFit</div>
+                    <h3 class="h6 mb-2">
+                      <a
+                        href="product-detail.html?id=acc-001"
+                        class="card-title-link"
+                        >SpinFit CP100+ Medical Eartips</a
+                      >
+                    </h3>
+                    <div class="d-flex flex-wrap gap-1 mb-2">
+                      <span class="chip">Silicone 3D</span>
+                      <span class="chip">Bore 4.5mm</span>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="price mb-1">Rp 165.000</div>
+                      <small style="color: var(--success)"
+                        ><i class="bi bi-check-circle-fill me-1"></i
+                        >Tersedia</small
+                      >
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
 
-            <!-- Item 3: 7Hz Timeless -->
-            <div class="col-6 col-md-4 col-xl-4">
-              <article class="product-card">
-                <a href="product-detail.html?id=iem-003" class="d-block thumb" title="7Hz Timeless Planar">
-                  <i class="bi bi-headphones thumb-placeholder"></i>
-                </a>
-                <div class="p-3 d-flex flex-column flex-grow-1">
-                  <div class="brand">7Hz Audio</div>
-                  <h3 class="h6 mb-2">
-                    <a href="product-detail.html?id=iem-003" class="card-title-link">7Hz Timeless Planar</a>
-                  </h3>
-                  <div class="d-flex flex-wrap gap-1 mb-2">
-                    <span class="chip">Analitis</span>
-                    <span class="chip">Planar</span>
-                  </div>
-                  <div class="mt-auto">
-                    <div class="price mb-1">Rp 3.150.000</div>
-                    <small style="color: var(--warning);"><i class="bi bi-exclamation-circle-fill me-1"></i>Sisa 2 unit</small>
-                  </div>
-                </div>
-              </article>
-            </div>
+            <!-- Pagination -->
+            <nav class="mt-5" aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a
+                    class="page-link"
+                    href="#"
+                    style="
+                      background: var(--surface);
+                      border-color: var(--border);
+                      color: var(--text-muted);
+                    "
+                    >&laquo;</a
+                  >
+                </li>
+                <li class="page-item active">
+                  <a
+                    class="page-link"
+                    href="#"
+                    style="
+                      background: var(--accent);
+                      border-color: var(--accent);
+                      color: var(--accent-ink);
+                    "
+                    >1</a
+                  >
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    style="
+                      background: var(--surface);
+                      border-color: var(--border);
+                      color: var(--text);
+                    "
+                    >2</a
+                  >
+                </li>
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    href="#"
+                    style="
+                      background: var(--surface);
+                      border-color: var(--border);
+                      color: var(--text);
+                    "
+                    >&raquo;</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </section>
+        </div>
+      </div>
+    </main>
 
-            <!-- Item 4: FiiO KA13 -->
-            <div class="col-6 col-md-4 col-xl-4">
-              <article class="product-card">
-                <a href="product-detail.html?id=dac-001" class="d-block thumb" title="FiiO KA13 Dongle DAC">
-                  <i class="bi bi-lightning-charge thumb-placeholder"></i>
-                </a>
-                <div class="p-3 d-flex flex-column flex-grow-1">
-                  <div class="brand">FiiO</div>
-                  <h3 class="h6 mb-2">
-                    <a href="product-detail.html?id=dac-001" class="card-title-link">FiiO KA13 Dongle DAC</a>
-                  </h3>
-                  <div class="d-flex flex-wrap gap-1 mb-2">
-                    <span class="chip">Dual CS43131</span>
-                    <span class="chip">4.4mm</span>
-                  </div>
-                  <div class="mt-auto">
-                    <div class="price mb-1">Rp 1.150.000</div>
-                    <small style="color: var(--success);"><i class="bi bi-check-circle-fill me-1"></i>Tersedia</small>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Item 5: SpinFit CP100+ -->
-            <div class="col-6 col-md-4 col-xl-4">
-              <article class="product-card">
-                <a href="product-detail.html?id=acc-001" class="d-block thumb" title="SpinFit CP100+">
-                  <i class="bi bi-disc thumb-placeholder"></i>
-                </a>
-                <div class="p-3 d-flex flex-column flex-grow-1">
-                  <div class="brand">SpinFit</div>
-                  <h3 class="h6 mb-2">
-                    <a href="product-detail.html?id=acc-001" class="card-title-link">SpinFit CP100+ Medical Eartips</a>
-                  </h3>
-                  <div class="d-flex flex-wrap gap-1 mb-2">
-                    <span class="chip">Silicone 3D</span>
-                    <span class="chip">Bore 4.5mm</span>
-                  </div>
-                  <div class="mt-auto">
-                    <div class="price mb-1">Rp 165.000</div>
-                    <small style="color: var(--success);"><i class="bi bi-check-circle-fill me-1"></i>Tersedia</small>
-                  </div>
-                </div>
-              </article>
-            </div>
-
+    <!-- 5.3 OFFCANVAS FILTER (Untuk Mobile Screen) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="filterOffcanvas"
+      style="background-color: var(--surface); color: var(--text)"
+    >
+      <div
+        class="offcanvas-header border-bottom"
+        style="border-color: var(--border) !important"
+      >
+        <h5 class="offcanvas-title fw-bold">
+          <i class="bi bi-sliders me-1" style="color: var(--accent)"></i> Filter
+          Audio
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- Isi filter sama dengan versi desktop -->
+        <div class="mb-4">
+          <label class="form-label small fw-bold text-uppercase text-muted mb-2"
+            >Jenis Driver</label
+          >
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" id="m-dd" checked />
+            <label class="form-check-label small" for="m-dd"
+              >Dynamic Driver (DD)</label
+            >
           </div>
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" id="m-planar" />
+            <label class="form-check-label small" for="m-planar"
+              >Planar Magnetic</label
+            >
+          </div>
+          <div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" id="m-ba" />
+            <label class="form-check-label small" for="m-ba"
+              >Balanced Armature (BA)</label
+            >
+          </div>
+        </div>
 
-          <!-- Pagination -->
-          <nav class="mt-5" aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled"><a class="page-link" href="#" style="background: var(--surface); border-color: var(--border); color: var(--text-muted);">&laquo;</a></li>
-              <li class="page-item active"><a class="page-link" href="#" style="background: var(--accent); border-color: var(--accent); color: var(--accent-ink);">1</a></li>
-              <li class="page-item"><a class="page-link" href="#" style="background: var(--surface); border-color: var(--border); color: var(--text);">2</a></li>
-              <li class="page-item"><a class="page-link" href="#" style="background: var(--surface); border-color: var(--border); color: var(--text);">&raquo;</a></li>
-            </ul>
-          </nav>
+        <div class="mb-4">
+          <label class="form-label small fw-bold text-uppercase text-muted mb-2"
+            >Sound Signature</label
+          >
+          <div class="d-flex flex-wrap gap-1">
+            <span class="chip active">Warm</span>
+            <span class="chip">Neutral</span>
+            <span class="chip">V-shaped</span>
+            <span class="chip">Bright</span>
+          </div>
+        </div>
 
-        </section>
+        <button class="btn btn-accent w-100 mt-3" data-bs-dismiss="offcanvas">
+          Terapkan Filter
+        </button>
       </div>
     </div>
-  </main>
 
-  <!-- 5.3 OFFCANVAS FILTER (Untuk Mobile Screen) -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="filterOffcanvas" style="background-color: var(--surface); color: var(--text);">
-    <div class="offcanvas-header border-bottom" style="border-color: var(--border) !important;">
-      <h5 class="offcanvas-title fw-bold"><i class="bi bi-sliders me-1" style="color: var(--accent);"></i> Filter Audio</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <!-- Isi filter sama dengan versi desktop -->
-      <div class="mb-4">
-        <label class="form-label small fw-bold text-uppercase text-muted mb-2">Jenis Driver</label>
-        <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" id="m-dd" checked>
-          <label class="form-check-label small" for="m-dd">Dynamic Driver (DD)</label>
-        </div>
-        <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" id="m-planar">
-          <label class="form-check-label small" for="m-planar">Planar Magnetic</label>
-        </div>
-        <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" id="m-ba">
-          <label class="form-check-label small" for="m-ba">Balanced Armature (BA)</label>
-        </div>
+    <!-- Footer -->
+    <footer class="pt-5 pb-4 mt-auto">
+      <div class="container text-center small text-muted">
+        &copy; 2026 aupiio. Tema Amber Studio. E-Commerce Khusus Audiophile &
+        Audio Enthusiast.
       </div>
+    </footer>
 
-      <div class="mb-4">
-        <label class="form-label small fw-bold text-uppercase text-muted mb-2">Sound Signature</label>
-        <div class="d-flex flex-wrap gap-1">
-          <span class="chip active">Warm</span>
-          <span class="chip">Neutral</span>
-          <span class="chip">V-shaped</span>
-          <span class="chip">Bright</span>
-        </div>
-      </div>
-
-      <button class="btn btn-accent w-100 mt-3" data-bs-dismiss="offcanvas">Terapkan Filter</button>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="pt-5 pb-4 mt-auto">
-    <div class="container text-center small text-muted">
-      &copy; 2026 aupiio. Tema Amber Studio. E-Commerce Khusus Audiophile & Audio Enthusiast.
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/products.js"></script>
-  <script src="assets/js/cart.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

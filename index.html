@@ -57,77 +57,47 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarMain">
-            <!-- Nav Links (Peta Situs 5.1) -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Nav Links Clean Minimalist -->
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 gap-lg-3">
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">Beranda</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=iem">IEM</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Katalog
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="catalog.html">Semua Produk</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=dac">DAC & Amp</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=dap">Digital Audio Player (DAP)</a></li>
+                  <li><a class="dropdown-item" href="catalog.html?cat=kabel">Kabel & Eartips</a></li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=dac">DAC / Amp</a>
+                <a class="nav-link" href="about.html">Panduan Audio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=dap">DAP</a>
+                <a class="nav-link" href="about.html">Tentang Kami</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=tws">TWS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=kabel">Kabel</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=eartips">Eartips</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catalog.html?cat=aksesoris"
-                  >Aksesoris</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Panduan</a>
+                <a class="nav-link" href="contact.html">Kontak & Garansi</a>
               </li>
             </ul>
 
-            <!-- Search Bar & Actions -->
-            <div class="d-flex align-items-center gap-3">
-              <form
-                class="position-relative d-none d-xl-block"
-                action="catalog.html"
-              >
-                <input
-                  class="form-control form-control-sm pe-4 text-light"
-                  type="search"
-                  placeholder="Cari IEM, DAC, kabel..."
-                  style="width: 220px; font-size: 0.85rem"
-                />
-                <i
-                  class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"
-                  style="font-size: 0.75rem"
-                ></i>
-              </form>
-
-              <a
-                href="catalog.html"
-                class="btn btn-ghost btn-sm px-2"
-                title="Wishlist"
-              >
+            <!-- Clean Minimalist Actions -->
+            <div class="d-flex align-items-center gap-2">
+              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Cari Produk">
+                <i class="bi bi-search"></i>
+              </a>
+              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Wishlist">
                 <i class="bi bi-heart"></i>
               </a>
-
-              <a
-                href="cart.html"
-                class="btn btn-accent btn-sm px-3 d-flex align-items-center gap-2 position-relative"
-              >
+              <a href="cart.html" class="btn btn-accent btn-sm px-3 py-1 d-flex align-items-center gap-2 position-relative">
                 <i class="bi bi-bag"></i>
                 <span class="d-none d-sm-inline">Keranjang</span>
-                <span
-                  id="cart-count-badge"
-                  class="badge rounded-pill bg-danger"
-                  style="display: none; font-size: 0.65rem"
-                  >0</span
-                >
+                <span id="cart-count-badge" class="badge rounded-pill bg-danger" style="display: none; font-size: 0.65rem">0</span>
               </a>
             </div>
           </div>

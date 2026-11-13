@@ -1,33 +1,33 @@
-# AUDIO-STORE-STYLE.md — Amber Studio
+# AUDIO-STORE-STYLE.md — Amber Studio (Clean Minimalist Edition)
 
-Panduan style web e-commerce khusus audiophile: IEM, DAC/Amp, DAP, TWS, kabel, eartips, dan aksesoris. Patokan utama untuk Bootstrap 5.3, dengan padanan Tailwind di bagian akhir.
+Panduan style web e-commerce khusus audiophile: IEM, DAC/Amp, DAP, TWS, kabel, eartips, dan aksesoris. Mengusung konsep **Clean Minimalist**: ruang bernapas lega, tipografi teratur, dan navigasi yang tidak berantakan. Patokan utama untuk Bootstrap 5.3, dengan padanan Tailwind di bagian akhir.
 
-> Nama toko di dokumen ini memakai placeholder **`[NamaToko]`**. Ganti sesuai pilihanmu.
+> Nama toko resmi: **aupiio**
 
 ---
 
 ## 1. Konsep & Tema
 
-**Tema: "Amber Studio"**: nuansa ruang dengar malam hari. Latar gelap hangat seperti panel studio, dengan satu aksen amber seperti cahaya tabung vakum (vacuum tube) pada amplifier hi-fi.
+**Tema: "Clean Amber Studio"**: nuansa ruang dengar malam hari yang tenang, lapang, dan minimalis. Latar gelap hangat seperti panel studio kayu hitam, dengan satu aksen amber seperti cahaya tabung vakum (vacuum tube) pada amplifier hi-fi.
 
 | Aspek | Keputusan | Alasan |
 |---|---|---|
-| Mood | Hangat, tenang, premium, teknis tapi tidak dingin | Audiophile menghabiskan waktu lama membaca spesifikasi dan ulasan |
-| Mode utama | Dark hangat (bukan hitam murni) | Produk berbahan logam/resin tampil menonjol, nyaman di mata saat malam |
-| Mode tambahan | Light "Paper" (opsional, toggle) | Sebagian orang lebih nyaman membaca spek panjang di mode terang |
-| Aksen | Satu warna: amber/champagne | Konsisten, mudah dikenali, tidak melelahkan |
-| Karakter | Detail teknis dihormati (tabel spek, grafik, tag signature) | Audiophile mempercayai data, bukan slogan |
+| Mood | Bersih, tenang, premium, lega (spacious) | Pengunjung fokus menikmati kurasi produk tanpa distraksi visual |
+| Navbar | **Minimalis & Bersih** (tanpa deretan kategori padat) | Mengurangi beban kognitif pengunjung; kategori dirangkum dalam menu Katalog |
+| Mode utama | Dark hangat (bukan hitam murni `#14110F`) | Produk berbahan logam/resin tampil menonjol, nyaman di mata saat malam |
+| Mode tambahan | Light "Paper" (opsional) | Untuk kenyamanan membaca spesifikasi panjang di siang hari |
+| Aksen | Satu warna: amber/champagne (`#D9A441`) | Konsisten, elegan, tidak melelahkan mata |
+| Karakter | Detail teknis dihormati (tabel spek, kurva FR, chip suara) | Data disajikan terstruktur dan rapi |
 
-### Prinsip UX agar pengunjung betah
+### Prinsip UX & Desain Clean
 
-Warna hanya sebagian kecil. Yang membuat orang betah dan akhirnya membeli:
+Yang membuat tampilan terasa clean dan pengunjung betah:
 
-1. **Cepat.** Halaman termuat di bawah 3 detik di HP, gambar WebP dan lazy-load.
-2. **Mudah menyaring.** Filter spesifik audio (jenis driver, impedansi, konektor, signature) lebih berharga dari animasi.
-3. **Data jelas.** Harga, stok, spek, dan garansi terlihat tanpa harus dicari.
-4. **Dipercaya.** Keaslian barang, garansi, kebijakan retur, dan ulasan nyata ditampilkan terang-terangan.
-5. **Tidak mengganggu.** Tanpa pop-up agresif, auto-play suara, atau banner berkedip.
-6. **Membantu memilih.** Fitur bandingkan produk dan rekomendasi "cocok untuk" menekan kebingungan.
+1. **Ruang Bernapas (White Space/Negative Space).** Navbar dan section diberi padding cukup (`py-3` untuk header, gap antar menu `1.5rem - 2rem`). Tidak menjejalkan semua link kategori di header.
+2. **Hierarki Visual Jelas.** Hanya 4-5 link utama di navbar (`Beranda`, `Katalog`, `Panduan`, `Tentang`, `Kontak`). Sub-kategori gear diakses lewat dropdown atau di body halaman.
+3. **Tanpa Elemen Dekoratif Berlebih.** Menghilangkan top-bar promosi yang mengganggu dan badge embel-embel pada logo agar brand tampil percaya diri dan murni.
+4. **Cepat & Responsif.** Halaman termuat di bawah 3 detik di smartphone, gambar WebP dan lazy-load.
+5. **Data Jelas & Terpercaya.** Harga mono, ketersediaan stok riil, spesifikasi teknis akurat, dan kebijakan garansi dipaparkan transparan.
 
 ---
 
@@ -155,14 +155,11 @@ Beranda
 └── Garansi & Retur / Kontak
 ```
 
-### 5.2 Beranda (desktop ≥ 992px)
+### 5.2 Beranda (desktop ≥ 992px) — Clean Layout
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
-│ TOP BAR  Gratis ongkir min. Rp xxx · Garansi resmi             │  ← tipis, --surface-2
-├────────────────────────────────────────────────────────────────┤
-│ HEADER  [Logo]  [ 🔍 Cari IEM, DAC, kabel...       ]  ♡  🛒(2) │  ← sticky, --surface
-│ NAV     IEM  DAC/Amp  DAP  TWS  Kabel  Eartips  Aksesoris Panduan│
+│ HEADER (py-3)  [Logo aupiio]     Beranda   Katalog ▾   Panduan   Tentang      🔍   ♡   🛒(2) │  ← sticky, --surface, lega
 ├────────────────────────────────────────────────────────────────┤
 │ HERO                                                           │  ← --bg
 │  ┌──────────────────────────────┐  ┌──────────────────────┐    │
@@ -348,11 +345,28 @@ section { padding: 5rem 0; }
 .section-alt { background: var(--surface); }
 html { scroll-behavior: smooth; }
 
-/* Header */
-.site-header { background: var(--surface); border-bottom: 1px solid var(--border); }
-.site-header .nav-link { color: var(--text-muted); }
+/* Header Clean & Spacious */
+.site-header { 
+  background: var(--surface); 
+  border-bottom: 1px solid var(--border); 
+  padding: 0.85rem 0;
+}
+.site-header .navbar-brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+.site-header .nav-link { 
+  color: var(--text-muted); 
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  transition: color .2s ease;
+}
 .site-header .nav-link:hover,
-.site-header .nav-link.active { color: var(--accent); }
+.site-header .nav-link.active { 
+  color: var(--accent); 
+}
 
 /* Tombol */
 .btn-accent {
@@ -474,6 +488,8 @@ Animasi dibatasi: transisi 200 ms, tanpa parallax berat, hormati `prefers-reduce
 
 - Lebih dari satu warna aksen.
 - Hitam murni `#000` sebagai latar (terlalu keras, foto terlihat mengambang).
+- **Navbar terlalu ramai & padat**: menjejalkan semua 7+ kategori produk berjajar langsung di baris menu utama (gunakan struktur clean: Beranda, Katalog, Panduan, Tentang, Kontak).
+- Menambahkan badge atau label berlebih di sebelah logo toko (harus murni dan clean).
 - Pop-up diskon yang muncul langsung saat halaman dibuka.
 - Auto-play audio/video.
 - Menyembunyikan ongkir atau biaya tambahan sampai langkah terakhir.

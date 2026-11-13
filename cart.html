@@ -1,174 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-bs-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Keranjang Belanja Audio Gear Anda - aupiio">
-  <title>Keranjang Belanja | aupiio</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Keranjang Belanja Audio Gear Anda - aupiio"
+    />
+    <title>Keranjang Belanja | aupiio</title>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container py-3 d-flex align-items-center justify-content-between">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <i class="bi bi-headphones" style="color: var(--accent); font-size: 1.5rem;"></i>
-        <span>aup<span style="color: var(--accent);">iio</span></span>
-      </a>
-      
-      <a href="catalog.html" class="btn btn-ghost btn-sm px-3">
-        <i class="bi bi-arrow-left me-1"></i> Lanjut Belanja
-      </a>
-    </div>
-  </header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <main class="py-5">
-    <div class="container">
-      <h3 class="fw-bold mb-4" style="color: var(--text);">
-        <i class="bi bi-bag me-2" style="color: var(--accent);"></i>Keranjang Belanja Anda
-      </h3>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div
+        class="container py-3 d-flex align-items-center justify-content-between"
+      >
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <i
+            class="bi bi-headphones"
+            style="color: var(--accent); font-size: 1.5rem"
+          ></i>
+          <span>aup<span style="color: var(--accent)">iio</span></span>
+          <span class="badge brand-badge">STUDIO</span>
+        </a>
 
-      <div class="row g-4">
-        <!-- List Produk dalam Keranjang -->
-        <div class="col-lg-8">
-          <div class="rounded-3 overflow-hidden" style="background-color: var(--surface); border: 1px solid var(--border);">
-            <div class="table-responsive">
-              <table class="table align-middle mb-0" style="color: var(--text);">
-                <thead style="background-color: var(--surface-2); border-bottom: 1px solid var(--border);">
-                  <tr class="small text-muted text-uppercase">
-                    <th scope="col" class="ps-4 py-3">Produk Audio</th>
-                    <th scope="col" class="py-3">Harga</th>
-                    <th scope="col" class="py-3" style="width: 140px;">Jumlah</th>
-                    <th scope="col" class="py-3">Subtotal</th>
-                    <th scope="col" class="text-center py-3" style="width: 60px;">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Item 1 -->
-                  <tr style="border-bottom: 1px solid var(--border);">
-                    <td class="ps-4 py-3">
-                      <div class="d-flex align-items-center gap-3">
-                        <div class="p-2 rounded text-center" style="background-color: var(--surface-2); width: 50px; height: 50px;">
-                          <i class="bi bi-headphones fs-4" style="color: var(--accent);"></i>
-                        </div>
-                        <div>
-                          <h6 class="fw-bold mb-0" style="color: var(--text);">Tangzu Wan'er S.G</h6>
-                          <span class="small text-muted">White / Jade · 3.5mm Non-Mic</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="mono small">Rp 320.000</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <button class="btn btn-ghost" type="button">-</button>
-                        <input type="text" class="form-control text-center mono" value="1" readonly>
-                        <button class="btn btn-ghost" type="button">+</button>
-                      </div>
-                    </td>
-                    <td class="mono fw-bold price">Rp 320.000</td>
-                    <td class="text-center">
-                      <button class="btn btn-ghost btn-sm border-0 text-danger"><i class="bi bi-trash"></i></button>
-                    </td>
-                  </tr>
+        <a href="catalog.html" class="btn btn-ghost btn-sm px-3">
+          <i class="bi bi-arrow-left me-1"></i> Lanjut Belanja
+        </a>
+      </div>
+    </header>
 
-                  <!-- Item 2 -->
-                  <tr>
-                    <td class="ps-4 py-3">
-                      <div class="d-flex align-items-center gap-3">
-                        <div class="p-2 rounded text-center" style="background-color: var(--surface-2); width: 50px; height: 50px;">
-                          <i class="bi bi-disc fs-4" style="color: var(--accent);"></i>
+    <main class="py-5">
+      <div class="container">
+        <h3 class="fw-bold mb-4" style="color: var(--text)">
+          <i class="bi bi-bag me-2" style="color: var(--accent)"></i>Keranjang
+          Belanja Anda
+        </h3>
+
+        <div class="row g-4">
+          <!-- List Produk dalam Keranjang -->
+          <div class="col-lg-8">
+            <div
+              class="rounded-3 overflow-hidden"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--border);
+              "
+            >
+              <div class="table-responsive">
+                <table
+                  class="table align-middle mb-0"
+                  style="color: var(--text)"
+                >
+                  <thead
+                    style="
+                      background-color: var(--surface-2);
+                      border-bottom: 1px solid var(--border);
+                    "
+                  >
+                    <tr class="small text-muted text-uppercase">
+                      <th scope="col" class="ps-4 py-3">Produk Audio</th>
+                      <th scope="col" class="py-3">Harga</th>
+                      <th scope="col" class="py-3" style="width: 140px">
+                        Jumlah
+                      </th>
+                      <th scope="col" class="py-3">Subtotal</th>
+                      <th
+                        scope="col"
+                        class="text-center py-3"
+                        style="width: 60px"
+                      >
+                        Aksi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Item 1 -->
+                    <tr style="border-bottom: 1px solid var(--border)">
+                      <td class="ps-4 py-3">
+                        <div class="d-flex align-items-center gap-3">
+                          <div
+                            class="p-2 rounded text-center"
+                            style="
+                              background-color: var(--surface-2);
+                              width: 50px;
+                              height: 50px;
+                            "
+                          >
+                            <i
+                              class="bi bi-headphones fs-4"
+                              style="color: var(--accent)"
+                            ></i>
+                          </div>
+                          <div>
+                            <h6 class="fw-bold mb-0" style="color: var(--text)">
+                              Tangzu Wan'er S.G
+                            </h6>
+                            <span class="small text-muted"
+                              >White / Jade · 3.5mm Non-Mic</span
+                            >
+                          </div>
                         </div>
-                        <div>
-                          <h6 class="fw-bold mb-0" style="color: var(--text);">SpinFit CP100+</h6>
-                          <span class="small text-muted">Medical Silicone · Medium Pair</span>
+                      </td>
+                      <td class="mono small">Rp 320.000</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <button class="btn btn-ghost" type="button">-</button>
+                          <input
+                            type="text"
+                            class="form-control text-center mono"
+                            value="1"
+                            readonly
+                          />
+                          <button class="btn btn-ghost" type="button">+</button>
                         </div>
-                      </div>
-                    </td>
-                    <td class="mono small">Rp 165.000</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <button class="btn btn-ghost" type="button">-</button>
-                        <input type="text" class="form-control text-center mono" value="1" readonly>
-                        <button class="btn btn-ghost" type="button">+</button>
-                      </div>
-                    </td>
-                    <td class="mono fw-bold price">Rp 165.000</td>
-                    <td class="text-center">
-                      <button class="btn btn-ghost btn-sm border-0 text-danger"><i class="bi bi-trash"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      </td>
+                      <td class="mono fw-bold price">Rp 320.000</td>
+                      <td class="text-center">
+                        <button
+                          class="btn btn-ghost btn-sm border-0 text-danger"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Item 2 -->
+                    <tr>
+                      <td class="ps-4 py-3">
+                        <div class="d-flex align-items-center gap-3">
+                          <div
+                            class="p-2 rounded text-center"
+                            style="
+                              background-color: var(--surface-2);
+                              width: 50px;
+                              height: 50px;
+                            "
+                          >
+                            <i
+                              class="bi bi-disc fs-4"
+                              style="color: var(--accent)"
+                            ></i>
+                          </div>
+                          <div>
+                            <h6 class="fw-bold mb-0" style="color: var(--text)">
+                              SpinFit CP100+
+                            </h6>
+                            <span class="small text-muted"
+                              >Medical Silicone · Medium Pair</span
+                            >
+                          </div>
+                        </div>
+                      </td>
+                      <td class="mono small">Rp 165.000</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <button class="btn btn-ghost" type="button">-</button>
+                          <input
+                            type="text"
+                            class="form-control text-center mono"
+                            value="1"
+                            readonly
+                          />
+                          <button class="btn btn-ghost" type="button">+</button>
+                        </div>
+                      </td>
+                      <td class="mono fw-bold price">Rp 165.000</td>
+                      <td class="text-center">
+                        <button
+                          class="btn btn-ghost btn-sm border-0 text-danger"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Kupon Voucher -->
+            <div
+              class="p-3 rounded-3 mt-3"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--border);
+              "
+            >
+              <div class="row g-2 align-items-center">
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Punya kode promo audiophile? (contoh: AMBER10)"
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <button class="btn btn-ghost w-100">Gunakan Voucher</button>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Kupon Voucher -->
-          <div class="p-3 rounded-3 mt-3" style="background-color: var(--surface); border: 1px solid var(--border);">
-            <div class="row g-2 align-items-center">
-              <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Punya kode promo audiophile? (contoh: AMBER10)">
+          <!-- 5.5 Ringkasan Pesanan (Order Summary) -->
+          <div class="col-lg-4">
+            <div
+              class="p-4 rounded-3"
+              style="
+                background-color: var(--surface);
+                border: 1px solid var(--border);
+              "
+            >
+              <h5 class="fw-bold mb-3" style="color: var(--text)">
+                Ringkasan Pesanan
+              </h5>
+
+              <div class="d-flex justify-content-between mb-2 small text-muted">
+                <span>Subtotal (2 produk)</span>
+                <span class="mono text-light">Rp 485.000</span>
               </div>
-              <div class="col-sm-4">
-                <button class="btn btn-ghost w-100">Gunakan Voucher</button>
+              <div class="d-flex justify-content-between mb-2 small text-muted">
+                <span>Estimasi Pengiriman</span>
+                <span class="text-light">Gratis (Min. Rp 500rb)</span>
               </div>
-            </div>
-          </div>
-        </div>
+              <div class="d-flex justify-content-between mb-3 small text-muted">
+                <span>Double Box + Bubble Wrap</span>
+                <span style="color: var(--success)"
+                  ><i class="bi bi-check-circle-fill me-1"></i>Termasuk</span
+                >
+              </div>
 
-        <!-- 5.5 Ringkasan Pesanan (Order Summary) -->
-        <div class="col-lg-4">
-          <div class="p-4 rounded-3" style="background-color: var(--surface); border: 1px solid var(--border);">
-            <h5 class="fw-bold mb-3" style="color: var(--text);">Ringkasan Pesanan</h5>
-            
-            <div class="d-flex justify-content-between mb-2 small text-muted">
-              <span>Subtotal (2 produk)</span>
-              <span class="mono text-light">Rp 485.000</span>
-            </div>
-            <div class="d-flex justify-content-between mb-2 small text-muted">
-              <span>Estimasi Pengiriman</span>
-              <span class="text-light">Gratis (Min. Rp 500rb)</span>
-            </div>
-            <div class="d-flex justify-content-between mb-3 small text-muted">
-              <span>Double Box + Bubble Wrap</span>
-              <span style="color: var(--success);"><i class="bi bi-check-circle-fill me-1"></i>Termasuk</span>
-            </div>
+              <hr style="border-color: var(--border)" />
 
-            <hr style="border-color: var(--border);">
+              <div
+                class="d-flex justify-content-between align-items-baseline mb-4"
+              >
+                <span class="fw-bold">Total Pembayaran</span>
+                <span class="fs-4 fw-bold price mono">Rp 485.000</span>
+              </div>
 
-            <div class="d-flex justify-content-between align-items-baseline mb-4">
-              <span class="fw-bold">Total Pembayaran</span>
-              <span class="fs-4 fw-bold price mono">Rp 485.000</span>
-            </div>
+              <a
+                href="checkout.html"
+                class="btn btn-accent btn-lg w-100 mb-3 d-flex justify-content-center align-items-center gap-2"
+              >
+                Lanjut ke Checkout <i class="bi bi-arrow-right"></i>
+              </a>
 
-            <a href="checkout.html" class="btn btn-accent btn-lg w-100 mb-3 d-flex justify-content-center align-items-center gap-2">
-              Lanjut ke Checkout <i class="bi bi-arrow-right"></i>
-            </a>
-
-            <div class="text-center">
-              <small class="text-muted"><i class="bi bi-shield-lock me-1"></i> Transaksi Terenkripsi & Jaminan Keaslian</small>
+              <div class="text-center">
+                <small class="text-muted"
+                  ><i class="bi bi-shield-lock me-1"></i> Transaksi Terenkripsi
+                  & Jaminan Keaslian</small
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- Footer -->
-  <footer class="pt-5 pb-4 mt-auto">
-    <div class="container text-center small text-muted">
-      &copy; 2026 aupiio. Tema Amber Studio.
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="pt-5 pb-4 mt-auto">
+      <div class="container text-center small text-muted">
+        &copy; 2026 aupiio. Tema Amber Studio.
+      </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
