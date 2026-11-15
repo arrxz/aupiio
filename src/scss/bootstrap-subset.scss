@@ -1,0 +1,16 @@
+// Subset Bootstrap 5.3 sesuai AUDIO-STORE-STACK-MOTION.md (Bagian 3.3)
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/transitions";   // .collapse, .collapsing
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/toasts";
+// TIDAK diimpor: reboot, containers, grid, utilities, buttons, cards, forms

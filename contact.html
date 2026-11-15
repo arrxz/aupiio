@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="id" data-bs-theme="dark">
+<html lang="id" data-theme="light" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kontak, Bantuan, dan Klaim Garansi IEM - aupiio"
+      content="Kontak, Bantuan Konsultasi Sound Signature, dan Klaim Garansi - aupiio"
     />
     <title>Kontak & Layanan Garansi | aupiio</title>
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
@@ -26,342 +25,269 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
-    <!-- Header Clean Minimalist -->
-    <header class="site-header sticky-top">
-      <nav class="navbar navbar-expand-lg py-2">
-        <div class="container">
-          <a
-            class="navbar-brand d-flex align-items-center gap-2 me-4"
-            href="index.html"
-          >
-            <i
-              class="bi bi-headphones"
-              style="color: var(--accent); font-size: 1.5rem"
-            ></i>
-            <span>aup<span style="color: var(--accent)">iio</span></span>
-          </a>
+  <body class="bg-bg text-ink antialiased">
+    <!-- Navbar (10% Bootstrap + Tailwind Utility, Clean & Spacious) -->
+    <header class="site-header navbar navbar-expand-lg sticky-top z-40 border-b border-line bg-surface transition-all duration-200">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+        <a class="navbar-brand flex items-center gap-2 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+          <i class="bi bi-headphones text-accent"></i>
+          <span>aup<span class="text-accent">iio</span></span>
+        </a>
 
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMain"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler rounded-btn border border-line p-2 text-ink lg:hidden focus:outline-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Buka menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 gap-lg-3">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Katalog
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="catalog.html">Semua Produk</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dac">DAC & Amp</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dap">Digital Audio Player (DAP)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=kabel">Kabel & Eartips</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Panduan Audio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="contact.html">Kontak & Garansi</a>
-              </li>
-            </ul>
-
-            <div class="d-flex align-items-center gap-2">
-              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Wishlist">
-                <i class="bi bi-heart"></i>
-              </a>
+        <div id="mainNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item dropdown">
               <a
-                href="cart.html"
-                class="btn btn-accent btn-sm px-3 py-1 d-flex align-items-center gap-2 position-relative"
+                class="nav-link dropdown-toggle rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong"
+                href="catalog.html"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                <i class="bi bi-bag"></i>
-                <span class="d-none d-sm-inline">Keranjang</span>
-                <span
-                  id="cart-count-badge"
-                  class="badge rounded-pill bg-danger"
-                  style="display: none; font-size: 0.65rem"
-                  >0</span
-                >
+                Katalog
               </a>
-            </div>
+              <ul class="dropdown-menu rounded-card border border-line bg-surface p-2 shadow-lg">
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html">Semua Produk</a></li>
+                <li><hr class="dropdown-divider border-line my-1" /></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dac-amp">DAC & Amp</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dap">Digital Audio Player</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=eartips">Kabel & Eartips</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="about.html">Panduan Audio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-semibold text-accent-strong" href="contact.html">Kontak & Garansi</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 pt-2 lg:pt-0">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#miniCart"
+              aria-label="Buka Keranjang"
+              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="hidden sm:inline">Keranjang</span>
+              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
-                  >0</span
-                >
-              </a>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent" href="about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-accent transition hover:text-accent-hover" href="contact.html">Kontak & Garansi</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 pt-2 lg:pt-0">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#miniCart"
+              aria-label="Buka Keranjang"
+              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="hidden sm:inline">Keranjang</span>
+              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-bad px-1.5 py-0.5 text-[10px] font-bold text-white" style="display: none;">0</span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <main class="py-5">
-      <div class="container">
-        <div class="row g-5">
-          <!-- Formulir Kontak / Bantuan -->
-          <div class="col-lg-7">
-            <span class="chip active mb-2">Pusat Layanan Pelanggan</span>
-            <h2 class="display-5 fw-bold mb-3" style="color: var(--text)">
-              Hubungi Konsultan Audio Kami
-            </h2>
-            <p class="text-muted mb-4">
-              Ingin rekomendasi IEM sesuai genre lagu favorit, menanyakan
-              kecocokan DAC dengan smartphone Anda, atau butuh bantuan klaim
-              garansi? Kirimkan pesan Anda di bawah ini.
+    <main class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-12">
+          
+          <!-- Formulir Kontak / Konsultasi (7 Cols) -->
+          <div class="lg:col-span-7" data-reveal>
+            <span class="rounded-full border border-accent bg-accent/10 px-3 py-1 text-xs font-medium text-accent">Pusat Layanan Konsultasi</span>
+            <h1 class="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl">Hubungi Tim Konsultan Audio Kami</h1>
+            <p class="mt-3 text-sm text-ink-muted">
+              Punya pertanyaan seputar kecocokan IEM dengan genre favorit, kabel balanced 4.4mm, atau ingin klaim garansi? Kirim pesan Anda di bawah ini.
             </p>
 
-            <form
-              class="p-4 rounded-4"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <div class="mb-3">
-                <label class="form-label small fw-semibold text-muted"
-                  >Nama Lengkap</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nama Anda"
-                  required
-                />
+            <form class="mt-8 flex flex-col gap-5 rounded-card border border-line bg-surface p-6 sm:p-8 shadow-md">
+              <div class="grid gap-4 sm:grid-cols-2 text-xs">
+                <div>
+                  <label class="block text-ink-muted mb-1.5 font-medium">Nama Lengkap</label>
+                  <input type="text" required placeholder="Nama Anda" class="w-full rounded-btn border border-line bg-surface-2 px-3.5 py-2.5 text-xs text-ink focus:border-accent focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-ink-muted mb-1.5 font-medium">Alamat Email</label>
+                  <input type="email" required placeholder="nama@email.com" class="w-full rounded-btn border border-line bg-surface-2 px-3.5 py-2.5 text-xs text-ink focus:border-accent focus:outline-none" />
+                </div>
               </div>
 
-              <div class="mb-3">
-                <label class="form-label small fw-semibold text-muted"
-                  >Alamat Email</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="nama@email.com"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label small fw-semibold text-muted"
-                  >Topik Konsultasi</label
-                >
-                <select class="form-select">
-                  <option value="sound">
-                    Rekomendasi IEM & Karakter Suara (Sound Signature)
-                  </option>
-                  <option value="dac">Kompatibilitas Dongle DAC & Kabel</option>
-                  <option value="status">
-                    Status Pengiriman & Resi Pesanan
-                  </option>
-                  <option value="warranty">
-                    Klaim Garansi Kerusakan Driver
-                  </option>
+              <div class="text-xs">
+                <label class="block text-ink-muted mb-1.5 font-medium">Topik Bantuan</label>
+                <select class="w-full rounded-btn border border-line bg-surface-2 px-3.5 py-2.5 text-xs text-ink focus:border-accent focus:outline-none">
+                  <option value="sound">Konsultasi Rekomendasi IEM & Sound Signature</option>
+                  <option value="dac">Tanya Kompatibilitas Dongle DAC & Smartphone</option>
+                  <option value="order">Status Pesanan & Pengiriman</option>
+                  <option value="warranty">Klaim Garansi & Penggantian Unit</option>
                   <option value="other">Pertanyaan Lainnya</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label class="form-label small fw-semibold text-muted"
-                  >Pesan / Detail Kebutuhan</label
-                >
-                <textarea
-                  class="form-control"
-                  rows="5"
-                  placeholder="Tuliskan budget, genre lagu kesukaan (misal: J-Pop, Rock, Akustik), atau deskripsi kendala hardware..."
-                  required
-                ></textarea>
+              <div class="text-xs">
+                <label class="block text-ink-muted mb-1.5 font-medium">Pesan / Kebutuhan Anda</label>
+                <textarea rows="5" required placeholder="Tuliskan budget, genre lagu kesukaan (misal: Jazz, Rock, J-Pop), atau kendala yang dialami..." class="w-full rounded-btn border border-line bg-surface-2 px-3.5 py-2.5 text-xs text-ink focus:border-accent focus:outline-none"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-accent px-4 py-2">
-                <i class="bi bi-send me-1"></i> Kirim Pesan
+              <button type="submit" class="inline-flex items-center justify-center rounded-btn bg-accent py-3 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover shadow-lg">
+                <i class="bi bi-send mr-2"></i> Kirim Pesan Konsultasi
               </button>
             </form>
           </div>
 
-          <!-- Info Toko & FAQ Accordion -->
-          <div class="col-lg-5">
-            <div
-              class="p-4 rounded-4 mb-4"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <h5 class="fw-bold mb-3" style="color: var(--text)">
-                Informasi Ruang Dengar & Kontak
-              </h5>
+          <!-- Info Toko & FAQ Accordion (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-6" data-reveal>
+            <!-- Info Studio Box -->
+            <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+              <h3 class="font-display text-base font-semibold text-ink mb-4">Informasi Ruang Dengar & Studio</h3>
 
-              <div class="d-flex align-items-start gap-3 mb-3">
-                <i
-                  class="bi bi-geo-alt-fill fs-5"
-                  style="color: var(--accent)"
-                ></i>
-                <div>
-                  <h6 class="fw-bold mb-0" style="color: var(--text)">
-                    Demo Room & Studio
-                  </h6>
-                  <p class="small text-muted mb-0">
-                    Jl. Melodi Audiophile No. 88, Jakarta Selatan
-                  </p>
+              <div class="flex flex-col gap-4 text-xs">
+                <div class="flex items-start gap-3">
+                  <i class="bi bi-geo-alt-fill text-accent text-base mt-0.5"></i>
+                  <div>
+                    <h4 class="font-semibold text-ink">Demo Room & Studio</h4>
+                    <p class="text-ink-muted mt-0.5">Jl. Melodi Audiophile No. 88, Jakarta Selatan</p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="d-flex align-items-start gap-3 mb-3">
-                <i class="bi bi-whatsapp fs-5 text-success"></i>
-                <div>
-                  <h6 class="fw-bold mb-0" style="color: var(--text)">
-                    WhatsApp Consultant
-                  </h6>
-                  <p class="small text-muted mb-0">
-                    +62 812-3456-7890 (09:00 - 21:00 WIB)
-                  </p>
+                <div class="flex items-start gap-3">
+                  <i class="bi bi-whatsapp text-ok text-base mt-0.5"></i>
+                  <div>
+                    <h4 class="font-semibold text-ink">WhatsApp Audio Consultant</h4>
+                    <p class="text-ink-muted mt-0.5">+62 812-3456-7890 (09:00 - 21:00 WIB)</p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="d-flex align-items-start gap-3">
-                <i
-                  class="bi bi-envelope-fill fs-5"
-                  style="color: var(--accent)"
-                ></i>
-                <div>
-                  <h6 class="fw-bold mb-0" style="color: var(--text)">
-                    Email Layanan
-                  </h6>
-                  <p class="small text-muted mb-0">support@aupiio.id</p>
+                <div class="flex items-start gap-3">
+                  <i class="bi bi-envelope-fill text-accent text-base mt-0.5"></i>
+                  <div>
+                    <h4 class="font-semibold text-ink">Email Dukungan</h4>
+                    <p class="text-ink-muted mt-0.5">support@aupiio.id</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- FAQ Accordion -->
-            <div
-              class="p-4 rounded-4"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <h5 class="fw-bold mb-3" style="color: var(--text)">
-                Pertanyaan Populer (FAQ)
-              </h5>
+            <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+              <h3 class="font-display text-base font-semibold text-ink mb-4">Pertanyaan Populer (FAQ)</h3>
 
-              <div class="accordion accordion-flush" id="faqAccordion">
-                <div
-                  class="accordion-item"
-                  style="background: transparent; border-color: var(--border)"
-                >
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed px-0 small fw-semibold"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#f1"
-                      style="background: transparent; color: var(--text)"
-                    >
-                      Apakah smartphone saya butuh Dongle DAC?
-                    </button>
-                  </h2>
-                  <div
-                    id="f1"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body px-0 small text-muted">
-                      Bila ponsel Anda tidak memiliki lubang 3.5mm jack, dongle
-                      DAC (seperti Type-C ke 3.5mm) mutlak dibutuhkan. DAC
-                      berkualitas juga membersihkan noise desis latar dan
-                      memberikan tenaga lebih dinamis.
-                    </div>
-                  </div>
-                </div>
+              <div class="flex flex-col divide-y divide-line text-xs">
+                <details class="group py-3 cursor-pointer">
+                  <summary class="flex items-center justify-between font-semibold text-ink list-none">
+                    <span>Apakah smartphone saya butuh Dongle DAC?</span>
+                    <i class="bi bi-chevron-down transition group-open:rotate-180 text-accent"></i>
+                  </summary>
+                  <p class="mt-2 text-ink-muted leading-relaxed">
+                    Bila ponsel Anda tidak memiliki lubang 3.5mm jack, dongle DAC mutlak dibutuhkan. DAC berkualitas juga membersihkan noise desis latar dan memberikan tenaga lebih dinamis.
+                  </p>
+                </details>
 
-                <div
-                  class="accordion-item"
-                  style="background: transparent; border-color: var(--border)"
-                >
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed px-0 small fw-semibold"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#f2"
-                      style="background: transparent; color: var(--text)"
-                    >
-                      Bagaimana jika eartips bawaan terasa sakit atau longgar?
-                    </button>
-                  </h2>
-                  <div
-                    id="f2"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body px-0 small text-muted">
-                      Fitting dan kerapatan isolasi (*seal*) menyumbang 70%
-                      kualitas bass dan nada vokal IEM. Anda dapat meng-upgrade
-                      ke eartips medis SpinFit atau Memory Foam untuk kenyamanan
-                      maksimal.
-                    </div>
-                  </div>
-                </div>
+                <details class="group py-3 cursor-pointer">
+                  <summary class="flex items-center justify-between font-semibold text-ink list-none">
+                    <span>Bagaimana jika eartips bawaan terasa sakit atau longgar?</span>
+                    <i class="bi bi-chevron-down transition group-open:rotate-180 text-accent"></i>
+                  </summary>
+                  <p class="mt-2 text-ink-muted leading-relaxed">
+                    Fitting dan kerapatan isolasi (seal) menyumbang 70% kualitas bass dan vokal IEM. Anda dapat meng-upgrade ke eartips SpinFit CP100+ untuk kenyamanan maksimal.
+                  </p>
+                </details>
 
-                <div
-                  class="accordion-item"
-                  style="background: transparent; border-color: var(--border)"
-                >
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed px-0 small fw-semibold"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#f3"
-                      style="background: transparent; color: var(--text)"
-                    >
-                      Berapa lama estimasi klaim garansi?
-                    </button>
-                  </h2>
-                  <div
-                    id="f3"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body px-0 small text-muted">
-                      Pengecekan teknis untuk kendala cacat pabrik seperti
-                      channel imbalance atau pin lepas dilakukan 1-3 hari kerja
-                      setelah unit tiba di tim teknis kami.
-                    </div>
-                  </div>
-                </div>
+                <details class="group py-3 cursor-pointer">
+                  <summary class="flex items-center justify-between font-semibold text-ink list-none">
+                    <span>Berapa lama proses klaim garansi?</span>
+                    <i class="bi bi-chevron-down transition group-open:rotate-180 text-accent"></i>
+                  </summary>
+                  <p class="mt-2 text-ink-muted leading-relaxed">
+                    Pengecekan teknis untuk kendala cacat pabrik seperti channel imbalance atau pin lepas dilakukan 1-3 hari kerja setelah unit tiba di tim teknis kami.
+                  </p>
+                </details>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="pt-5 pb-4 mt-auto">
-      <div class="container text-center small text-muted">
-        &copy; 2026 aupiio. Tema Amber Studio. Dibuat untuk Proyek Web
-        Fundamental.
+    <!-- Mini-Cart Offcanvas -->
+    <div
+      class="offcanvas offcanvas-end border-l border-line bg-surface text-ink"
+      tabindex="-1"
+      id="miniCart"
+      aria-labelledby="miniCartLabel"
+      data-lenis-prevent
+    >
+      <div class="offcanvas-header border-b border-line p-4">
+        <h3 id="miniCartLabel" class="font-display text-lg font-semibold text-ink flex items-center gap-2">
+          <i class="bi bi-bag text-accent"></i> Keranjang Belanja
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
       </div>
+      <div class="offcanvas-body flex flex-col justify-between p-4" data-lenis-prevent>
+        <div id="miniCartBody" class="flex flex-col gap-3"></div>
+        <div class="border-t border-line pt-4">
+          <div class="flex items-center justify-between mb-3 text-sm">
+            <span class="text-ink-muted">Subtotal:</span>
+            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border border-line py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+              Buka Halaman Keranjang
+            </a>
+            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+              Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (Pita Gelap) -->
+    <footer class="border-t border-line bg-band py-8 text-center text-xs text-band-muted">
+      &copy; 2026 aupiio. Stack: Tailwind CSS v4 + Bootstrap 5.3 + GSAP + Lenis.
     </footer>
 
+    <!-- Scripts: Bootstrap 5.3 + GSAP + ScrollTrigger + Lenis + App Logic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

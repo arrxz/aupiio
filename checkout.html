@@ -1,20 +1,19 @@
 <!doctype html>
-<html lang="id" data-bs-theme="dark">
+<html lang="id" data-theme="light" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Checkout & Pembayaran Aman - aupiio" />
     <title>Checkout Pembayaran | aupiio</title>
 
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
@@ -23,421 +22,201 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
-    <!-- Minimal Header for Checkout -->
-    <header class="site-header py-3">
-      <div class="container d-flex justify-content-between align-items-center">
-        <a
-          class="navbar-brand d-flex align-items-center gap-2"
-          href="index.html"
-        >
-          <i
-            class="bi bi-headphones"
-            style="color: var(--accent); font-size: 1.5rem"
-          ></i>
-          <span>aup<span style="color: var(--accent)">iio</span></span>
+  <body class="bg-bg text-ink antialiased">
+    <header class="border-b border-line bg-surface py-4">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
+        <a class="flex items-center gap-2 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+          <i class="bi bi-headphones text-accent"></i>
+          <span>aup<span class="text-accent">iio</span></span>
         </a>
-        <span class="small text-muted"
-          ><i
-            class="bi bi-shield-lock-fill me-1"
-            style="color: var(--accent)"
-          ></i>
-          Checkout Aman 256-Bit</span
-        >
+        <span class="text-xs text-ink-muted flex items-center gap-1.5">
+          <i class="bi bi-shield-lock-fill text-accent-strong"></i> Checkout Aman 256-Bit
+        </span>
       </div>
     </header>
 
-    <!-- 5.5 CHECKOUT (1 Halaman, 3 Langkah: 1 Alamat, 2 Pengiriman, 3 Pembayaran) -->
-    <main class="py-5">
-      <div class="container">
-        <div class="row g-5">
-          <!-- Formulir 3 Langkah (col-lg-7) -->
-          <div class="col-lg-7">
-            <form>
-              <!-- Langkah 1: Alamat Pengiriman -->
-              <div
-                class="p-4 rounded-3 mb-4"
-                style="
-                  background-color: var(--surface);
-                  border: 1px solid var(--border);
-                "
-              >
-                <h5
-                  class="fw-bold mb-3 d-flex align-items-center gap-2"
-                  style="color: var(--text)"
-                >
-                  <span
-                    class="badge rounded-circle"
-                    style="
-                      background-color: var(--accent);
-                      color: var(--accent-ink);
-                    "
-                    >1</span
-                  >
-                  Alamat & Kontak Pengiriman
-                </h5>
+    <main class="py-12 md:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-12">
+          
+          <!-- Form 3 Langkah (8 Cols) -->
+          <div class="lg:col-span-7">
+            <form class="flex flex-col gap-8">
+              
+              <!-- Langkah 1: Alamat -->
+              <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+                <h3 class="font-display text-base font-semibold text-ink mb-4 flex items-center gap-2.5">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-ink">1</span>
+                  Informasi Pengiriman & Garansi
+                </h3>
 
-                <div class="row g-3">
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Nama Depan</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nama depan"
-                      required
-                    />
+                <div class="grid gap-4 sm:grid-cols-2 text-xs">
+                  <div>
+                    <label class="block text-ink-muted mb-1.5">Nama Depan</label>
+                    <input type="text" required placeholder="Nama depan" class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Nama Belakang</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nama belakang"
-                    />
+                  <div>
+                    <label class="block text-ink-muted mb-1.5">Nama Belakang</label>
+                    <input type="text" placeholder="Nama belakang" class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
-
-                  <div class="col-12">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Email (Untuk Bukti Invoice & Garansi)</label
-                    >
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="audiophile@email.com"
-                      required
-                    />
+                  <div class="sm:col-span-2">
+                    <label class="block text-ink-muted mb-1.5">Alamat Email (Untuk Invoice & Kartu Garansi Digital)</label>
+                    <input type="email" required placeholder="audiophile@email.com" class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
-
-                  <div class="col-12">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Nomor WhatsApp</label
-                    >
-                    <input
-                      type="tel"
-                      class="form-control"
-                      placeholder="08xxxxxxxxxx"
-                      required
-                    />
+                  <div class="sm:col-span-2">
+                    <label class="block text-ink-muted mb-1.5">Nomor WhatsApp</label>
+                    <input type="tel" required placeholder="08xxxxxxxxxx" class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
-
-                  <div class="col-12">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Alamat Rumah Lengkap</label
-                    >
-                    <textarea
-                      class="form-control"
-                      rows="2"
-                      placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan"
-                      required
-                    ></textarea>
+                  <div class="sm:col-span-2">
+                    <label class="block text-ink-muted mb-1.5">Alamat Lengkap Rumah</label>
+                    <textarea rows="2" required placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan" class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none"></textarea>
                   </div>
-
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Kota / Kabupaten</label
-                    >
-                    <input type="text" class="form-control" required />
+                  <div>
+                    <label class="block text-ink-muted mb-1.5">Kota / Kabupaten</label>
+                    <input type="text" required class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
-
-                  <div class="col-sm-6">
-                    <label class="form-label small fw-semibold text-muted"
-                      >Kode Pos</label
-                    >
-                    <input type="text" class="form-control" required />
+                  <div>
+                    <label class="block text-ink-muted mb-1.5">Kode Pos</label>
+                    <input type="text" required class="w-full rounded-btn border border-line bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                 </div>
               </div>
 
-              <!-- Langkah 2: Opsi Ekspedisi / Pengiriman -->
-              <div
-                class="p-4 rounded-3 mb-4"
-                style="
-                  background-color: var(--surface);
-                  border: 1px solid var(--border);
-                "
-              >
-                <h5
-                  class="fw-bold mb-3 d-flex align-items-center gap-2"
-                  style="color: var(--text)"
-                >
-                  <span
-                    class="badge rounded-circle"
-                    style="
-                      background-color: var(--accent);
-                      color: var(--accent-ink);
-                    "
-                    >2</span
-                  >
+              <!-- Langkah 2: Pengiriman Aman -->
+              <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+                <h3 class="font-display text-base font-semibold text-ink mb-4 flex items-center gap-2.5">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-ink">2</span>
                   Opsi Ekspedisi Audio Aman
-                </h5>
+                </h3>
 
-                <div
-                  class="form-check p-3 rounded-3 mb-2"
-                  style="
-                    background-color: var(--surface-2);
-                    border: 1px solid var(--border);
-                  "
-                >
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="shipping"
-                    id="ship1"
-                    checked
-                  />
-                  <label
-                    class="form-check-label d-flex justify-content-between w-100"
-                    for="ship1"
-                  >
-                    <span
-                      ><strong>JNE / SiCepat Reguler</strong> (2-3 hari) +
-                      Hardbox tebal</span
-                    >
-                    <span class="mono fw-semibold" style="color: var(--accent)"
-                      >Rp 18.000</span
-                    >
+                <div class="flex flex-col gap-3 text-xs">
+                  <label class="flex items-center justify-between rounded-btn border border-accent bg-accent/5 p-3.5 cursor-pointer">
+                    <div class="flex items-center gap-2.5">
+                      <input type="radio" name="courier" checked class="text-accent focus:ring-accent" />
+                      <div>
+                        <strong class="text-ink block">JNE / SiCepat Reguler (2-3 hari)</strong>
+                        <span class="text-ink-muted text-[11px]">Gratis hardbox & bubble wrap tebal</span>
+                      </div>
+                    </div>
+                    <span class="font-mono font-semibold text-accent">Rp 18.000</span>
                   </label>
-                </div>
 
-                <div
-                  class="form-check p-3 rounded-3"
-                  style="
-                    background-color: var(--surface-2);
-                    border: 1px solid var(--border);
-                  "
-                >
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="shipping"
-                    id="ship2"
-                  />
-                  <label
-                    class="form-check-label d-flex justify-content-between w-100"
-                    for="ship2"
-                  >
-                    <span
-                      ><strong>Paxel Nextday / Kilat</strong> (Besok sampai) +
-                      Asuransi penuh</span
-                    >
-                    <span class="mono fw-semibold" style="color: var(--accent)"
-                      >Rp 35.000</span
-                    >
+                  <label class="flex items-center justify-between rounded-btn border border-line bg-surface-2 p-3.5 cursor-pointer hover:border-accent">
+                    <div class="flex items-center gap-2.5">
+                      <input type="radio" name="courier" class="text-accent focus:ring-accent" />
+                      <div>
+                        <strong class="text-ink block">Paxel Nextday / Kilat (Besok Sampai)</strong>
+                        <span class="text-ink-muted text-[11px]">Asuransi penuh & penanganan hati-hati</span>
+                      </div>
+                    </div>
+                    <span class="font-mono font-semibold text-accent">Rp 35.000</span>
                   </label>
                 </div>
               </div>
 
-              <!-- Langkah 3: Metode Pembayaran -->
-              <div
-                class="p-4 rounded-3 mb-4"
-                style="
-                  background-color: var(--surface);
-                  border: 1px solid var(--border);
-                "
-              >
-                <h5
-                  class="fw-bold mb-3 d-flex align-items-center gap-2"
-                  style="color: var(--text)"
-                >
-                  <span
-                    class="badge rounded-circle"
-                    style="
-                      background-color: var(--accent);
-                      color: var(--accent-ink);
-                    "
-                    >3</span
-                  >
+              <!-- Langkah 3: Pembayaran -->
+              <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+                <h3 class="font-display text-base font-semibold text-ink mb-4 flex items-center gap-2.5">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-ink">3</span>
                   Metode Pembayaran
-                </h5>
+                </h3>
 
-                <div
-                  class="form-check p-3 rounded-3 mb-2"
-                  style="
-                    background-color: var(--surface-2);
-                    border: 1px solid var(--border);
-                  "
-                >
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="payment"
-                    id="qris"
-                    checked
-                  />
-                  <label class="form-check-label fw-semibold" for="qris">
-                    <i
-                      class="bi bi-qr-code-scan me-2"
-                      style="color: var(--accent)"
-                    ></i>
-                    QRIS Instan (BCA, Mandiri, GoPay, OVO, Dana)
+                <div class="flex flex-col gap-3 text-xs">
+                  <label class="flex items-center gap-3 rounded-btn border border-line bg-surface-2 p-3.5 cursor-pointer hover:border-accent">
+                    <input type="radio" name="payment" checked class="text-accent focus:ring-accent" />
+                    <span class="font-semibold text-ink"><i class="bi bi-qr-code-scan mr-2 text-accent"></i> QRIS Instan (BCA, Mandiri, GoPay, OVO, Dana)</span>
+                  </label>
+                  <label class="flex items-center gap-3 rounded-btn border border-line bg-surface-2 p-3.5 cursor-pointer hover:border-accent">
+                    <input type="radio" name="payment" class="text-accent focus:ring-accent" />
+                    <span class="font-semibold text-ink"><i class="bi bi-bank mr-2 text-accent"></i> Virtual Account Bank Transfer</span>
+                  </label>
+                  <label class="flex items-center gap-3 rounded-btn border border-line bg-surface-2 p-3.5 cursor-pointer hover:border-accent">
+                    <input type="radio" name="payment" class="text-accent focus:ring-accent" />
+                    <span class="font-semibold text-ink"><i class="bi bi-truck mr-2 text-accent"></i> Bayar di Tempat (COD)</span>
                   </label>
                 </div>
 
-                <div
-                  class="form-check p-3 rounded-3 mb-2"
-                  style="
-                    background-color: var(--surface-2);
-                    border: 1px solid var(--border);
-                  "
-                >
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="payment"
-                    id="va"
-                  />
-                  <label class="form-check-label fw-semibold" for="va">
-                    <i class="bi bi-bank me-2" style="color: var(--accent)"></i>
-                    Virtual Account Bank Transfer
-                  </label>
-                </div>
-
-                <div
-                  class="form-check p-3 rounded-3"
-                  style="
-                    background-color: var(--surface-2);
-                    border: 1px solid var(--border);
-                  "
-                >
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="payment"
-                    id="cod"
-                  />
-                  <label class="form-check-label fw-semibold" for="cod">
-                    <i
-                      class="bi bi-truck me-2"
-                      style="color: var(--accent)"
-                    ></i>
-                    Bayar di Tempat (COD)
-                  </label>
-                </div>
+                <button type="submit" class="mt-6 inline-flex w-full items-center justify-center rounded-btn bg-accent py-3 text-sm font-semibold text-accent-ink transition hover:bg-accent-hover shadow-lg">
+                  <i class="bi bi-shield-check mr-2"></i> Konfirmasi & Bayar Sekarang
+                </button>
               </div>
 
-              <button type="submit" class="btn btn-accent btn-lg w-100 py-3">
-                <i class="bi bi-shield-check me-2"></i> Konfirmasi & Bayar
-                Sekarang
-              </button>
             </form>
           </div>
 
-          <!-- Ringkasan Pesanan (col-lg-5) -->
-          <div class="col-lg-5">
-            <div
-              class="p-4 rounded-3 sticky-top"
-              style="
-                top: 2rem;
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <h5 class="fw-bold mb-3" style="color: var(--text)">
-                Ringkasan Barang
-              </h5>
+          <!-- Ringkasan Pesanan (5 Cols) -->
+          <div class="lg:col-span-5">
+            <div class="sticky top-24 rounded-card border border-line bg-surface p-6 shadow-md">
+              <h3 class="font-display text-base font-semibold text-ink mb-4">Pesanan Anda</h3>
 
-              <div
-                class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom"
-                style="border-color: var(--border) !important"
-              >
-                <div class="d-flex align-items-center gap-3">
-                  <div
-                    class="p-2 rounded text-center"
-                    style="
-                      background-color: var(--surface-2);
-                      width: 45px;
-                      height: 45px;
-                    "
-                  >
-                    <i
-                      class="bi bi-headphones fs-5"
-                      style="color: var(--accent)"
-                    ></i>
+              <div class="flex flex-col divide-y divide-line text-xs">
+                <div class="flex items-center justify-between py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-btn bg-photo-tile text-accent overflow-hidden">
+                      <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain p-0.5 mix-blend-multiply" />
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-ink">Tangzu Wan'er S.G</h4>
+                      <span class="text-[11px] text-ink-muted">1x · White / Jade</span>
+                    </div>
                   </div>
-                  <div>
-                    <h6 class="fw-bold mb-0 small" style="color: var(--text)">
-                      Tangzu Wan'er S.G
-                    </h6>
-                    <span class="small text-muted">1x · White / Jade</span>
-                  </div>
+                  <span class="font-mono font-semibold text-accent-strong">Rp 320.000</span>
                 </div>
-                <span class="mono small price">Rp 320.000</span>
-              </div>
 
-              <div
-                class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom"
-                style="border-color: var(--border) !important"
-              >
-                <div class="d-flex align-items-center gap-3">
-                  <div
-                    class="p-2 rounded text-center"
-                    style="
-                      background-color: var(--surface-2);
-                      width: 45px;
-                      height: 45px;
-                    "
-                  >
-                    <i class="bi bi-disc fs-5" style="color: var(--accent)"></i>
+                <div class="flex items-center justify-between py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-btn bg-photo-tile text-accent">
+                      <i class="bi bi-disc"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-ink">SpinFit CP100+</h4>
+                      <span class="text-[11px] text-ink-muted">1x · Medium Pair</span>
+                    </div>
                   </div>
-                  <div>
-                    <h6 class="fw-bold mb-0 small" style="color: var(--text)">
-                      SpinFit CP100+
-                    </h6>
-                    <span class="small text-muted">1x · Medium Pair</span>
-                  </div>
+                  <span class="font-mono font-semibold text-accent-strong">Rp 165.000</span>
                 </div>
-                <span class="mono small price">Rp 165.000</span>
+
+                <div class="flex justify-between py-2 text-ink-muted pt-3">
+                  <span>Subtotal Barang</span>
+                  <span class="font-mono text-ink">Rp 485.000</span>
+                </div>
+                <div class="flex justify-between py-2 text-ink-muted">
+                  <span>Ongkos Kirim</span>
+                  <span class="font-mono text-ink">Rp 18.000</span>
+                </div>
+                <div class="flex justify-between py-2 text-ink-muted">
+                  <span>Proteksi Hardbox & Pin</span>
+                  <span class="text-ok font-semibold"><i class="bi bi-check-circle-fill mr-1"></i>Gratis</span>
+                </div>
               </div>
 
-              <div class="d-flex justify-content-between mb-2 small text-muted">
-                <span>Subtotal Barang</span>
-                <span class="mono text-light">Rp 485.000</span>
-              </div>
-              <div class="d-flex justify-content-between mb-2 small text-muted">
-                <span>Ongkir JNE Reguler</span>
-                <span class="mono text-light">Rp 18.000</span>
-              </div>
-              <div class="d-flex justify-content-between mb-3 small text-muted">
-                <span>Proteksi Hardbox & Pin IEM</span>
-                <span style="color: var(--success)"
-                  ><i class="bi bi-check-circle-fill me-1"></i>Gratis</span
-                >
+              <div class="my-4 border-t border-line"></div>
+
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-sm font-semibold text-ink">Total Tagihan</span>
+                <span class="font-mono text-2xl font-bold text-accent-strong tabular-nums">Rp 503.000</span>
               </div>
 
-              <hr style="border-color: var(--border)" />
-
-              <div
-                class="d-flex justify-content-between align-items-baseline mb-3"
-              >
-                <span class="fw-bold">Total Pembayaran</span>
-                <span class="fs-4 fw-bold price mono">Rp 503.000</span>
+              <div class="rounded-btn border border-line bg-surface-2 p-3 text-[11px] text-ink-muted">
+                <i class="bi bi-info-circle text-accent mr-1"></i> Setelah pembayaran, nota digital dan kartu garansi resmi akan otomatis dikirimkan ke email Anda.
               </div>
-
-              <small class="text-muted d-block text-center">
-                Kartu garansi resmi dan nota digital akan dikirimkan ke email
-                Anda seketika setelah pembayaran diverifikasi.
-              </small>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <footer
-      class="py-4 text-center text-muted small"
-      style="
-        background-color: var(--surface);
-        border-top: 1px solid var(--border);
-      "
-    >
-      &copy; 2026 aupiio. Tema Amber Studio.
+    <footer class="border-t border-line bg-band py-6 text-center text-xs text-band-muted">
+      &copy; 2026 aupiio. Stack: Tailwind CSS v4 + Bootstrap 5.3 + GSAP + Lenis.
     </footer>
 
+    <!-- Scripts: Bootstrap 5.3 + GSAP + ScrollTrigger + Lenis + App Logic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

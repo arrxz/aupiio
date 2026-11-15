@@ -1,0 +1,166 @@
+/* Urutan layer: Bootstrap di bawah utilities supaya Tailwind menang */
+@layer theme, base, bootstrap, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "./bootstrap-subset.css" layer(bootstrap);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* ===== Token (Amber Paper - AUDIO-STORE-STYLE.md) ===== */
+:root,
+[data-theme="light"],
+[data-bs-theme="light"] {
+  --bg: #F6F4F0;
+  --surface: #FFFFFF;
+  --surface-2: #EFECE6;
+  --photo-tile: #F0EEEA;
+  --line: #E3DED5;
+  --ink: #1C1917;
+  --ink-muted: #6B645B;
+  --accent: #B45309;
+  --accent-hover: #92400E;
+  --accent-ink: #FFFFFF;
+  --accent-strong: #92400E;
+  --accent-soft: rgba(180, 83, 9, 0.08);
+  --ok: #15803D;
+  --warn: #A16207;
+  --bad: #B91C1C;
+
+  /* Pita gelap (footer & strip khusus, maks 15% halaman) */
+  --band: #1C1917;
+  --band-ink: #F2EBE3;
+  --band-muted: #A39A90;
+  --band-accent: #D9A441;
+}
+
+/* Dark mode (opsional, photo-tile tetap terang agar foto produk menyatu) */
+[data-theme="dark"],
+[data-bs-theme="dark"] {
+  --bg: #14110F;
+  --surface: #1C1815;
+  --surface-2: #26211D;
+  --photo-tile: #F0EEEA;
+  --line: #3A332D;
+  --ink: #F2EBE3;
+  --ink-muted: #A39A90;
+  --accent: #D9A441;
+  --accent-hover: #E8BA62;
+  --accent-ink: #14110F;
+  --accent-strong: #E8BA62;
+  --accent-soft: rgba(217, 164, 65, 0.12);
+  --ok: #15803D;
+  --warn: #A16207;
+  --bad: #B91C1C;
+
+  --band: #1C1917;
+  --band-ink: #F2EBE3;
+  --band-muted: #A39A90;
+  --band-accent: #D9A441;
+}
+
+/* Samakan breakpoint lg dengan Bootstrap (992px) */
+@theme {
+  --breakpoint-lg: 62rem;
+}
+
+/* Daftarkan token ke Tailwind (CSS variables) */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-photo-tile: var(--photo-tile);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+
+  --color-band: var(--band);
+  --color-band-ink: var(--band-ink);
+  --color-band-muted: var(--band-muted);
+  --color-band-accent: var(--band-accent);
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-card: 14px;
+  --radius-btn: 10px;
+}
+
+/* Dasar halaman */
+@layer base {
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
+  body { line-height: 1.7; }
+  h1, h2 { font-family: var(--font-display); font-weight: 600; }
+  :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+}
+
+/* Petakan variabel Bootstrap ke token proyek */
+@layer bootstrap {
+  :root {
+    --bs-body-bg: var(--bg);
+    --bs-body-color: var(--ink);
+    --bs-border-color: var(--line);
+    --bs-link-color: var(--accent-strong);
+  }
+  .navbar {
+    --bs-navbar-color: var(--ink-muted);
+    --bs-navbar-hover-color: var(--accent-strong);
+    --bs-navbar-active-color: var(--accent-strong);
+    --bs-navbar-toggler-border-color: var(--line);
+  }
+  .offcanvas { 
+    --bs-offcanvas-bg: var(--surface); 
+    --bs-offcanvas-color: var(--ink); 
+    --bs-offcanvas-border-color: var(--line); 
+  }
+  .dropdown-menu { 
+    --bs-dropdown-bg: var(--surface); 
+    --bs-dropdown-color: var(--ink); 
+    --bs-dropdown-border-color: var(--line);
+    --bs-dropdown-link-color: var(--ink); 
+    --bs-dropdown-link-hover-bg: var(--surface-2); 
+    --bs-dropdown-link-hover-color: var(--accent-strong);
+  }
+  .modal { 
+    --bs-modal-bg: var(--surface); 
+    --bs-modal-color: var(--ink); 
+    --bs-modal-border-color: var(--line); 
+  }
+}
+
+/* Komponen Tambahan & Utilitas Foto Sesuai AUDIO-STORE-STYLE.md Bagian 7 */
+@layer components {
+  .photo-tile {
+    background: var(--photo-tile);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .photo-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8%;
+    mix-blend-mode: multiply;
+  }
+
+  /* Kotak foto di pita gelap / dark */
+  [data-theme="dark"] .photo-tile img {
+    mix-blend-mode: normal;
+  }
+}
+
+/* Cegah konten hilang bila JS gagal atau reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] { opacity: 0; visibility: hidden; }
+}

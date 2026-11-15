@@ -66,7 +66,18 @@ Web Iem/
 
 ---
 
-## 🚀 Cara Menjalankan Website
+## 🚀 Cara Menjalankan Website (Vite + Modern Stack)
 
-1. Buka folder proyek di VS Code.
-2. Klik kanan pada [`index.html`](file:///d:/KAMPUS/Sem%203/Web%20Fundamental/Web%20Iem/index.html) lalu pilih **Open with Live Server** (jika ekstensi Live Server terpasang), atau cukup **klik ganda (double click)** file `index.html` untuk membukanya langsung di browser (Chrome, Edge, Firefox).
+1. Pasang dependensi proyek:
+   ```bash
+   npm install
+   ```
+2. Jalankan server pengembangan lokal (Vite Dev Server):
+   ```bash
+   npm run dev
+   ```
+   Buka tautan lokal yang tampil di terminal (biasanya `http://localhost:5173`).
+3. Kompilasi untuk produksi (Build):
+   ```bash
+   npm run build
+   ```

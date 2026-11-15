@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="id" data-bs-theme="dark">
+<html lang="id" data-theme="light" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Katalog IEM, DAC, Amp, dan Aksesoris Audiophile - aupiio"
+      content="Katalog Lengkap In-Ear Monitor (IEM), DAC/Amp, dan Aksesoris Audiophile - aupiio"
     />
     <title>Katalog Produk Audio | aupiio</title>
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
@@ -26,326 +25,195 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
-    <!-- Header Clean Minimalist -->
-    <header class="site-header sticky-top">
-      <nav class="navbar navbar-expand-lg py-2">
-        <div class="container">
-          <a
-            class="navbar-brand d-flex align-items-center gap-2 me-4"
-            href="index.html"
-          >
-            <i
-              class="bi bi-headphones"
-              style="color: var(--accent); font-size: 1.5rem"
-            ></i>
-            <span>aup<span style="color: var(--accent)">iio</span></span>
-          </a>
+  <body class="bg-bg text-ink antialiased">
+    <!-- Navbar (10% Bootstrap + Tailwind Utility, Clean & Spacious) -->
+    <header class="site-header navbar navbar-expand-lg sticky-top z-40 border-b border-line bg-surface transition-all duration-200">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+        <a class="navbar-brand flex items-center gap-2 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+          <i class="bi bi-headphones text-accent"></i>
+          <span>aup<span class="text-accent">iio</span></span>
+        </a>
 
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMain"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler rounded-btn border border-line p-2 text-ink lg:hidden focus:outline-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Buka menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 gap-lg-3">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link active dropdown-toggle" href="catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Katalog
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="catalog.html">Semua Produk</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dac">DAC & Amp</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dap">Digital Audio Player (DAP)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=kabel">Kabel & Eartips</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Panduan Audio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Kontak & Garansi</a>
-              </li>
-            </ul>
-
-            <div class="d-flex align-items-center gap-2">
-              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Wishlist">
-                <i class="bi bi-heart"></i>
-              </a>
+        <div id="mainNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item dropdown">
               <a
-                href="cart.html"
-                class="btn btn-accent btn-sm px-3 py-1 d-flex align-items-center gap-2 position-relative"
+                class="nav-link dropdown-toggle rounded-btn px-3 py-1.5 text-sm font-semibold text-accent-strong"
+                href="catalog.html"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                <i class="bi bi-bag"></i>
-                <span class="d-none d-sm-inline">Keranjang</span>
-                <span
-                  id="cart-count-badge"
-                  class="badge rounded-pill bg-danger"
-                  style="display: none; font-size: 0.65rem"
-                  >0</span
-                >
+                Katalog
               </a>
-            </div>
+              <ul class="dropdown-menu rounded-card border border-line bg-surface p-2 shadow-lg">
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html">Semua Produk</a></li>
+                <li><hr class="dropdown-divider border-line my-1" /></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dac-amp">DAC & Amp</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dap">Digital Audio Player</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=eartips">Kabel & Eartips</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="about.html">Panduan Audio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="contact.html">Kontak & Garansi</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 pt-2 lg:pt-0">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#miniCart"
+              aria-label="Buka Keranjang"
+              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="hidden sm:inline">Keranjang</span>
+              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <!-- 5.3 Breadcrumb Bar -->
-    <div class="py-3 border-bottom" style="background-color: var(--surface)">
-      <div class="container d-flex justify-content-between align-items-center">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb mb-0 small">
-            <li class="breadcrumb-item">
-              <a
-                href="index.html"
-                class="text-decoration-none"
-                style="color: var(--accent)"
-                >Beranda</a
-              >
-            </li>
-            <li
-              class="breadcrumb-item active"
-              aria-current="page"
-              style="color: var(--text-muted)"
-            >
-              Katalog Produk Audio
-            </li>
-          </ol>
+    <!-- Breadcrumb & Mobile Filter Trigger -->
+    <div class="border-b border-line bg-surface py-3">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
+        <nav aria-label="breadcrumb" class="text-xs text-ink-muted">
+          <a href="index.html" class="text-accent hover:underline">Beranda</a>
+          <span class="mx-2 text-line">/</span>
+          <span class="text-ink">Katalog Produk</span>
         </nav>
-
-        <!-- Tombol Filter Mobile (Offcanvas Trigger 5.3) -->
         <button
-          class="btn btn-ghost btn-sm d-lg-none"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#filterOffcanvas"
+          class="inline-flex items-center gap-1.5 rounded-btn border border-line px-3 py-1 text-xs font-medium text-ink transition hover:border-accent hover:text-accent lg:hidden"
         >
-          <i class="bi bi-funnel me-1"></i> Filter Audio
+          <i class="bi bi-funnel"></i> Filter
         </button>
       </div>
     </div>
 
-    <main class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <!-- 5.3 Filter Desktop (col-lg-3) -->
-          <aside class="col-lg-3 d-none d-lg-block">
-            <div
-              class="p-4 rounded-3"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold mb-0" style="color: var(--text)">
-                  <i
-                    class="bi bi-sliders me-1"
-                    style="color: var(--accent)"
-                  ></i>
-                  Filter Audio
-                </h5>
-                <a
-                  href="catalog.html"
-                  class="small text-decoration-none text-muted"
-                  >Reset</a
-                >
+    <!-- Main Content: Sidebar Filter (260px) + Listing (1fr) -->
+    <main class="py-12 md:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
+          
+          <!-- Desktop Filter Sidebar -->
+          <aside class="hidden lg:block">
+            <div class="sticky top-24 rounded-card border border-line bg-surface p-5">
+              <div class="mb-5 flex items-center justify-between border-b border-line pb-3">
+                <h3 class="font-display text-base font-semibold text-ink flex items-center gap-2">
+                  <i class="bi bi-sliders text-accent"></i> Filter Audio
+                </h3>
+                <a href="catalog.html" class="text-xs text-ink-muted hover:text-accent">Reset</a>
               </div>
 
-              <!-- Rentang Harga -->
+              <!-- Filter: Jenis Driver -->
+              <div class="mb-6">
+                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Jenis Driver</h4>
+                <div class="flex flex-col gap-2 text-xs">
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>Dynamic Driver (DD)</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>Planar Magnetic</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>Balanced Armature</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>Hybrid (DD + BA)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Filter: Konektor Pin -->
+              <div class="mb-6">
+                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Konektor Pin</h4>
+                <div class="flex flex-col gap-2 text-xs">
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>0.78mm 2-Pin</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
+                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                    <span>MMCX</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Filter: Sound Signature -->
+              <div class="mb-6">
+                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Sound Signature</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="cursor-pointer rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">Warm</span>
+                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">Neutral</span>
+                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">V-shaped</span>
+                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">Analitis</span>
+                </div>
+              </div>
+
+              <!-- Filter: Status Stok -->
               <div class="mb-4">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Harga</label
-                >
-                <select class="form-select form-select-sm">
-                  <option value="all">Semua Harga</option>
-                  <option value="entry">&lt; Rp 500.000 (Entry Level)</option>
-                  <option value="mid">
-                    Rp 500.000 - Rp 2.000.000 (Mid-Fi)
-                  </option>
-                  <option value="high">
-                    &gt; Rp 2.000.000 (Hi-Fi Flagship)
-                  </option>
-                </select>
+                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Ketersediaan</h4>
+                <label class="flex items-center gap-2 text-xs cursor-pointer hover:text-accent">
+                  <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <span>Hanya yang Tersedia</span>
+                </label>
               </div>
 
-              <!-- Jenis Driver -->
-              <div class="mb-4">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Jenis Driver</label
-                >
-                <div class="form-check mb-1">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="dd"
-                    checked
-                  />
-                  <label class="form-check-label small" for="dd"
-                    >Dynamic Driver (DD)</label
-                  >
-                </div>
-                <div class="form-check mb-1">
-                  <input class="form-check-input" type="checkbox" id="planar" />
-                  <label class="form-check-label small" for="planar"
-                    >Planar Magnetic</label
-                  >
-                </div>
-                <div class="form-check mb-1">
-                  <input class="form-check-input" type="checkbox" id="ba" />
-                  <label class="form-check-label small" for="ba"
-                    >Balanced Armature (BA)</label
-                  >
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="hybrid" />
-                  <label class="form-check-label small" for="hybrid"
-                    >Hybrid (DD + BA/Planar)</label
-                  >
-                </div>
-              </div>
-
-              <!-- Konektor -->
-              <div class="mb-4">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Konektor</label
-                >
-                <div class="form-check mb-1">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="pin078"
-                    checked
-                  />
-                  <label class="form-check-label small" for="pin078"
-                    >0.78mm 2-Pin</label
-                  >
-                </div>
-                <div class="form-check mb-1">
-                  <input class="form-check-input" type="checkbox" id="mmcx" />
-                  <label class="form-check-label small" for="mmcx">MMCX</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="qdc" />
-                  <label class="form-check-label small" for="qdc"
-                    >QDC 2-Pin</label
-                  >
-                </div>
-              </div>
-
-              <!-- Plug Termination -->
-              <div class="mb-4">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Jack Plug</label
-                >
-                <div class="form-check mb-1">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="p35"
-                    checked
-                  />
-                  <label class="form-check-label small" for="p35"
-                    >3.5mm Single-Ended</label
-                  >
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="p44" />
-                  <label class="form-check-label small" for="p44"
-                    >4.4mm Balanced</label
-                  >
-                </div>
-              </div>
-
-              <!-- Sound Signature -->
-              <div class="mb-4">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Sound Signature</label
-                >
-                <div class="d-flex flex-wrap gap-1">
-                  <span class="chip active">Warm</span>
-                  <span class="chip">Neutral</span>
-                  <span class="chip">V-shaped</span>
-                  <span class="chip">Bright</span>
-                  <span class="chip">Analitis</span>
-                </div>
-              </div>
-
-              <!-- Stok -->
-              <div class="mb-3">
-                <label
-                  class="form-label small fw-bold text-uppercase text-muted mb-2"
-                  >Ketersediaan</label
-                >
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="inStock"
-                    checked
-                  />
-                  <label class="form-check-label small" for="inStock"
-                    >Hanya yang Tersedia</label
-                  >
-                </div>
-              </div>
-
-              <button class="btn btn-accent btn-sm w-100 mt-2">
+              <button class="w-full rounded-btn bg-accent py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
                 Terapkan Filter
               </button>
             </div>
           </aside>
 
-          <!-- 5.3 Listing Produk (col-lg-9) -->
-          <section class="col-lg-9">
-            <!-- Top Bar: Filter aktif & Sorting -->
-            <div
-              class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center pb-3 mb-4 border-bottom gap-3"
-              style="border-color: var(--border) !important"
-            >
+          <!-- Listing Section -->
+          <section>
+            <!-- Filter Bar & Sorter -->
+            <div class="mb-8 flex flex-col gap-4 border-b border-line pb-4 sm:flex-row sm:items-center sm:justify-between" data-reveal>
               <div>
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <span class="small text-muted">Filter aktif:</span>
-                  <span class="chip active"
-                    >In-Ear Monitor <i class="bi bi-x"></i
-                  ></span>
-                  <span class="chip active"
-                    >Tersedia <i class="bi bi-x"></i
-                  ></span>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-ink-muted">Filter aktif:</span>
+                  <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">In-Ear Monitor &times;</span>
+                  <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">Tersedia &times;</span>
                 </div>
-                <span class="small text-muted"
-                  >Menampilkan 5 produk audio terkurasi</span
-                >
+                <span class="mt-1 block text-xs text-ink-muted">Menampilkan 5 gear audio terkurasi</span>
               </div>
 
-              <div class="d-flex align-items-center gap-2">
-                <label for="sortSelect" class="small text-muted text-nowrap"
-                  >Urutkan:</label
-                >
+              <div class="flex items-center gap-2">
+                <label for="sortSelect" class="text-xs text-ink-muted text-nowrap">Urutkan:</label>
                 <select
                   id="sortSelect"
-                  class="form-select form-select-sm"
-                  style="width: 170px"
+                  class="rounded-btn border border-line bg-surface-2 px-3 py-1.5 text-xs text-ink focus:border-accent focus:outline-none"
                 >
                   <option value="featured">Paling Populer</option>
                   <option value="price-asc">Harga: Terendah</option>
@@ -355,311 +223,254 @@
               </div>
             </div>
 
-            <!-- Product Grid: row g-3 g-lg-4, kartu col-6 col-md-4 col-xl-3 (2.6.2 & 7.3) -->
-            <div class="row g-3 g-lg-4">
+            <!-- Product Grid: grid grid-cols-2 gap-5 md:grid-cols-3 -->
+            <div class="grid grid-cols-2 gap-5 md:grid-cols-3">
+              
               <!-- Item 1: Tangzu Wan'er -->
-              <div class="col-6 col-md-4 col-xl-4">
-                <article class="product-card">
-                  <a
-                    href="product-detail.html?id=iem-001"
-                    class="d-block thumb"
-                    title="Tangzu Wan'er S.G"
-                  >
-                    <i class="bi bi-headphones thumb-placeholder"></i>
-                  </a>
-                  <div class="p-3 d-flex flex-column flex-grow-1">
-                    <div class="brand">Tangzu Audio</div>
-                    <h3 class="h6 mb-2">
-                      <a
-                        href="product-detail.html?id=iem-001"
-                        class="card-title-link"
-                        >Tangzu Wan'er S.G</a
-                      >
-                    </h3>
-                    <div class="d-flex flex-wrap gap-1 mb-2">
-                      <span class="chip">Warm</span>
-                      <span class="chip">1 DD</span>
-                    </div>
-                    <div class="mt-auto">
-                      <div class="price mb-1">Rp 320.000</div>
-                      <small style="color: var(--success)"
-                        ><i class="bi bi-check-circle-fill me-1"></i
-                        >Tersedia</small
-                      >
-                    </div>
+              <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
+                <a href="product-detail.html?id=iem-001" class="photo-tile transition group-hover:scale-105">
+                  <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a href="product-detail.html?id=iem-001" class="transition hover:text-accent-strong">Tangzu Wan'er S.G</a>
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Warm</span>
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">1 DD</span>
                   </div>
-                </article>
-              </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 320.000</span>
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('iem-001', 1)"
+                      class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
 
               <!-- Item 2: Moondrop Chu II -->
-              <div class="col-6 col-md-4 col-xl-4">
-                <article class="product-card">
-                  <a
-                    href="product-detail.html?id=iem-002"
-                    class="d-block thumb"
-                    title="Moondrop Chu II"
-                  >
-                    <i class="bi bi-headphones thumb-placeholder"></i>
-                  </a>
-                  <div class="p-3 d-flex flex-column flex-grow-1">
-                    <div class="brand">Moondrop</div>
-                    <h3 class="h6 mb-2">
-                      <a
-                        href="product-detail.html?id=iem-002"
-                        class="card-title-link"
-                        >Moondrop Chu II</a
-                      >
-                    </h3>
-                    <div class="d-flex flex-wrap gap-1 mb-2">
-                      <span class="chip">Neutral</span>
-                      <span class="chip">Al-Mg DD</span>
-                    </div>
-                    <div class="mt-auto">
-                      <div class="price mb-1">Rp 350.000</div>
-                      <small style="color: var(--success)"
-                        ><i class="bi bi-check-circle-fill me-1"></i
-                        >Tersedia</small
-                      >
-                    </div>
+              <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
+                <a href="product-detail.html?id=iem-002" class="photo-tile transition group-hover:scale-105">
+                  <img src="assets/images/products/moondrop chu 2.png" alt="Moondrop Chu II" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a href="product-detail.html?id=iem-002" class="transition hover:text-accent-strong">Moondrop Chu II</a>
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Neutral</span>
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Al-Mg DD</span>
                   </div>
-                </article>
-              </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 350.000</span>
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('iem-002', 1)"
+                      class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
 
               <!-- Item 3: 7Hz Timeless -->
-              <div class="col-6 col-md-4 col-xl-4">
-                <article class="product-card">
-                  <a
-                    href="product-detail.html?id=iem-003"
-                    class="d-block thumb"
-                    title="7Hz Timeless Planar"
-                  >
-                    <i class="bi bi-headphones thumb-placeholder"></i>
-                  </a>
-                  <div class="p-3 d-flex flex-column flex-grow-1">
-                    <div class="brand">7Hz Audio</div>
-                    <h3 class="h6 mb-2">
-                      <a
-                        href="product-detail.html?id=iem-003"
-                        class="card-title-link"
-                        >7Hz Timeless Planar</a
-                      >
-                    </h3>
-                    <div class="d-flex flex-wrap gap-1 mb-2">
-                      <span class="chip">Analitis</span>
-                      <span class="chip">Planar</span>
-                    </div>
-                    <div class="mt-auto">
-                      <div class="price mb-1">Rp 3.150.000</div>
-                      <small style="color: var(--warning)"
-                        ><i class="bi bi-exclamation-circle-fill me-1"></i>Sisa
-                        2 unit</small
-                      >
-                    </div>
+              <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
+                <a href="product-detail.html?id=iem-003" class="photo-tile transition group-hover:scale-105">
+                  <img src="assets/images/products/7hz timeless.png" alt="7Hz Timeless Planar" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz Audio</div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a href="product-detail.html?id=iem-003" class="transition hover:text-accent-strong">7Hz Timeless Planar</a>
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Analitis</span>
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Planar</span>
                   </div>
-                </article>
-              </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 3.150.000</span>
+                      <small class="block text-[11px] text-warn"><i class="bi bi-exclamation-circle-fill mr-1"></i>Sisa 2 unit</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('iem-003', 1)"
+                      class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
 
               <!-- Item 4: FiiO KA13 -->
-              <div class="col-6 col-md-4 col-xl-4">
-                <article class="product-card">
-                  <a
-                    href="product-detail.html?id=dac-001"
-                    class="d-block thumb"
-                    title="FiiO KA13 Dongle DAC"
-                  >
-                    <i class="bi bi-lightning-charge thumb-placeholder"></i>
-                  </a>
-                  <div class="p-3 d-flex flex-column flex-grow-1">
-                    <div class="brand">FiiO</div>
-                    <h3 class="h6 mb-2">
-                      <a
-                        href="product-detail.html?id=dac-001"
-                        class="card-title-link"
-                        >FiiO KA13 Dongle DAC</a
-                      >
-                    </h3>
-                    <div class="d-flex flex-wrap gap-1 mb-2">
-                      <span class="chip">Dual CS43131</span>
-                      <span class="chip">4.4mm</span>
-                    </div>
-                    <div class="mt-auto">
-                      <div class="price mb-1">Rp 1.150.000</div>
-                      <small style="color: var(--success)"
-                        ><i class="bi bi-check-circle-fill me-1"></i
-                        >Tersedia</small
-                      >
-                    </div>
+              <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
+                <a href="product-detail.html?id=dac-001" class="photo-tile transition group-hover:scale-105">
+                  <img src="assets/images/products/fiio ka13.png" alt="FiiO KA13 Portable DAC" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">FiiO</div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a href="product-detail.html?id=dac-001" class="transition hover:text-accent-strong">FiiO KA13 Portable DAC</a>
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Dual CS43131</span>
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">4.4mm</span>
                   </div>
-                </article>
-              </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 1.150.000</span>
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('dac-001', 1)"
+                      class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
 
               <!-- Item 5: SpinFit CP100+ -->
-              <div class="col-6 col-md-4 col-xl-4">
-                <article class="product-card">
-                  <a
-                    href="product-detail.html?id=acc-001"
-                    class="d-block thumb"
-                    title="SpinFit CP100+"
-                  >
-                    <i class="bi bi-disc thumb-placeholder"></i>
-                  </a>
-                  <div class="p-3 d-flex flex-column flex-grow-1">
-                    <div class="brand">SpinFit</div>
-                    <h3 class="h6 mb-2">
-                      <a
-                        href="product-detail.html?id=acc-001"
-                        class="card-title-link"
-                        >SpinFit CP100+ Medical Eartips</a
-                      >
-                    </h3>
-                    <div class="d-flex flex-wrap gap-1 mb-2">
-                      <span class="chip">Silicone 3D</span>
-                      <span class="chip">Bore 4.5mm</span>
-                    </div>
-                    <div class="mt-auto">
-                      <div class="price mb-1">Rp 165.000</div>
-                      <small style="color: var(--success)"
-                        ><i class="bi bi-check-circle-fill me-1"></i
-                        >Tersedia</small
-                      >
-                    </div>
+              <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
+                <a href="product-detail.html?id=acc-001" class="photo-tile transition group-hover:scale-105">
+                  <i class="bi bi-disc text-5xl text-accent transition group-hover:scale-110"></i>
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">SpinFit</div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a href="product-detail.html?id=acc-001" class="transition hover:text-accent-strong">SpinFit CP100+ Medical Eartips</a>
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Silicone 3D</span>
+                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Bore 4.5mm</span>
                   </div>
-                </article>
-              </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 165.000</span>
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('acc-001', 1)"
+                      class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
+
             </div>
 
             <!-- Pagination -->
-            <nav class="mt-5" aria-label="Page navigation">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a
-                    class="page-link"
-                    href="#"
-                    style="
-                      background: var(--surface);
-                      border-color: var(--border);
-                      color: var(--text-muted);
-                    "
-                    >&laquo;</a
-                  >
-                </li>
-                <li class="page-item active">
-                  <a
-                    class="page-link"
-                    href="#"
-                    style="
-                      background: var(--accent);
-                      border-color: var(--accent);
-                      color: var(--accent-ink);
-                    "
-                    >1</a
-                  >
-                </li>
-                <li class="page-item">
-                  <a
-                    class="page-link"
-                    href="#"
-                    style="
-                      background: var(--surface);
-                      border-color: var(--border);
-                      color: var(--text);
-                    "
-                    >2</a
-                  >
-                </li>
-                <li class="page-item">
-                  <a
-                    class="page-link"
-                    href="#"
-                    style="
-                      background: var(--surface);
-                      border-color: var(--border);
-                      color: var(--text);
-                    "
-                    >&raquo;</a
-                  >
-                </li>
-              </ul>
-            </nav>
+            <div class="mt-12 flex justify-center gap-2">
+              <span class="flex h-9 w-9 items-center justify-center rounded-btn border border-line bg-surface-2 text-xs text-ink-muted opacity-50">&laquo;</span>
+              <span class="flex h-9 w-9 items-center justify-center rounded-btn bg-accent text-xs font-semibold text-accent-ink">1</span>
+              <a href="#" class="flex h-9 w-9 items-center justify-center rounded-btn border border-line bg-surface text-xs text-ink hover:border-accent">2</a>
+              <a href="#" class="flex h-9 w-9 items-center justify-center rounded-btn border border-line bg-surface text-xs text-ink hover:border-accent">&raquo;</a>
+            </div>
           </section>
         </div>
       </div>
     </main>
 
-    <!-- 5.3 OFFCANVAS FILTER (Untuk Mobile Screen) -->
+    <!-- Mobile Filter Offcanvas (Bootstrap Component with data-lenis-prevent) -->
     <div
-      class="offcanvas offcanvas-start"
+      class="offcanvas offcanvas-start border-r border-line bg-surface text-ink lg:hidden"
       tabindex="-1"
       id="filterOffcanvas"
-      style="background-color: var(--surface); color: var(--text)"
+      aria-labelledby="filterOffcanvasLabel"
+      data-lenis-prevent
     >
-      <div
-        class="offcanvas-header border-bottom"
-        style="border-color: var(--border) !important"
-      >
-        <h5 class="offcanvas-title fw-bold">
-          <i class="bi bi-sliders me-1" style="color: var(--accent)"></i> Filter
-          Audio
-        </h5>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="offcanvas"
-        ></button>
+      <div class="offcanvas-header border-b border-line p-4">
+        <h3 id="filterOffcanvasLabel" class="font-display text-base font-semibold text-ink flex items-center gap-2">
+          <i class="bi bi-sliders text-accent"></i> Filter Audio
+        </h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
       </div>
-      <div class="offcanvas-body">
-        <!-- Isi filter sama dengan versi desktop -->
-        <div class="mb-4">
-          <label class="form-label small fw-bold text-uppercase text-muted mb-2"
-            >Jenis Driver</label
-          >
-          <div class="form-check mb-1">
-            <input class="form-check-input" type="checkbox" id="m-dd" checked />
-            <label class="form-check-label small" for="m-dd"
-              >Dynamic Driver (DD)</label
-            >
-          </div>
-          <div class="form-check mb-1">
-            <input class="form-check-input" type="checkbox" id="m-planar" />
-            <label class="form-check-label small" for="m-planar"
-              >Planar Magnetic</label
-            >
-          </div>
-          <div class="form-check mb-1">
-            <input class="form-check-input" type="checkbox" id="m-ba" />
-            <label class="form-check-label small" for="m-ba"
-              >Balanced Armature (BA)</label
-            >
+      <div class="offcanvas-body p-4 flex flex-col gap-5" data-lenis-prevent>
+        <div>
+          <h4 class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">Jenis Driver</h4>
+          <div class="flex flex-col gap-2 text-xs">
+            <label class="flex items-center gap-2"><input type="checkbox" checked /> Dynamic Driver</label>
+            <label class="flex items-center gap-2"><input type="checkbox" /> Planar Magnetic</label>
+            <label class="flex items-center gap-2"><input type="checkbox" /> Balanced Armature</label>
           </div>
         </div>
 
-        <div class="mb-4">
-          <label class="form-label small fw-bold text-uppercase text-muted mb-2"
-            >Sound Signature</label
-          >
-          <div class="d-flex flex-wrap gap-1">
-            <span class="chip active">Warm</span>
-            <span class="chip">Neutral</span>
-            <span class="chip">V-shaped</span>
-            <span class="chip">Bright</span>
+        <div>
+          <h4 class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">Sound Signature</h4>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">Warm</span>
+            <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">Neutral</span>
+            <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">V-shaped</span>
           </div>
         </div>
 
-        <button class="btn btn-accent w-100 mt-3" data-bs-dismiss="offcanvas">
+        <button data-bs-dismiss="offcanvas" class="mt-auto w-full rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink">
           Terapkan Filter
         </button>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="pt-5 pb-4 mt-auto">
-      <div class="container text-center small text-muted">
-        &copy; 2026 aupiio. Tema Amber Studio. E-Commerce Khusus Audiophile &
-        Audio Enthusiast.
+    <!-- Mini-Cart Offcanvas -->
+    <div
+      class="offcanvas offcanvas-end border-l border-line bg-surface text-ink"
+      tabindex="-1"
+      id="miniCart"
+      aria-labelledby="miniCartLabel"
+      data-lenis-prevent
+    >
+      <div class="offcanvas-header border-b border-line p-4">
+        <h3 id="miniCartLabel" class="font-display text-lg font-semibold text-ink flex items-center gap-2">
+          <i class="bi bi-bag text-accent"></i> Keranjang Belanja
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
       </div>
+      <div class="offcanvas-body flex flex-col justify-between p-4" data-lenis-prevent>
+        <div id="miniCartBody" class="flex flex-col gap-3"></div>
+        <div class="border-t border-line pt-4">
+          <div class="flex items-center justify-between mb-3 text-sm">
+            <span class="text-ink-muted">Subtotal:</span>
+            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border border-line py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+              Buka Halaman Keranjang
+            </a>
+            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+              Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (Pita Gelap) -->
+    <footer class="border-t border-line bg-band py-8 text-center text-xs text-band-muted">
+      &copy; 2026 aupiio. Stack: Tailwind CSS v4 + Bootstrap 5.3 + GSAP + Lenis.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="assets/js/products.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>

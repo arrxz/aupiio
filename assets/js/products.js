@@ -18,7 +18,7 @@ const AUDIO_PRODUCTS = [
     soundSignature: 'Warm-Balanced',
     pinType: '0.78mm 2-Pin',
     isFeatured: true,
-    image: 'assets/images/products/waner.png',
+    image: 'assets/images/products/tangzu wan er sg.jpg',
     description: 'Entry-level IEM legendaris dengan vokal jernih, bass empuk, dan tuning balanced yang ramah untuk pemula audiophile.'
   },
   {
@@ -35,7 +35,7 @@ const AUDIO_PRODUCTS = [
     soundSignature: 'Harman Neutral',
     pinType: '0.78mm 2-Pin (Detachable)',
     isFeatured: true,
-    image: 'assets/images/products/chu2.png',
+    image: 'assets/images/products/moondrop chu 2.png',
     description: 'Upgrade dari Chu original dengan bodi zinc alloy dan kabel detachable, menyajikan treble renyah dan clarity tinggi khas Moondrop.'
   },
   {
@@ -52,7 +52,7 @@ const AUDIO_PRODUCTS = [
     soundSignature: 'Neutral-Bright / Resolving',
     pinType: 'MMCX',
     isFeatured: true,
-    image: 'assets/images/products/timeless.png',
+    image: 'assets/images/products/7hz timeless.png',
     description: 'Standard benchmark untuk planar IEM dengan micro-detail luar biasa, speed bass instan, dan separasi instrumen lapang.'
   },
   {
@@ -69,7 +69,7 @@ const AUDIO_PRODUCTS = [
     soundSignature: 'Clean & Dynamic',
     pinType: 'Type-C to 3.5mm / 4.4mm Balanced',
     isFeatured: true,
-    image: 'assets/images/products/ka13.png',
+    image: 'assets/images/products/fiio ka13.png',
     description: 'Portable DAC/Amp bertenaga monster dengan tombol Desktop Mode dan output 4.4mm balanced.'
   },
   {

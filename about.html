@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-bs-theme="dark">
+<html lang="id" data-theme="light" data-bs-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,15 +9,14 @@
     />
     <title>Tentang Kami & Panduan Audio | aupiio</title>
 
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
@@ -26,208 +25,207 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
-    <!-- Header Clean Minimalist -->
-    <header class="site-header sticky-top">
-      <nav class="navbar navbar-expand-lg py-2">
-        <div class="container">
-          <a
-            class="navbar-brand d-flex align-items-center gap-2 me-4"
-            href="index.html"
-          >
-            <i
-              class="bi bi-headphones"
-              style="color: var(--accent); font-size: 1.5rem"
-            ></i>
-            <span>aup<span style="color: var(--accent)">iio</span></span>
-          </a>
+  <body class="bg-bg text-ink antialiased">
+    <!-- Navbar (10% Bootstrap + Tailwind Utility, Clean & Spacious) -->
+    <header class="site-header navbar navbar-expand-lg sticky-top z-40 border-b border-line bg-surface transition-all duration-200">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+        <a class="navbar-brand flex items-center gap-2 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+          <i class="bi bi-headphones text-accent"></i>
+          <span>aup<span class="text-accent">iio</span></span>
+        </a>
 
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMain"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler rounded-btn border border-line p-2 text-ink lg:hidden focus:outline-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Buka menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 gap-lg-3">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Katalog
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="catalog.html">Semua Produk</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dac">DAC & Amp</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=dap">Digital Audio Player (DAP)</a></li>
-                  <li><a class="dropdown-item" href="catalog.html?cat=kabel">Kabel & Eartips</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="about.html">Panduan Audio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Kontak & Garansi</a>
-              </li>
-            </ul>
-
-            <div class="d-flex align-items-center gap-2">
-              <a href="catalog.html" class="btn btn-ghost btn-sm px-2 py-1" title="Wishlist">
-                <i class="bi bi-heart"></i>
-              </a>
+        <div id="mainNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item dropdown">
               <a
-                href="cart.html"
-                class="btn btn-accent btn-sm px-3 py-1 d-flex align-items-center gap-2 position-relative"
+                class="nav-link dropdown-toggle rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong"
+                href="catalog.html"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                <i class="bi bi-bag"></i>
-                <span class="d-none d-sm-inline">Keranjang</span>
-                <span
-                  id="cart-count-badge"
-                  class="badge rounded-pill bg-danger"
-                  style="display: none; font-size: 0.65rem"
-                  >0</span
-                >
+                Katalog
               </a>
-            </div>
+              <ul class="dropdown-menu rounded-card border border-line bg-surface p-2 shadow-lg">
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html">Semua Produk</a></li>
+                <li><hr class="dropdown-divider border-line my-1" /></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=iem">In-Ear Monitors (IEM)</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dac-amp">DAC & Amp</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=dap">Digital Audio Player</a></li>
+                <li><a class="dropdown-item rounded-btn px-3 py-2 text-sm text-ink hover:bg-surface-2 hover:text-accent-strong" href="catalog.html?cat=eartips">Kabel & Eartips</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-semibold text-accent-strong" href="about.html">Panduan Audio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-semibold text-accent-strong" href="about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent-strong" href="contact.html">Kontak & Garansi</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 pt-2 lg:pt-0">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#miniCart"
+              aria-label="Buka Keranjang"
+              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="hidden sm:inline">Keranjang</span>
+              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
+            </button>
           </div>
         </div>
-      </nav>
+      </div>
+    </header>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent" href="about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link rounded-btn px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:text-accent" href="contact.html">Kontak & Garansi</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 pt-2 lg:pt-0">
+            <button
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#miniCart"
+              aria-label="Buka Keranjang"
+              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="hidden sm:inline">Keranjang</span>
+              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-bad px-1.5 py-0.5 text-[10px] font-bold text-white" style="display: none;">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <main class="py-5">
-      <div class="container">
-        <!-- Cerita Toko & Filosofi -->
-        <div class="row align-items-center gy-5 mb-5">
-          <div class="col-lg-7">
-            <span class="chip active mb-3">Filosofi Ruang Dengar</span>
-            <h2 class="display-4 fw-bold mb-3" style="color: var(--text)">
+    <main class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        
+        <!-- Cerita & Filosofi Toko -->
+        <div class="grid items-center gap-12 lg:grid-cols-12 mb-20">
+          <div class="lg:col-span-7" data-reveal>
+            <span class="rounded-full border border-accent bg-accent/10 px-3 py-1 text-xs font-medium text-accent">Filosofi Ruang Dengar</span>
+            <h1 class="mt-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl lg:text-5xl">
               Mendekatkan Musik Seperti Rekaman Aslinya.
-            </h2>
-            <p class="lead mb-4" style="color: var(--text-muted)">
-              aupiio lahir dari kecintaan mendalam terhadap dunia personal
-              audio, teknologi transducer akustik, dan gelombang IEM (In-Ear
-              Monitor) di kalangan antusias musik Indonesia.
+            </h1>
+            <p class="mt-5 text-base text-ink-muted leading-relaxed">
+              aupiio lahir dari kecintaan mendalam terhadap dunia personal audio, teknologi transducer akustik, dan fenomena IEM (In-Ear Monitor) di kalangan penikmat musik Indonesia.
             </p>
-            <p style="color: var(--text-muted)">
-              Banyak orang beranggapan bahwa menikmati audio resolusi tinggi
-              (*Hi-Res Audio*) harus merogoh kocek belasan juta rupiah. Kami
-              hadir untuk membuktikan bahwa di era modern saat ini, inovasi
-              driver seperti Dynamic Driver kisi komposit, Planar Magnetic
-              ultra-tipis, hingga Balanced Armature presisi tinggi dapat
-              dinikmati dengan harga yang sangat masuk akal.
+            <p class="mt-4 text-sm text-ink-muted leading-relaxed">
+              Banyak orang mengira kualitas audio yang jernih dan berkarakter harus menguras kantong belasan juta rupiah. Kami hadir untuk membuktikan bahwa di era modern saat ini, inovasi driver seperti Dynamic Driver berkisi komposit, Planar Magnetic ultra-resolving, hingga Balanced Armature presisi tinggi dapat dinikmati dengan harga yang sangat masuk akal.
             </p>
           </div>
-          <div class="col-lg-5 text-center">
-            <div
-              class="p-5 rounded-4"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <i
-                class="bi bi-soundwave"
-                style="font-size: 6rem; color: var(--accent)"
-              ></i>
-              <h5 class="fw-bold mt-3 mb-1" style="color: var(--text)">
-                Warm Amber Listening Room
-              </h5>
-              <p class="small text-muted mb-0">
-                Tempat di mana kurasi berbasis data akustik objektif bertemu
-                dengan kenyamanan telinga Anda.
+
+          <div class="lg:col-span-5 text-center" data-reveal>
+            <div class="flex flex-col items-center justify-center rounded-card border border-line bg-surface p-10 shadow-2xl">
+              <i class="bi bi-soundwave text-7xl text-accent"></i>
+              <h3 class="mt-4 font-display text-lg font-semibold text-ink">Warm Amber Listening Room</h3>
+              <p class="mt-2 text-xs text-ink-muted leading-relaxed">
+                Tempat di mana kurasi berbasis data akustik objektif bertemu dengan kenyamanan telinga Anda.
               </p>
             </div>
           </div>
         </div>
 
         <!-- 3 Pilar Nilai aupiio -->
-        <div class="row g-4 text-center mt-3">
-          <div class="col-md-4">
-            <div
-              class="p-4 rounded-4 h-100"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <i
-                class="bi bi-sliders fs-1 mb-3 d-block"
-                style="color: var(--accent)"
-              ></i>
-              <h5 class="fw-bold mb-2" style="color: var(--text)">
-                Kurasi Selektif & Jujur
-              </h5>
-              <p class="small text-muted mb-0">
-                Tidak semua IEM kami pajang. Hanya unit dengan tuning matang,
-                distorsi rendah, dan build quality teruji yang masuk ke katalog
-                aupiio.
-              </p>
-            </div>
+        <div class="grid gap-8 sm:grid-cols-3" data-reveal>
+          <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+            <i class="bi bi-sliders text-3xl text-accent mb-3 block"></i>
+            <h4 class="font-display text-base font-semibold text-ink mb-2">Kurasi Selektif & Jujur</h4>
+            <p class="text-xs text-ink-muted leading-relaxed">
+              Tidak semua IEM kami jual. Hanya model dengan tuning matang, distorsi rendah, dan build quality teruji yang masuk ke katalog kami.
+            </p>
           </div>
-          <div class="col-md-4">
-            <div
-              class="p-4 rounded-4 h-100"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <i
-                class="bi bi-book fs-1 mb-3 d-block"
-                style="color: var(--accent)"
-              ></i>
-              <h5 class="fw-bold mb-2" style="color: var(--text)">
-                Edukasi & Pendampingan
-              </h5>
-              <p class="small text-muted mb-0">
-                Kami membantu pemula memahami istilah teknis seperti impedansi,
-                sensitivitas, fitting eartips, hingga fungsi krusial sebuah DAC.
-              </p>
-            </div>
+
+          <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+            <i class="bi bi-book text-3xl text-accent mb-3 block"></i>
+            <h4 class="font-display text-base font-semibold text-ink mb-2">Edukasi & Pendampingan</h4>
+            <p class="text-xs text-ink-muted leading-relaxed">
+              Kami membantu pemula memahami istilah teknis seperti impedansi, sensitivitas, fitting eartips, hingga fungsi krusial sebuah DAC.
+            </p>
           </div>
-          <div class="col-md-4">
-            <div
-              class="p-4 rounded-4 h-100"
-              style="
-                background-color: var(--surface);
-                border: 1px solid var(--border);
-              "
-            >
-              <i
-                class="bi bi-shield-check fs-1 mb-3 d-block"
-                style="color: var(--accent)"
-              ></i>
-              <h5 class="fw-bold mb-2" style="color: var(--text)">
-                Garansi Resmi & Purna Jual
-              </h5>
-              <p class="small text-muted mb-0">
-                Setiap produk didukung kartu garansi resmi distributor dengan
-                penanganan cepat jika terjadi kendala pada driver unit.
-              </p>
-            </div>
+
+          <div class="rounded-card border border-line bg-surface p-6 shadow-md">
+            <i class="bi bi-shield-check text-3xl text-accent mb-3 block"></i>
+            <h4 class="font-display text-base font-semibold text-ink mb-2">Garansi Resmi & Purna Jual</h4>
+            <p class="text-xs text-ink-muted leading-relaxed">
+              Setiap produk didukung kartu garansi resmi distributor dengan penanganan cepat jika terjadi kendala pada driver unit.
+            </p>
           </div>
         </div>
+
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="pt-5 pb-4 mt-auto">
-      <div class="container text-center small text-muted">
-        &copy; 2026 aupiio. Tema Amber Studio. Dibuat untuk Proyek Web
-        Fundamental.
+    <!-- Mini-Cart Offcanvas -->
+    <div
+      class="offcanvas offcanvas-end border-l border-line bg-surface text-ink"
+      tabindex="-1"
+      id="miniCart"
+      aria-labelledby="miniCartLabel"
+      data-lenis-prevent
+    >
+      <div class="offcanvas-header border-b border-line p-4">
+        <h3 id="miniCartLabel" class="font-display text-lg font-semibold text-ink flex items-center gap-2">
+          <i class="bi bi-bag text-accent"></i> Keranjang Belanja
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
       </div>
+      <div class="offcanvas-body flex flex-col justify-between p-4" data-lenis-prevent>
+        <div id="miniCartBody" class="flex flex-col gap-3"></div>
+        <div class="border-t border-line pt-4">
+          <div class="flex items-center justify-between mb-3 text-sm">
+            <span class="text-ink-muted">Subtotal:</span>
+            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border border-line py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+              Buka Halaman Keranjang
+            </a>
+            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+              Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (Pita Gelap) -->
+    <footer class="border-t border-line bg-band py-8 text-center text-xs text-band-muted">
+      &copy; 2026 aupiio. Stack: Tailwind CSS v4 + Bootstrap 5.3 + GSAP + Lenis.
     </footer>
 
+    <!-- Scripts: Bootstrap 5.3 + GSAP + ScrollTrigger + Lenis + App Logic -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
