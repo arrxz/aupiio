@@ -46,11 +46,7 @@ function aupiioAddToCart(productId, quantity = 1) {
   }
 
   // Buka Mini-Cart Offcanvas
-  const offcanvasEl = document.getElementById("miniCart");
-  if (offcanvasEl && typeof bootstrap !== "undefined" && bootstrap.Offcanvas) {
-    const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-    bsOffcanvas.show();
-  }
+  window.openOffcanvas?.(document.getElementById("miniCart"));
 }
 
 function aupiioRemoveFromCart(productId) {

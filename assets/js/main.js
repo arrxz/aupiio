@@ -20,11 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       requestAnimationFrame(raf);
 
-      // Jeda scroll saat modal/offcanvas terbuka
-      document.addEventListener("show.bs.offcanvas", () => lenisInstance?.stop());
-      document.addEventListener("hidden.bs.offcanvas", () => lenisInstance?.start());
-      document.addEventListener("show.bs.modal", () => lenisInstance?.stop());
-      document.addEventListener("hidden.bs.modal", () => lenisInstance?.start());
+      // Jeda scroll saat offcanvas terbuka (event dari ui.js)
+      document.addEventListener("offcanvas:show", () => lenisInstance?.stop());
+      document.addEventListener("offcanvas:hidden", () => lenisInstance?.start());
     } catch (e) {
       console.warn("Lenis init skipped:", e);
     }

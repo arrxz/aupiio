@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-theme="light" data-bs-theme="light">
+<html lang="id" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,15 +27,15 @@
       rel="stylesheet"
     />
 
-    <!-- Stylesheet: Amber Paper Theme (Compiled Tailwind v4 + Bootstrap Subset) -->
+    <!-- Stylesheet: Amber Paper Theme (Compiled Tailwind v4) -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body class="bg-bg text-ink antialiased">
-    <!-- Navbar (10% Bootstrap Collapse + Tailwind Utility, Sticky, Border-b, Shadow on Scroll) -->
-    <header class="site-header navbar navbar-expand-lg sticky-top z-40 border-b border-line bg-surface transition-shadow duration-200">
-      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+    <!-- Navbar (Tailwind + ui.js, Sticky, Border-b, Shadow on Scroll) -->
+    <header class="site-header sticky top-0 py-2 z-40 border-b border-line bg-surface transition-shadow duration-200">
+      <div class="mx-auto flex flex-wrap lg:flex-nowrap w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         <!-- Brand: Wordmark teks "aupiio" saja (tanpa ikon headphone) -->
-        <a class="navbar-brand font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+        <a class="mr-4 py-1 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
           aup<span class="text-accent">iio</span>
         </a>
 
@@ -44,8 +44,8 @@
           <button
             type="button"
             class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink transition hover:border-accent hover:text-accent-strong"
-            data-bs-toggle="collapse"
-            data-bs-target="#mobileSearch"
+            data-toggle="collapse"
+            data-target="#mobileSearch"
             aria-expanded="false"
             aria-controls="mobileSearch"
             aria-label="Buka pencarian"
@@ -69,8 +69,8 @@
 
           <button
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#miniCart"
+            data-toggle="offcanvas"
+            data-target="#miniCart"
             aria-label="Buka Keranjang"
             class="relative flex h-9 w-9 items-center justify-center rounded-btn bg-accent text-accent-ink transition hover:bg-accent-hover"
           >
@@ -82,47 +82,47 @@
             <span id="cartBadgeMobile" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
           </button>
 
-          <!-- Bootstrap Navbar Toggler (dibawah 992px) -->
+          <!-- Navbar Toggler (dibawah 992px) -->
           <button
-            class="navbar-toggler rounded-btn border border-line p-2 text-ink focus:outline-none"
+            class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink focus:outline-none"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNav"
+            data-toggle="collapse"
+            data-target="#mainNav"
             aria-controls="mainNav"
             aria-expanded="false"
             aria-label="Buka menu navigasi"
           >
-            <span class="navbar-toggler-icon"></span>
+            <i class="bi bi-list text-xl leading-none" aria-hidden="true"></i>
           </button>
         </div>
 
         <!-- Desktop & Mobile Collapse Nav -->
-        <div id="mainNav" class="collapse navbar-collapse">
+        <div id="mainNav" class="hidden basis-full grow lg:flex lg:basis-auto lg:items-center">
           <!-- Navigasi 8 Item: IEM, DAC/Amp, DAP, TWS, Kabel, Eartips, Aksesoris, Panduan -->
-          <ul class="navbar-nav mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-5 text-sm font-medium">
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=iem">IEM</a>
+          <ul class="mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-5 text-sm font-medium">
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=iem">IEM</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dac-amp">DAC/Amp</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dac-amp">DAC/Amp</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dap">DAP</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dap">DAP</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=tws">TWS</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=tws">TWS</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=kabel">Kabel</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=kabel">Kabel</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=eartips">Eartips</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=eartips">Eartips</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=aksesoris">Aksesoris</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=aksesoris">Aksesoris</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="panduan.html">Panduan</a>
+            <li>
+              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="panduan.html">Panduan</a>
             </li>
           </ul>
 
@@ -154,8 +154,8 @@
 
             <button
               type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#miniCart"
+              data-toggle="offcanvas"
+              data-target="#miniCart"
               aria-label="Buka Keranjang"
               class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-3.5 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
             >
@@ -172,7 +172,7 @@
       </div>
 
       <!-- Mobile Search Form Dropdown (Collapse) -->
-      <div id="mobileSearch" class="collapse border-t border-line bg-surface p-3 lg:hidden">
+      <div id="mobileSearch" class="hidden border-t border-line bg-surface p-3 lg:hidden">
         <form action="produk.html" method="get" class="relative">
           <input
             type="search"
@@ -702,21 +702,20 @@
           </div>
         </div>
         <div class="flex flex-col items-center justify-between gap-4 border-t border-line/40 pt-6 text-xs text-band-muted sm:flex-row">
-          <span>&copy; 2026 aupiio. Stack: Tailwind CSS v4 + Bootstrap 5.3 + GSAP + Lenis.</span>
+          <span>&copy; 2026 aupiio. Stack: Tailwind CSS v4 + GSAP + Lenis.</span>
           <span>Dibuat untuk Proyek Web Fundamental.</span>
         </div>
       </div>
     </footer>
 
-    <!-- Mini-Cart Offcanvas (10% Bootstrap + Tailwind Layout + data-lenis-prevent) -->
-    <div
-      class="offcanvas offcanvas-end border-l border-line bg-surface text-ink"
-      tabindex="-1"
+    <!-- Mini-Cart Offcanvas (<dialog> + data-lenis-prevent) -->
+    <dialog
+      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex backdrop:bg-black/50 transition-transform duration-300 right-0 left-auto starting:open:translate-x-full border-l border-line bg-surface text-ink"
       id="miniCart"
       aria-labelledby="miniCartLabel"
       data-lenis-prevent
     >
-      <div class="offcanvas-header border-b border-line p-4">
+      <div class="flex items-center justify-between border-b border-line p-4">
         <h2 id="miniCartLabel" class="font-display text-lg font-semibold text-ink flex items-center gap-2">
           <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
@@ -725,9 +724,9 @@
           </svg>
           Keranjang
         </h2>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+        <button type="button" class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink" data-dismiss="offcanvas" aria-label="Tutup"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
       </div>
-      <div class="offcanvas-body flex flex-col justify-between p-4" data-lenis-prevent>
+      <div class="grow overflow-y-auto flex flex-col justify-between p-4" data-lenis-prevent>
         <div id="miniCartBody" class="flex flex-col gap-3">
           <!-- Keadaan kosong dari COPY (tetap terlihat tanpa JS) -->
           <div class="py-12 text-center text-ink-muted">
@@ -758,10 +757,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </dialog>
 
-    <!-- Scripts: Bootstrap 5.3 + GSAP + ScrollTrigger + Lenis + Content + App Logic -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts: GSAP + ScrollTrigger + Lenis + Content + App Logic -->
+    <script src="assets/js/ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>

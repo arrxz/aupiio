@@ -18,11 +18,9 @@ if (!reduce && !isCheckout && typeof window !== "undefined") {
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
-  // Hentikan Lenis saat overlay (offcanvas/modal) terbuka
-  document.addEventListener("show.bs.offcanvas", () => lenis?.stop());
-  document.addEventListener("hidden.bs.offcanvas", () => lenis?.start());
-  document.addEventListener("show.bs.modal", () => lenis?.stop());
-  document.addEventListener("hidden.bs.modal", () => lenis?.start());
+  // Hentikan Lenis saat overlay (offcanvas dari ui.js) terbuka
+  document.addEventListener("offcanvas:show", () => lenis?.stop());
+  document.addEventListener("offcanvas:hidden", () => lenis?.start());
 }
 
 export function scrollToTarget(target, offset = -80) {

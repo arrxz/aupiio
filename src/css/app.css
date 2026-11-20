@@ -1,15 +1,12 @@
-/* Urutan layer: Bootstrap di bawah utilities supaya Tailwind menang */
-@layer theme, base, bootstrap, components, utilities;
+@layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
-@import "./bootstrap-subset.css" layer(bootstrap);
 @import "tailwindcss/utilities.css" layer(utilities);
 
 /* ===== Token (Amber Paper - AUDIO-STORE-STYLE.md) ===== */
 :root,
-[data-theme="light"],
-[data-bs-theme="light"] {
+[data-theme="light"] {
   --bg: #F6F4F0;
   --surface: #FFFFFF;
   --surface-2: #EFECE6;
@@ -34,8 +31,7 @@
 }
 
 /* Dark mode (opsional, photo-tile tetap terang agar foto produk menyatu) */
-[data-theme="dark"],
-[data-bs-theme="dark"] {
+[data-theme="dark"] {
   --bg: #14110F;
   --surface: #1C1815;
   --surface-2: #26211D;
@@ -58,7 +54,7 @@
   --band-accent: #D9A441;
 }
 
-/* Samakan breakpoint lg dengan Bootstrap (992px) */
+/* Breakpoint lg 992px (dipertahankan dari layout lama) */
 @theme {
   --breakpoint-lg: 62rem;
 }
@@ -100,40 +96,6 @@
   body { line-height: 1.7; }
   h1, h2 { font-family: var(--font-display); font-weight: 600; }
   :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
-}
-
-/* Petakan variabel Bootstrap ke token proyek */
-@layer bootstrap {
-  :root {
-    --bs-body-bg: var(--bg);
-    --bs-body-color: var(--ink);
-    --bs-border-color: var(--line);
-    --bs-link-color: var(--accent-strong);
-  }
-  .navbar {
-    --bs-navbar-color: var(--ink-muted);
-    --bs-navbar-hover-color: var(--accent-strong);
-    --bs-navbar-active-color: var(--accent-strong);
-    --bs-navbar-toggler-border-color: var(--line);
-  }
-  .offcanvas { 
-    --bs-offcanvas-bg: var(--surface); 
-    --bs-offcanvas-color: var(--ink); 
-    --bs-offcanvas-border-color: var(--line); 
-  }
-  .dropdown-menu { 
-    --bs-dropdown-bg: var(--surface); 
-    --bs-dropdown-color: var(--ink); 
-    --bs-dropdown-border-color: var(--line);
-    --bs-dropdown-link-color: var(--ink); 
-    --bs-dropdown-link-hover-bg: var(--surface-2); 
-    --bs-dropdown-link-hover-color: var(--accent-strong);
-  }
-  .modal { 
-    --bs-modal-bg: var(--surface); 
-    --bs-modal-color: var(--ink); 
-    --bs-modal-border-color: var(--line); 
-  }
 }
 
 /* Komponen Tambahan & Utilitas Foto Sesuai AUDIO-STORE-STYLE.md Bagian 7 */

@@ -41,11 +41,7 @@ export function addToCart(productId, quantity = 1) {
   bumpBadge(badge);
 
   // Buka mini-cart offcanvas bila tersedia
-  const offcanvasEl = document.getElementById("miniCart");
-  if (offcanvasEl && window.bootstrap?.Offcanvas) {
-    const bsOffcanvas = window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-    bsOffcanvas.show();
-  }
+  window.openOffcanvas?.(document.getElementById("miniCart"));
 }
 
 export function removeFromCart(productId) {
