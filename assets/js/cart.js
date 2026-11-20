@@ -40,9 +40,9 @@ function aupiioAddToCart(productId, quantity = 1) {
   saveCart(cart);
 
   // Bump Badge Animation
-  const badge = document.querySelector("#cartBadge, #cart-count-badge");
-  if (badge && typeof gsap !== "undefined") {
-    gsap.fromTo(badge, { scale: 1 }, { scale: 1.4, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" });
+  const badges = document.querySelectorAll("#cartBadge, #cartBadgeMobile, #cart-count-badge");
+  if (badges.length && typeof gsap !== "undefined") {
+    gsap.fromTo(badges, { scale: 1 }, { scale: 1.4, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" });
   }
 
   // Buka Mini-Cart Offcanvas
@@ -76,7 +76,7 @@ function formatRupiahSimple(number) {
 function updateCartUI() {
   const cart = getCart();
   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  const badges = document.querySelectorAll("#cartBadge, #cart-count-badge");
+  const badges = document.querySelectorAll("#cartBadge, #cartBadgeMobile, #cart-count-badge");
 
   badges.forEach((b) => {
     b.textContent = totalItems;
@@ -90,9 +90,13 @@ function updateCartUI() {
     if (cart.length === 0) {
       miniCartBody.innerHTML = `
         <div class="py-12 text-center text-ink-muted">
-          <i class="bi bi-bag text-3xl mb-2 block opacity-40"></i>
+          <svg class="mx-auto h-10 w-10 text-ink-muted/40 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
           <p class="text-xs">Keranjang Anda masih kosong.</p>
-          <a href="catalog.html" class="inline-block mt-3 text-xs font-semibold text-accent-strong hover:underline">Mulai Jelajahi Produk</a>
+          <a href="produk.html" class="inline-flex mt-4 items-center justify-center rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">Jelajahi Katalog</a>
         </div>
       `;
       if (miniCartSubtotal) miniCartSubtotal.textContent = "Rp 0";

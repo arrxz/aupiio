@@ -60,30 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hero Section Animation Timeline
     const hero = document.querySelector("#heroSection");
     if (hero) {
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-      const h1 = hero.querySelector("h1");
-      const p = hero.querySelector("p");
-      const btns = hero.querySelectorAll(".hero-btn");
-      const visual = hero.querySelector(".hero-visual");
-
-      if (h1) tl.fromTo(h1, { y: 25, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7 });
-      if (p) tl.fromTo(p, { y: 15, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.4");
-      if (btns.length) tl.fromTo(btns, { y: 15, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4, stagger: 0.1 }, "-=0.3");
-      if (visual) {
-        tl.fromTo(visual, { scale: 0.96, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.7 }, "-=0.5");
-        if (typeof ScrollTrigger !== "undefined") {
-          gsap.to(visual, {
-            y: 35,
-            ease: "none",
-            scrollTrigger: {
-              trigger: hero,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          });
+      // 1. Gambar kurva grafik respons frekuensi dengan strokeDashoffset (±1.6s, power2.out)
+      const curve = hero.querySelector("#frequencyCurve");
+      if (curve) {
+        try {
+          const length = curve.getTotalLength ? curve.getTotalLength() : 1200;
+          gsap.set(curve, { strokeDasharray: length, strokeDashoffset: length });
+          gsap.to(curve, { strokeDashoffset: 0, duration: 1.6, ease: "power2.out" });
+        } catch (e) {
+          gsap.to(curve, { autoAlpha: 1, duration: 1.0 });
         }
       }
+
+      // 2. Timeline masuk hero sekali (±0.8s): subteks, tombol, baris kepercayaan, dan kartu muncul bergantian (y 24→0, autoAlpha)
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const h1 = hero.querySelector("h1");
+      const subtext = hero.querySelector(".hero-subtext, p");
+      const actions = hero.querySelector(".hero-actions");
+      const trust = hero.querySelector(".hero-trust");
+      const card = hero.querySelector(".hero-visual");
+
+      if (h1) tl.fromTo(h1, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 });
+      if (subtext) tl.fromTo(subtext, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.35");
+      if (actions) tl.fromTo(actions, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45 }, "-=0.3");
+      if (trust) tl.fromTo(trust, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.25");
+      if (card) tl.fromTo(card, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.35");
     }
   } else {
     // Fallback: pastikan semua elemen [data-reveal] langsung tampil jika GSAP offline/tidak tersedia
