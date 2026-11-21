@@ -141,3 +141,12 @@ Detail pembagian sel, jumlah produk yang tampil, dan breakpoint tablet diserahka
 - `npm run build` lulus, dan semua halaman dicek di browser pada 375px, 1024px, dan 1280px tanpa scroll horizontal.
 - Kontras token utama dicek (teks body, teks muted, teks putih di atas tomato/cobalt).
 - Nav, dropdown, offcanvas, mini-cart, add-to-cart, dan hapus item tetap berfungsi.
+
+## Keputusan implementasi (2026-11-21)
+
+- Nama token lama dipertahankan (`accent`, `surface`, `band`, dst.) dengan nilai baru, ditambah `cobalt`, `mustard`, dan `font-serif`. Dengan begitu tidak perlu mengganti class di tiap halaman.
+- Tomat: `--accent #C8361F` (teks putih 5.25:1) dan `--accent-strong #B32D1B` untuk teks merah di atas krem (5.45:1). `#E2412E` tidak dipakai karena kontrasnya kurang.
+- Tanpa filter katalog. Ubin kategori di bento hanya IEM, DAC/Amp, Aksesoris, dan Katalog. DAP, TWS, Kabel, dan Eartips dibuang karena belum ada produknya.
+- Ongkir flat Rp 18.000. Cart sekarang sama dengan checkout (total Rp 503.000).
+- Header dan footer seragam di semua halaman, kecuali checkout yang memakai header minimal. Wishlist dihapus dari header.
+- Spesifikasi product-detail tetap berupa tabel (belum jadi ubin bento).
