@@ -4,54 +4,31 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* ===== Token (Amber Paper - AUDIO-STORE-STYLE.md) ===== */
-:root,
-[data-theme="light"] {
-  --bg: #F6F4F0;
-  --surface: #FFFFFF;
-  --surface-2: #EFECE6;
-  --photo-tile: #F0EEEA;
-  --line: #E3DED5;
-  --ink: #1C1917;
-  --ink-muted: #6B645B;
-  --accent: #B45309;
-  --accent-hover: #92400E;
+/* ===== Token: Warm Analog Pop (docs/superpowers/specs/2026-11-20-bento-analog-pop-design.md) ===== */
+:root {
+  --bg: #F3EDE2;
+  --surface: #FFFBF4;
+  --surface-2: #EAE1D1;
+  --photo-tile: #FFFBF4;
+  --line: #D8CCB8;
+  --ink: #1A1714;
+  --ink-muted: #5C544B;
+  --accent: #C8361F;        /* tomat: teks putih 5.25:1 */
+  --accent-hover: #A82C18;
   --accent-ink: #FFFFFF;
-  --accent-strong: #92400E;
-  --accent-soft: rgba(180, 83, 9, 0.08);
-  --ok: #15803D;
-  --warn: #A16207;
+  --accent-strong: #B32D1B; /* teks merah di atas krem 5.45:1 */
+  --accent-soft: rgba(200, 54, 31, 0.1);
+  --cobalt: #2D4BD8;
+  --mustard: #F2B33D;       /* teks di atasnya selalu --ink */
+  --ok: #1F7A3A;
+  --warn: #8A5300;
   --bad: #B91C1C;
 
-  /* Pita gelap (footer & strip khusus, maks 15% halaman) */
-  --band: #1C1917;
-  --band-ink: #F2EBE3;
-  --band-muted: #A39A90;
-  --band-accent: #D9A441;
-}
-
-/* Dark mode (opsional, photo-tile tetap terang agar foto produk menyatu) */
-[data-theme="dark"] {
-  --bg: #14110F;
-  --surface: #1C1815;
-  --surface-2: #26211D;
-  --photo-tile: #F0EEEA;
-  --line: #3A332D;
-  --ink: #F2EBE3;
-  --ink-muted: #A39A90;
-  --accent: #D9A441;
-  --accent-hover: #E8BA62;
-  --accent-ink: #14110F;
-  --accent-strong: #E8BA62;
-  --accent-soft: rgba(217, 164, 65, 0.12);
-  --ok: #15803D;
-  --warn: #A16207;
-  --bad: #B91C1C;
-
-  --band: #1C1917;
-  --band-ink: #F2EBE3;
-  --band-muted: #A39A90;
-  --band-accent: #D9A441;
+  /* Blok gelap (footer, ubin tinta) */
+  --band: #1A1714;
+  --band-ink: #F3EDE2;
+  --band-muted: #B5AC9F;
+  --band-accent: #F2B33D;
 }
 
 /* Breakpoint lg 992px (dipertahankan dari layout lama) */
@@ -76,25 +53,28 @@
   --color-ok: var(--ok);
   --color-warn: var(--warn);
   --color-bad: var(--bad);
+  --color-cobalt: var(--cobalt);
+  --color-mustard: var(--mustard);
 
   --color-band: var(--band);
   --color-band-ink: var(--band-ink);
   --color-band-muted: var(--band-muted);
   --color-band-accent: var(--band-accent);
 
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --radius-card: 14px;
-  --radius-btn: 10px;
+  --radius-card: 20px;
+  --radius-btn: 999px;
 }
 
 /* Dasar halaman */
 @layer base {
   html { background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
   body { line-height: 1.7; }
-  h1, h2 { font-family: var(--font-display); font-weight: 600; }
+  h1, h2 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
   :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
 }
 
@@ -116,19 +96,15 @@
     mix-blend-mode: multiply;
   }
 
-  /* Kotak foto di pita gelap / dark */
-  [data-theme="dark"] .photo-tile img {
-    mix-blend-mode: normal;
-  }
 
-  /* Kertas grafik respons frekuensi (dekorasi bermakna hero) */
-  .hero-freq-grid {
-    background-size: 64px 64px;
-    background-image: 
-      linear-gradient(to right, rgba(28, 25, 23, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(28, 25, 23, 0.06) 1px, transparent 1px);
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+
+  /* Piringan hitam dekoratif (aria-hidden di markup) */
+  .vinyl {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, var(--mustard) 0 15%, var(--ink) 15.5% 17%, transparent 17.5%),
+      repeating-radial-gradient(circle, #1A1714 0 2px, #322C27 2px 4px);
   }
 }
 

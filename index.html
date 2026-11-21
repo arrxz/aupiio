@@ -13,11 +13,11 @@
       document.documentElement.classList.add("js");
     </script>
 
-    <!-- Google Fonts: Fraunces, IBM Plex Mono, Inter -->
+    <!-- Google Fonts: Bricolage Grotesque, Instrument Serif, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -27,683 +27,298 @@
       rel="stylesheet"
     />
 
-    <!-- Stylesheet: Amber Paper Theme (Compiled Tailwind v4) -->
+    <!-- Stylesheet: Warm Analog Pop (Compiled Tailwind v4) -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body class="bg-bg text-ink antialiased">
-    <!-- Navbar (Tailwind + ui.js, Sticky, Border-b, Shadow on Scroll) -->
-    <header class="site-header sticky top-0 py-2 z-40 border-b border-line bg-surface transition-shadow duration-200">
-      <div class="mx-auto flex flex-wrap lg:flex-nowrap w-full max-w-7xl items-center justify-between px-4 sm:px-6">
-        <!-- Brand: Wordmark teks "aupiio" saja (tanpa ikon headphone) -->
-        <a class="mr-4 py-1 font-display text-2xl font-semibold tracking-wide text-ink" href="index.html">
+    <!-- Header (sama di semua halaman, kecuali checkout) -->
+    <header class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap">
+        <a class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8" href="index.html">
           aup<span class="text-accent">iio</span>
         </a>
 
-        <!-- Mobile Controls (< lg): Search trigger, Wishlist, Cart, Navbar Toggler -->
-        <div class="flex items-center gap-2 lg:hidden">
-          <button
-            type="button"
-            class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink transition hover:border-accent hover:text-accent-strong"
-            data-toggle="collapse"
-            data-target="#mobileSearch"
-            aria-expanded="false"
-            aria-controls="mobileSearch"
-            aria-label="Buka pencarian"
-          >
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="7"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
-
-          <a
-            href="wishlist.html"
-            class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink transition hover:border-accent hover:text-accent-strong"
-            title="Wishlist"
-            aria-label="Wishlist"
-          >
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </a>
-
-          <button
-            type="button"
-            data-toggle="offcanvas"
-            data-target="#miniCart"
-            aria-label="Buka Keranjang"
-            class="relative flex h-9 w-9 items-center justify-center rounded-btn bg-accent text-accent-ink transition hover:bg-accent-hover"
-          >
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span id="cartBadgeMobile" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
-          </button>
-
-          <!-- Navbar Toggler (dibawah 992px) -->
-          <button
-            class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink focus:outline-none"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mainNav"
-            aria-controls="mainNav"
-            aria-expanded="false"
-            aria-label="Buka menu navigasi"
-          >
-            <i class="bi bi-list text-xl leading-none" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <!-- Desktop & Mobile Collapse Nav -->
-        <div id="mainNav" class="hidden basis-full grow lg:flex lg:basis-auto lg:items-center">
-          <!-- Navigasi 8 Item: IEM, DAC/Amp, DAP, TWS, Kabel, Eartips, Aksesoris, Panduan -->
-          <ul class="mx-auto my-3 flex flex-col gap-1 lg:my-0 lg:flex-row lg:items-center lg:gap-5 text-sm font-medium">
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=iem">IEM</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dac-amp">DAC/Amp</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=dap">DAP</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=tws">TWS</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=kabel">Kabel</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=eartips">Eartips</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="produk.html?kategori=aksesoris">Aksesoris</a>
-            </li>
-            <li>
-              <a class="block rounded-btn px-2.5 py-1.5 text-ink-muted transition hover:text-accent-strong" href="panduan.html">Panduan</a>
-            </li>
+        <nav id="mainNav" class="order-last hidden basis-full lg:order-none lg:flex lg:flex-1 lg:basis-auto" aria-label="Navigasi utama">
+          <ul class="flex flex-col gap-1 pt-3 text-sm font-bold lg:flex-row lg:items-center lg:pt-0">
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-ink hover:text-bg" href="catalog.html">Katalog</a></li>
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-cobalt hover:text-white" href="catalog.html?cat=iem">IEM</a></li>
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-mustard" href="catalog.html?cat=dac-amp">DAC/Amp</a></li>
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-accent hover:text-white" href="catalog.html?cat=aksesoris">Aksesoris</a></li>
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-ink hover:text-bg" href="about.html">Panduan</a></li>
+            <li><a class="block rounded-btn px-3.5 py-2 text-ink transition hover:bg-ink hover:text-bg" href="contact.html">Kontak</a></li>
           </ul>
+        </nav>
 
-          <!-- Desktop Actions: Kolom Pencarian (≥ lg), Wishlist, Keranjang -->
-          <div class="hidden lg:flex lg:items-center lg:gap-3">
-            <form action="produk.html" method="get" class="relative">
-              <input
-                type="search"
-                name="q"
-                placeholder="Cari IEM, DAC, kabel..."
-                class="w-48 rounded-btn border border-line bg-surface-2 py-1.5 pl-8 pr-3 text-xs text-ink placeholder:text-ink-muted transition focus:w-60 focus:border-accent focus:bg-surface focus:outline-none"
-              />
-              <svg class="pointer-events-none absolute left-2.5 top-2.5 h-3.5 w-3.5 text-ink-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="11" cy="11" r="7"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </form>
+        <button
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-btn border-2 border-ink text-ink transition hover:bg-ink hover:text-bg"
+          data-toggle="collapse"
+          data-target="#searchPanel"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+          aria-label="Buka pencarian"
+        >
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </button>
 
-            <a
-              href="wishlist.html"
-              class="flex h-9 w-9 items-center justify-center rounded-btn border border-line text-ink transition hover:border-accent hover:text-accent-strong"
-              title="Wishlist"
-              aria-label="Wishlist"
-            >
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-              </svg>
-            </a>
+        <button
+          type="button"
+          data-toggle="offcanvas"
+          data-target="#miniCart"
+          aria-label="Buka keranjang"
+          class="relative inline-flex h-11 items-center gap-2 rounded-btn bg-accent px-4 text-sm font-bold text-accent-ink transition hover:bg-accent-hover"
+        >
+          <i class="bi bi-bag" aria-hidden="true"></i>
+          <span class="hidden sm:inline">Keranjang</span>
+          <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full border-2 border-ink bg-mustard px-1.5 text-[11px] font-bold text-ink" style="display: none;">0</span>
+        </button>
 
-            <button
-              type="button"
-              data-toggle="offcanvas"
-              data-target="#miniCart"
-              aria-label="Buka Keranjang"
-              class="relative inline-flex items-center gap-2 rounded-btn bg-accent px-3.5 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
-            >
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
-              <span>Keranjang</span>
-              <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full bg-accent-strong px-1.5 py-0.5 text-[10px] font-bold text-accent-ink" style="display: none;">0</span>
-            </button>
-          </div>
-        </div>
+        <button
+          class="flex h-11 w-11 items-center justify-center rounded-btn border-2 border-ink text-ink lg:hidden"
+          type="button"
+          data-toggle="collapse"
+          data-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Buka menu navigasi"
+        >
+          <i class="bi bi-list text-xl leading-none" aria-hidden="true"></i>
+        </button>
       </div>
 
-      <!-- Mobile Search Form Dropdown (Collapse) -->
-      <div id="mobileSearch" class="hidden border-t border-line bg-surface p-3 lg:hidden">
-        <form action="produk.html" method="get" class="relative">
+      <div id="searchPanel" class="hidden">
+        <form action="catalog.html" method="get" class="mx-auto max-w-7xl px-4 pt-3 sm:px-6" role="search">
+          <label for="siteSearch" class="sr-only">Cari produk</label>
           <input
+            id="siteSearch"
             type="search"
             name="q"
             placeholder="Cari IEM, DAC, kabel..."
-            class="w-full rounded-btn border border-line bg-surface-2 py-2 pl-9 pr-3 text-xs text-ink placeholder:text-ink-muted focus:border-accent focus:bg-surface focus:outline-none"
+            class="w-full rounded-btn border-2 border-ink bg-surface px-5 py-3 text-sm text-ink placeholder:text-ink-muted"
           />
-          <svg class="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-ink-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
         </form>
       </div>
     </header>
 
-    <main>
-      <!-- Hero Section (Latar Grafik Frekuensi + GSAP Entrance Timeline) -->
-      <section id="heroSection" class="relative overflow-hidden border-b border-line bg-bg py-16 md:py-24">
-        <!-- Latar Bermakna: Kertas Grafik Respons Frekuensi (Aria-Hidden & Pointer-Events: None) -->
-        <div class="hero-freq-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
+    <main class="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:pt-8">
+      <!-- Bento grid beranda: 2 kolom mobile, 4 kolom desktop -->
+      <div class="grid auto-rows-[minmax(150px,auto)] grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
 
-        <!-- Kurva SVG Respons Frekuensi Halus di Bagian Bawah Hero -->
-        <svg id="frequencyCurveSvg" class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-28 w-full text-accent/30 overflow-visible" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-          <path id="frequencyCurve" d="M0,85 C140,75 220,95 380,60 C520,30 680,75 840,40 C980,15 1100,50 1200,35" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke" />
-        </svg>
+        <!-- Hero (2x2) -->
+        <section id="heroSection" class="group relative col-span-2 flex flex-col overflow-hidden rounded-card bg-accent p-6 text-accent-ink sm:p-8 lg:row-span-2">
+          <span class="font-mono text-xs uppercase tracking-widest">Toko personal audio</span>
+          <h1 class="mt-4 max-w-md text-5xl sm:text-6xl lg:text-7xl" style="text-wrap: balance;">
+            Dengar detail yang <span class="font-serif font-normal italic">tersembunyi.</span>
+          </h1>
+          <p class="hero-subtext mt-5 max-w-sm text-base sm:text-lg">
+            IEM, DAC/Amp, dan aksesoris pilihan untuk pendengar yang peduli detail.
+          </p>
+          <div class="hero-actions relative z-10 mt-auto flex flex-wrap gap-3 pt-8">
+            <a href="catalog.html" class="inline-flex items-center gap-2 rounded-btn bg-ink px-6 py-3 font-bold text-bg transition hover:bg-bg hover:text-ink">
+              Belanja sekarang <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="about.html" class="inline-flex items-center rounded-btn border-2 border-white px-6 py-3 font-bold text-white transition hover:bg-white hover:text-accent-strong">
+              Panduan pemula
+            </a>
+          </div>
+          <div class="vinyl pointer-events-none absolute -bottom-24 -right-24 w-72 border-[14px] border-ink transition-transform duration-700 group-hover:rotate-180 motion-reduce:transition-none sm:w-80" aria-hidden="true"></div>
+        </section>
 
-        <!-- Label Sumbu Frekuensi Hz Mono Redup -->
-        <div class="pointer-events-none absolute inset-x-0 bottom-2 -z-10 flex justify-between px-6 font-mono text-[11px] text-ink-muted/50 tracking-wider" aria-hidden="true">
-          <span>20 Hz</span>
-          <span>100 Hz</span>
-          <span>1k Hz</span>
-          <span>10k Hz</span>
-          <span>20k Hz</span>
+        <!-- Pilihan utama (1x2) -->
+        <article class="hero-visual group col-span-2 flex flex-col rounded-card border-2 border-ink bg-surface p-4 sm:col-span-1 lg:row-span-2">
+          <span class="self-start rounded-btn bg-ink px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-bg">Pilihan utama</span>
+          <a href="product-detail.html?id=iem-003" class="photo-tile mt-3 transition group-hover:-rotate-2">
+            <img src="assets/images/products/7hz timeless.png" alt="7Hz Timeless Planar Magnetic IEM" />
+          </a>
+          <h2 class="mt-3 text-2xl">7Hz Timeless</h2>
+          <dl class="mt-3 grid grid-cols-2 gap-2 font-mono text-xs">
+            <div class="rounded-xl bg-surface-2 p-2"><dt class="text-ink-muted">Driver</dt><dd class="font-bold">14.2mm Planar</dd></div>
+            <div class="rounded-xl bg-surface-2 p-2"><dt class="text-ink-muted">Impedansi</dt><dd class="font-bold">14.8Ω</dd></div>
+          </dl>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="font-mono text-lg font-bold text-accent-strong">Rp 3.150.000</span>
+            <button onclick="window.aupiioAddToCart('iem-003', 1)" class="flex h-11 w-11 items-center justify-center rounded-btn bg-accent text-white transition hover:bg-accent-hover" aria-label="Tambah 7Hz Timeless ke keranjang">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Trust: original (1x1) -->
+        <div class="hero-trust flex flex-col justify-between rounded-card bg-mustard p-5 text-ink">
+          <i class="bi bi-patch-check text-3xl" aria-hidden="true"></i>
+          <div>
+            <p class="font-display text-2xl font-extrabold leading-none">100% ori</p>
+            <p class="mt-1 text-sm">Unit resmi distributor.</p>
+          </div>
         </div>
 
-        <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12">
-          <!-- Kolom Teks Hero (7 Kolom) -->
-          <div class="lg:col-span-7">
-            <!-- Headline dari COPY: Font Fraunces, text-wrap: balance -->
-            <h1 class="font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl lg:text-6xl [text-wrap:balance]" style="text-wrap: balance;">
-              Dengar detail yang sebelumnya tersembunyi.
-            </h1>
-            <!-- Subteks dari COPY (tanpa klaim pemasaran fiktif) -->
-            <p class="hero-subtext mt-5 max-w-xl text-base text-ink-muted sm:text-lg">
-              Pilihan IEM, DAC/Amp, DAP, TWS, kabel, dan eartips untuk pendengar yang peduli detail.
-            </p>
-            <!-- Tombol Aksi Hero -->
-            <div class="hero-actions mt-8 flex flex-wrap gap-4">
-              <a
-                href="produk.html"
-                class="hero-btn inline-flex items-center justify-center rounded-btn bg-accent px-6 py-3 font-semibold text-accent-ink transition hover:bg-accent-hover"
-              >
-                Belanja Sekarang
-                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-              <a
-                href="panduan.html"
-                class="hero-btn inline-flex items-center justify-center rounded-btn border border-line bg-surface px-6 py-3 font-medium text-ink transition hover:border-accent hover:text-accent-strong"
-              >
-                Panduan Pemula Audio
-              </a>
-            </div>
+        <!-- Trust: konsultasi (1x1) -->
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="flex flex-col justify-between rounded-card bg-cobalt p-5 text-white transition hover:-translate-y-1">
+          <i class="bi bi-whatsapp text-3xl" aria-hidden="true"></i>
+          <div>
+            <p class="font-display text-2xl font-extrabold leading-none">Bingung pilih?</p>
+            <p class="mt-1 text-sm">Konsultasi karakter suara gratis <i class="bi bi-arrow-up-right" aria-hidden="true"></i></p>
+          </div>
+        </a>
 
-            <!-- Baris Kepercayaan Kecil di Bawah Tombol (3 Item dari COPY, Ikon Garis SVG Stroke 1.5) -->
-            <div class="hero-trust mt-8 flex flex-wrap items-center gap-6 border-t border-line/60 pt-6 text-xs text-ink-muted">
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-                <span>Produk Original</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="8" r="6"></circle>
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                </svg>
-                <span>Garansi Distributor</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-                <span>Pengemasan Aman</span>
-              </div>
+        <!-- Kategori -->
+        <a href="catalog.html?cat=iem" class="group flex flex-col justify-between rounded-card bg-cobalt p-5 text-white transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest">Kategori</span>
+          <span class="flex items-end justify-between font-display text-4xl font-extrabold leading-none">IEM <i class="bi bi-arrow-up-right text-2xl transition group-hover:rotate-45" aria-hidden="true"></i></span>
+        </a>
+        <a href="catalog.html?cat=dac-amp" class="group flex flex-col justify-between rounded-card bg-mustard p-5 text-ink transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest">Kategori</span>
+          <span class="flex items-end justify-between font-display text-4xl font-extrabold leading-none">DAC<br />&amp; Amp <i class="bi bi-arrow-up-right text-2xl transition group-hover:rotate-45" aria-hidden="true"></i></span>
+        </a>
+        <a href="catalog.html?cat=aksesoris" class="group flex flex-col justify-between rounded-card border-2 border-ink bg-surface p-5 text-ink transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">Kategori</span>
+          <span class="flex items-end justify-between font-display text-4xl font-extrabold leading-none">Aksesoris <i class="bi bi-arrow-up-right text-2xl transition group-hover:rotate-45" aria-hidden="true"></i></span>
+        </a>
+        <a href="catalog.html" class="group flex flex-col justify-between rounded-card bg-ink p-5 text-bg transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest text-band-accent">Semua</span>
+          <span class="flex items-end justify-between font-display text-4xl font-extrabold leading-none">Katalog <i class="bi bi-arrow-right text-2xl transition group-hover:translate-x-1" aria-hidden="true"></i></span>
+        </a>
+
+        <!-- Sound signature (2x1) -->
+        <section class="col-span-2 rounded-card border-2 border-ink bg-surface p-5 sm:p-6" data-reveal>
+          <h2 class="text-3xl">Cari dari <span class="font-serif font-normal italic">rasa</span> suaranya</h2>
+          <p class="mt-1 text-sm text-ink-muted">Pilih karakter yang kamu suka, kami tunjukkan gear-nya.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-sm font-bold">
+            <a href="catalog.html?sig=warm" class="rounded-btn bg-accent px-4 py-2 text-white transition hover:-translate-y-0.5">Warm</a>
+            <a href="catalog.html?sig=neutral" class="rounded-btn border-2 border-ink px-4 py-2 transition hover:-translate-y-0.5">Neutral</a>
+            <a href="catalog.html?sig=vshaped" class="rounded-btn bg-mustard px-4 py-2 transition hover:-translate-y-0.5">V-shaped</a>
+            <a href="catalog.html?sig=bright" class="rounded-btn bg-cobalt px-4 py-2 text-white transition hover:-translate-y-0.5">Bright</a>
+            <a href="catalog.html?sig=bassy" class="rounded-btn bg-ink px-4 py-2 text-bg transition hover:-translate-y-0.5">Bassy</a>
+            <a href="catalog.html?sig=analitis" class="rounded-btn border-2 border-ink px-4 py-2 transition hover:-translate-y-0.5">Analitis</a>
+          </div>
+        </section>
+
+        <!-- Testimoni (2x1) — DATA CONTOH -->
+        <figure class="col-span-2 flex flex-col justify-between rounded-card bg-ink p-6 text-bg" data-reveal>
+          <blockquote class="font-serif text-2xl leading-snug sm:text-3xl">
+            “Disaranin Wan'er buat dengerin akustik, dan beneran pas. Vokal tebal tanpa bikin capek.”
+          </blockquote>
+          <figcaption class="mt-4 flex items-center gap-3 text-sm text-band-muted">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-mustard font-bold text-ink" aria-hidden="true">D</span>
+            Dimas R., pembeli
+          </figcaption>
+        </figure>
+
+        <!-- Judul produk unggulan -->
+        <div class="col-span-2 flex items-end justify-between pt-6 lg:col-span-4" data-reveal>
+          <h2 class="text-4xl sm:text-5xl">Lagi <span class="font-serif font-normal italic">diputar</span></h2>
+          <a href="catalog.html" class="inline-flex items-center gap-1 rounded-btn border-2 border-ink px-4 py-2 text-sm font-bold transition hover:bg-ink hover:text-bg">
+            Semua <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Produk -->
+        <article class="group flex flex-col rounded-card border-2 border-ink bg-surface p-3 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]" data-reveal>
+          <a href="product-detail.html?id=iem-001" class="photo-tile"><img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" loading="lazy" /></a>
+          <div class="flex flex-1 flex-col px-1 pt-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-ink-muted">Tangzu · Warm</span>
+            <h3 class="mt-1 font-bold leading-tight"><a href="product-detail.html?id=iem-001" class="hover:text-accent-strong">Tangzu Wan'er S.G</a></h3>
+            <div class="mt-auto flex items-center justify-between pt-3">
+              <span class="font-mono font-bold text-accent-strong">Rp 320.000</span>
+              <button onclick="window.aupiioAddToCart('iem-001', 1)" class="flex h-10 w-10 items-center justify-center rounded-btn bg-ink text-bg transition hover:bg-accent" aria-label="Tambah Tangzu Wan'er S.G ke keranjang"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
             </div>
           </div>
-
-          <!-- Kolom Kanan: Kartu Produk Pilihan Utama (5 Kolom) -->
-          <div class="lg:col-span-5 text-center">
-            <div
-              class="hero-visual relative mx-auto w-full max-w-sm rounded-card border border-line bg-surface p-6 shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)]"
-            >
-              <!-- Kotak Foto (bg-photo-tile, aspect-square) -->
-              <div class="photo-tile relative aspect-square w-full rounded-btn bg-photo-tile overflow-hidden border border-line/60">
-                <img
-                  src="assets/images/products/7hz timeless.png"
-                  alt="7Hz Timeless Planar Magnetic IEM"
-                  class="h-full w-full object-contain p-[8%] mix-blend-multiply"
-                  onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-                />
-                <!-- Fallback Kotak Polos Berteks 'Foto produk' Tanpa Ikon -->
-                <div class="photo-tile-fallback hidden absolute inset-0 flex items-center justify-center font-mono text-xs text-ink-muted tracking-wider uppercase">
-                  Foto produk
-                </div>
-              </div>
-
-              <!-- 3 Keterangan Spek Bergaya Mono Terhubung ke Foto dengan Garis Tipis -->
-              <div class="mt-4 grid grid-cols-3 gap-2 border-t border-line/80 pt-3">
-                <div class="relative text-center">
-                  <span class="block text-[10px] uppercase tracking-wider text-ink-muted">Driver</span>
-                  <span class="font-mono text-xs font-semibold text-ink">14.2mm Planar</span>
-                </div>
-                <div class="relative text-center border-x border-line/80 px-1">
-                  <span class="block text-[10px] uppercase tracking-wider text-ink-muted">Impedansi</span>
-                  <span class="font-mono text-xs font-semibold text-ink">14.8Ω @ 1kHz</span>
-                </div>
-                <div class="relative text-center">
-                  <span class="block text-[10px] uppercase tracking-wider text-ink-muted">Bodi</span>
-                  <span class="font-mono text-xs font-semibold text-ink">CNC Aluminum</span>
-                </div>
-              </div>
-
-              <!-- Info Produk: Label Pilihan Utama, Nama, Harga Mono -->
-              <div class="mt-4 border-t border-line pt-3 text-left">
-                <span class="text-[11px] font-semibold uppercase tracking-widest text-ink-muted">Pilihan Utama</span>
-                <h3 class="mt-0.5 font-display text-lg font-semibold text-ink">7Hz Timeless Planar</h3>
-                <span class="mt-1 block font-mono text-base font-bold text-accent-strong tabular-nums">Rp 3.150.000</span>
-              </div>
+        </article>
+        <article class="group flex flex-col rounded-card border-2 border-ink bg-surface p-3 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]" data-reveal>
+          <a href="product-detail.html?id=iem-002" class="photo-tile"><img src="assets/images/products/moondrop chu 2.png" alt="Moondrop Chu II" loading="lazy" /></a>
+          <div class="flex flex-1 flex-col px-1 pt-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-ink-muted">Moondrop · Neutral</span>
+            <h3 class="mt-1 font-bold leading-tight"><a href="product-detail.html?id=iem-002" class="hover:text-accent-strong">Moondrop Chu II</a></h3>
+            <div class="mt-auto flex items-center justify-between pt-3">
+              <span class="font-mono font-bold text-accent-strong">Rp 350.000</span>
+              <button onclick="window.aupiioAddToCart('iem-002', 1)" class="flex h-10 w-10 items-center justify-center rounded-btn bg-ink text-bg transition hover:bg-accent" aria-label="Tambah Moondrop Chu II ke keranjang"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
             </div>
+          </div>
+        </article>
+        <article class="group flex flex-col rounded-card border-2 border-ink bg-surface p-3 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]" data-reveal>
+          <a href="product-detail.html?id=iem-003" class="photo-tile"><img src="assets/images/products/7hz timeless.png" alt="7Hz Timeless Planar" loading="lazy" /></a>
+          <div class="flex flex-1 flex-col px-1 pt-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-ink-muted">7Hz · Analitis</span>
+            <h3 class="mt-1 font-bold leading-tight"><a href="product-detail.html?id=iem-003" class="hover:text-accent-strong">7Hz Timeless Planar</a></h3>
+            <p class="text-xs font-bold text-warn">Sisa 2 unit</p>
+            <div class="mt-auto flex items-center justify-between pt-3">
+              <span class="font-mono font-bold text-accent-strong">Rp 3.150.000</span>
+              <button onclick="window.aupiioAddToCart('iem-003', 1)" class="flex h-10 w-10 items-center justify-center rounded-btn bg-ink text-bg transition hover:bg-accent" aria-label="Tambah 7Hz Timeless Planar ke keranjang"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </article>
+        <article class="group flex flex-col rounded-card border-2 border-ink bg-surface p-3 transition hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]" data-reveal>
+          <a href="product-detail.html?id=dac-001" class="photo-tile"><img src="assets/images/products/fiio ka13.png" alt="FiiO KA13 Portable DAC" loading="lazy" /></a>
+          <div class="flex flex-1 flex-col px-1 pt-3">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-ink-muted">FiiO · DAC</span>
+            <h3 class="mt-1 font-bold leading-tight"><a href="product-detail.html?id=dac-001" class="hover:text-accent-strong">FiiO KA13 Portable DAC</a></h3>
+            <div class="mt-auto flex items-center justify-between pt-3">
+              <span class="font-mono font-bold text-accent-strong">Rp 1.150.000</span>
+              <button onclick="window.aupiioAddToCart('dac-001', 1)" class="flex h-10 w-10 items-center justify-center rounded-btn bg-ink text-bg transition hover:bg-accent" aria-label="Tambah FiiO KA13 ke keranjang"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Panduan + trust penutup -->
+        <a href="about.html" class="group col-span-2 flex flex-col justify-between rounded-card bg-mustard p-6 text-ink transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest">Panduan pemula</span>
+          <div>
+            <h2 class="mt-6 text-3xl">Cara memilih IEM pertama berdasarkan genre musik</h2>
+            <p class="mt-2 max-w-md text-sm">Dynamic, planar, atau balanced armature: bedanya apa, dan mana yang cocok buat kamu.</p>
+          </div>
+          <span class="mt-4 inline-flex items-center gap-2 font-bold">Baca panduan <i class="bi bi-arrow-right transition group-hover:translate-x-1" aria-hidden="true"></i></span>
+        </a>
+        <a href="about.html" class="group flex flex-col justify-between rounded-card border-2 border-ink bg-surface p-5 transition hover:-translate-y-1" data-reveal>
+          <span class="font-mono text-xs uppercase tracking-widest text-ink-muted">Hardware</span>
+          <h2 class="mt-4 text-xl leading-tight">Perlukah ponselmu dongle DAC?</h2>
+          <i class="bi bi-arrow-right mt-3 transition group-hover:translate-x-1" aria-hidden="true"></i>
+        </a>
+        <div class="flex flex-col justify-between rounded-card bg-accent p-5 text-white" data-reveal>
+          <i class="bi bi-box-seam text-3xl" aria-hidden="true"></i>
+          <div>
+            <p class="font-display text-2xl font-extrabold leading-none">Packing hardbox</p>
+            <p class="mt-1 text-sm">Bubble wrap tebal di tiap paket.</p>
           </div>
         </div>
-      </section>
-
-      <!-- Kategori Cepat (7 Ubin Kategori Audio, Ikon Garis Inline SVG Satu Keluarga) -->
-      <section class="border-b border-line bg-surface py-10" data-reveal>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-          <div class="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-            <!-- 1. IEM -->
-            <a href="produk.html?kategori=iem" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 14h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2"></path>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">IEM</span>
-            </a>
-
-            <!-- 2. DAC / Amp -->
-            <a href="produk.html?kategori=dac-amp" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <circle cx="8" cy="12" r="2.5"></circle>
-                <line x1="14" y1="9" x2="18" y2="9"></line>
-                <line x1="14" y1="15" x2="18" y2="15"></line>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">DAC / Amp</span>
-            </a>
-
-            <!-- 3. DAP -->
-            <a href="produk.html?kategori=dap" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="5" y="2" width="14" height="20" rx="2"></rect>
-                <rect x="8" y="5" width="8" height="6" rx="1"></rect>
-                <circle cx="12" cy="16" r="2.5"></circle>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">DAP</span>
-            </a>
-
-            <!-- 4. TWS -->
-            <a href="produk.html?kategori=tws" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="7" cy="8" r="3.5"></circle>
-                <path d="M7 11.5V17a2 2 0 0 0 2 2"></path>
-                <circle cx="17" cy="8" r="3.5"></circle>
-                <path d="M17 11.5V17a2 2 0 0 1-2 2"></path>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">TWS</span>
-            </a>
-
-            <!-- 5. Kabel -->
-            <a href="produk.html?kategori=kabel" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 12c2.5-4 6-4 8 0s5.5 4 8 0"></path>
-                <line x1="2" y1="12" x2="4" y2="12"></line>
-                <line x1="20" y1="12" x2="22" y2="12"></line>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">Kabel</span>
-            </a>
-
-            <!-- 6. Eartips -->
-            <a href="produk.html?kategori=eartips" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <ellipse cx="12" cy="12" rx="8" ry="5"></ellipse>
-                <ellipse cx="12" cy="12" rx="4" ry="2.5"></ellipse>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">Eartips</span>
-            </a>
-
-            <!-- 7. Aksesoris -->
-            <a href="produk.html?kategori=aksesoris" class="group flex flex-col items-center rounded-card border border-line bg-bg p-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-accent">
-              <svg class="h-6 w-6 text-accent transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="7" width="18" height="14" rx="2"></rect>
-                <path d="M8 7V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"></path>
-              </svg>
-              <span class="mt-2.5 text-xs font-semibold text-ink group-hover:text-accent-strong">Aksesoris</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Cari Berdasarkan Karakter Suara -->
-      <section class="border-b border-line bg-bg py-6" data-reveal>
-        <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6">
-          <div class="flex items-center gap-2 text-sm text-ink-muted">
-            <i class="bi bi-sliders text-accent"></i>
-            <span class="font-semibold uppercase tracking-wider text-ink">Sound Signature:</span>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <a href="catalog.html?sig=warm" class="rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">Warm</a>
-            <a href="catalog.html?sig=neutral" class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent-strong">Neutral</a>
-            <a href="catalog.html?sig=vshaped" class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent-strong">V-shaped</a>
-            <a href="catalog.html?sig=bright" class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent-strong">Bright</a>
-            <a href="catalog.html?sig=bassy" class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent-strong">Bassy</a>
-            <a href="catalog.html?sig=analitis" class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent-strong">Analitis</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Produk Unggulan Audiophile (Tailwind Grid + GSAP Batch Reveal) -->
-      <section class="py-16 md:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-          <div class="mb-10 flex items-end justify-between" data-reveal>
-            <div>
-              <span class="text-xs uppercase tracking-widest text-ink-muted">Kurasi Pilihan</span>
-              <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Produk Unggulan Audiophile</h2>
-            </div>
-            <a href="catalog.html" class="inline-flex items-center gap-1 text-sm font-semibold text-accent-strong hover:underline">
-              Semua Katalog <i class="bi bi-chevron-right text-xs"></i>
-            </a>
-          </div>
-
-          <div class="grid grid-cols-2 gap-5 md:grid-cols-3 xl:grid-cols-4">
-            <!-- Card 1: Tangzu Wan'er -->
-            <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
-              <a href="product-detail.html?id=iem-001" class="photo-tile transition group-hover:scale-105">
-                <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
-              </a>
-              <div class="flex flex-1 flex-col p-4">
-                <div class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</div>
-                <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                  <a href="product-detail.html?id=iem-001" class="transition hover:text-accent-strong">Tangzu Wan'er S.G</a>
-                </h3>
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Warm</span>
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">1 DD</span>
-                </div>
-                <div class="mt-auto pt-4 flex items-center justify-between">
-                  <div>
-                    <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 320.000</span>
-                    <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
-                  </div>
-                  <button
-                    onclick="window.aupiioAddToCart('iem-001', 1)"
-                    class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                    title="Tambah ke Keranjang"
-                  >
-                    <i class="bi bi-cart-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 2: Moondrop Chu II -->
-            <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
-              <a href="product-detail.html?id=iem-002" class="photo-tile transition group-hover:scale-105">
-                <img src="assets/images/products/moondrop chu 2.png" alt="Moondrop Chu II" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
-              </a>
-              <div class="flex flex-1 flex-col p-4">
-                <div class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</div>
-                <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                  <a href="product-detail.html?id=iem-002" class="transition hover:text-accent-strong">Moondrop Chu II</a>
-                </h3>
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Neutral</span>
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Al-Mg DD</span>
-                </div>
-                <div class="mt-auto pt-4 flex items-center justify-between">
-                  <div>
-                    <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 350.000</span>
-                    <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
-                  </div>
-                  <button
-                    onclick="window.aupiioAddToCart('iem-002', 1)"
-                    class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                    title="Tambah ke Keranjang"
-                  >
-                    <i class="bi bi-cart-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 3: 7Hz Timeless -->
-            <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
-              <a href="product-detail.html?id=iem-003" class="photo-tile transition group-hover:scale-105">
-                <img src="assets/images/products/7hz timeless.png" alt="7Hz Timeless Planar" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
-              </a>
-              <div class="flex flex-1 flex-col p-4">
-                <div class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz Audio</div>
-                <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                  <a href="product-detail.html?id=iem-003" class="transition hover:text-accent-strong">7Hz Timeless Planar</a>
-                </h3>
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Analitis</span>
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Planar</span>
-                </div>
-                <div class="mt-auto pt-4 flex items-center justify-between">
-                  <div>
-                    <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 3.150.000</span>
-                    <small class="block text-[11px] text-warn"><i class="bi bi-exclamation-circle-fill mr-1"></i>Sisa 2 unit</small>
-                  </div>
-                  <button
-                    onclick="window.aupiioAddToCart('iem-003', 1)"
-                    class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                    title="Tambah ke Keranjang"
-                  >
-                    <i class="bi bi-cart-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 4: FiiO KA13 -->
-            <article class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(28,25,23,.06),0_8px_24px_rgba(28,25,23,.08)] transition hover:-translate-y-1 hover:border-accent" data-reveal>
-              <a href="product-detail.html?id=dac-001" class="photo-tile transition group-hover:scale-105">
-                <img src="assets/images/products/fiio ka13.png" alt="FiiO KA13 Portable DAC" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
-              </a>
-              <div class="flex flex-1 flex-col p-4">
-                <div class="text-[11px] uppercase tracking-wider text-ink-muted">FiiO</div>
-                <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                  <a href="product-detail.html?id=dac-001" class="transition hover:text-accent-strong">FiiO KA13 Portable DAC</a>
-                </h3>
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Dual CS43131</span>
-                  <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">4.4mm</span>
-                </div>
-                <div class="mt-auto pt-4 flex items-center justify-between">
-                  <div>
-                    <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 1.150.000</span>
-                    <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
-                  </div>
-                  <button
-                    onclick="window.aupiioAddToCart('dac-001', 1)"
-                    class="rounded-btn border border-line p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                    title="Tambah ke Keranjang"
-                  >
-                    <i class="bi bi-cart-plus"></i>
-                  </button>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pita Kepercayaan (bg-band, teks band-ink, Ikon Garis Inline SVG dari COPY) -->
-      <section class="border-y border-line bg-band py-12 text-band-ink" data-reveal>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <!-- Item 1: Original -->
-            <div class="flex items-start gap-3.5">
-              <svg class="h-6 w-6 shrink-0 text-band-accent mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <polyline points="9 12 11 14 15 10"></polyline>
-              </svg>
-              <div>
-                <h3 class="text-sm font-semibold text-band-ink">100% Produk Original</h3>
-                <p class="mt-1 text-xs text-band-muted">Unit resmi distributor dengan jaminan keaslian.</p>
-              </div>
-            </div>
-
-            <!-- Item 2: Garansi -->
-            <div class="flex items-start gap-3.5">
-              <svg class="h-6 w-6 shrink-0 text-band-accent mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="8" r="6"></circle>
-                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-              </svg>
-              <div>
-                <h3 class="text-sm font-semibold text-band-ink">Garansi Resmi Distributor</h3>
-                <p class="mt-1 text-xs text-band-muted">Bantuan klaim garansi tanpa prosedur berbelit.</p>
-              </div>
-            </div>
-
-            <!-- Item 3: Pengemasan -->
-            <div class="flex items-start gap-3.5">
-              <svg class="h-6 w-6 shrink-0 text-band-accent mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-              <div>
-                <h3 class="text-sm font-semibold text-band-ink">Pengemasan Ekstra Rapi</h3>
-                <p class="mt-1 text-xs text-band-muted">Lapisan hardbox & bubble wrap tebal untuk tiap paket.</p>
-              </div>
-            </div>
-
-            <!-- Item 4: Konsultasi -->
-            <div class="flex items-start gap-3.5">
-              <svg class="h-6 w-6 shrink-0 text-band-accent mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                <line x1="8" y1="9" x2="16" y2="9"></line>
-                <line x1="8" y1="13" x2="13" y2="13"></line>
-              </svg>
-              <div>
-                <h3 class="text-sm font-semibold text-band-ink">Konsultasi Karakter Suara</h3>
-                <p class="mt-1 text-xs text-band-muted">Diskusi kebutuhan sound signature sebelum Anda membeli.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Panduan & Ulasan Pelanggan -->
-      <section class="py-16 md:py-20">
-        <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12">
-          <!-- Artikel Panduan -->
-          <div class="lg:col-span-7" data-reveal>
-            <h3 class="font-display text-2xl font-semibold text-ink mb-6">
-              <i class="bi bi-journal-bookmark mr-2 text-accent"></i>Panduan Audiophile Terbaru
-            </h3>
-
-            <div class="flex flex-col gap-4">
-              <article class="rounded-card border border-line bg-surface p-5 transition hover:border-accent">
-                <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">Panduan Pemula</span>
-                <h4 class="mt-2 text-base font-semibold text-ink">
-                  <a href="about.html" class="hover:text-accent-strong">Cara Memilih IEM Pertama Berdasarkan Genre Musik</a>
-                </h4>
-                <p class="mt-1 text-xs text-ink-muted">
-                  Pelajari perbedaan karakter Dynamic Driver, Planar Magnetic, dan Balanced Armature sebelum menentukan pilihan Anda.
-                </p>
-              </article>
-
-              <article class="rounded-card border border-line bg-surface p-5 transition hover:border-accent">
-                <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">Hardware & Setup</span>
-                <h4 class="mt-2 text-base font-semibold text-ink">
-                  <a href="about.html" class="hover:text-accent-strong">Apakah Smartphone Anda Membutuhkan Dongle DAC?</a>
-                </h4>
-                <p class="mt-1 text-xs text-ink-muted">
-                  Penjelasan impedansi rendah, sensitivitas tinggi, dan cara membersihkan noise desis latar pada audio ponsel.
-                </p>
-              </article>
-            </div>
-          </div>
-
-          <!-- Ulasan Pengguna -->
-          <div class="lg:col-span-5" data-reveal>
-            <h3 class="font-display text-2xl font-semibold text-ink mb-6">
-              <i class="bi bi-chat-quote mr-2 text-accent"></i>Impresi Pembeli Nyata
-            </h3>
-
-            <div class="flex flex-col gap-4">
-              <div class="rounded-card border border-line bg-surface p-5 shadow-sm">
-                <div class="flex text-warn text-xs mb-2">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p class="text-sm italic text-ink">
-                  "Konsultasi via WA ramah banget! Disaranin Wan'er buat dengerin akustik dan beneran pas di kuping, vokal tebal tanpa bikin capek."
-                </p>
-                <span class="mt-3 block text-xs font-semibold text-ink-muted">— Dimas R. (Pembeli Terverifikasi)</span>
-              </div>
-
-              <div class="rounded-card border border-line bg-surface p-5 shadow-sm">
-                <div class="flex text-warn text-xs mb-2">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p class="text-sm italic text-ink">
-                  "Packing hardbox-nya tebal parah, IEM planar mahal aman sampai Jogja. Rekomendasi buat penikmat audio."
-                </p>
-                <span class="mt-3 block text-xs font-semibold text-ink-muted">— Adrian K. (Pembeli Terverifikasi)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
 
-    <!-- Footer (Pita Gelap Sesuai Section 2.2 & 5.2) -->
-    <footer class="border-t border-line bg-band py-12 text-sm text-band-muted">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="grid grid-cols-1 gap-8 pb-8 md:grid-cols-4">
-          <div class="md:col-span-1">
-            <a class="font-display text-xl font-semibold tracking-wide text-band-ink" href="index.html">
-              aup<span class="text-band-accent">iio</span>
+    <!-- Footer (sama di semua halaman) -->
+    <footer class="mt-16 bg-band text-band-muted">
+      <div class="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div class="col-span-2 md:col-span-1">
+            <p class="text-sm leading-relaxed">Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk telinga yang peduli detail.</p>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 rounded-btn bg-mustard px-4 py-2 text-sm font-bold text-ink transition hover:bg-band-ink">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Konsultasi via WhatsApp
             </a>
-            <p class="mt-3 text-xs leading-relaxed text-band-muted">
-              Kurasi khusus personal audio, IEM, DAC/Amp, dan kabel kemurnian tinggi. Kami menghormati data teknis dan kepuasan telinga Anda.
-            </p>
           </div>
           <div>
-            <h5 class="text-sm font-semibold text-band-ink">Navigasi</h5>
-            <ul class="mt-3 flex flex-col gap-2 text-xs">
-              <li><a href="index.html" class="hover:text-band-accent">Beranda</a></li>
-              <li><a href="catalog.html" class="hover:text-band-accent">Katalog Lengkap</a></li>
-              <li><a href="about.html" class="hover:text-band-accent">Panduan Audio</a></li>
-              <li><a href="contact.html" class="hover:text-band-accent">Kontak & Garansi</a></li>
+            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Belanja</h2>
+            <ul class="mt-4 flex flex-col gap-2 text-sm">
+              <li><a href="catalog.html" class="hover:text-band-ink">Semua Produk</a></li>
+              <li><a href="catalog.html?cat=iem" class="hover:text-band-ink">In-Ear Monitor</a></li>
+              <li><a href="catalog.html?cat=dac-amp" class="hover:text-band-ink">DAC &amp; Amp</a></li>
+              <li><a href="catalog.html?cat=aksesoris" class="hover:text-band-ink">Aksesoris</a></li>
             </ul>
           </div>
           <div>
-            <h5 class="text-sm font-semibold text-band-ink">Kategori Gear</h5>
-            <ul class="mt-3 flex flex-col gap-2 text-xs">
-              <li><a href="catalog.html?cat=iem" class="hover:text-band-accent">In-Ear Monitors</a></li>
-              <li><a href="catalog.html?cat=dac-amp" class="hover:text-band-accent">DAC & Amplifier</a></li>
-              <li><a href="catalog.html?cat=kabel" class="hover:text-band-accent">Kabel 4.4mm/3.5mm</a></li>
-              <li><a href="catalog.html?cat=eartips" class="hover:text-band-accent">Eartips SpinFit</a></li>
+            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Toko</h2>
+            <ul class="mt-4 flex flex-col gap-2 text-sm">
+              <li><a href="about.html" class="hover:text-band-ink">Tentang &amp; Panduan</a></li>
+              <li><a href="contact.html" class="hover:text-band-ink">Kontak &amp; Garansi</a></li>
+              <li><a href="cart.html" class="hover:text-band-ink">Keranjang</a></li>
             </ul>
           </div>
           <div>
-            <h5 class="text-sm font-semibold text-band-ink">Konsultasi</h5>
-            <p class="mt-3 text-xs text-band-muted">Butuh saran pemilihan sound signature?</p>
-            <a href="https://wa.me/6281234567890" target="_blank" class="mt-3 inline-flex items-center gap-2 rounded-btn border border-line px-3 py-1.5 text-xs text-band-ink transition hover:border-band-accent hover:text-band-accent">
-              <i class="bi bi-whatsapp text-ok"></i> WhatsApp Consultant
-            </a>
+            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Jam Buka</h2>
+            <p class="mt-4 text-sm">Senin–Sabtu, 09.00–21.00 WIB</p>
           </div>
         </div>
-        <div class="flex flex-col items-center justify-between gap-4 border-t border-line/40 pt-6 text-xs text-band-muted sm:flex-row">
-          <span>&copy; 2026 aupiio. Stack: Tailwind CSS v4 + GSAP + Lenis.</span>
-          <span>Dibuat untuk Proyek Web Fundamental.</span>
+        <p class="mt-12 select-none font-display text-[22vw] font-extrabold leading-[0.8] tracking-tighter text-band-ink md:text-[17vw] xl:text-[15rem]" aria-hidden="true">aup<span class="text-accent">iio</span></p>
+        <div class="flex flex-col gap-2 border-t border-band-muted/30 py-5 text-xs sm:flex-row sm:justify-between">
+          <span>&copy; 2026 aupiio</span>
+          <span>Proyek Web Fundamental</span>
         </div>
       </div>
     </footer>
@@ -716,7 +331,7 @@
       data-lenis-prevent
     >
       <div class="flex items-center justify-between border-b border-line p-4">
-        <h2 id="miniCartLabel" class="font-display text-lg font-semibold text-ink flex items-center gap-2">
+        <h2 id="miniCartLabel" class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2">
           <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -736,7 +351,7 @@
               <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
             <p class="text-xs">Keranjang Anda masih kosong.</p>
-            <a href="produk.html" class="inline-flex mt-4 items-center justify-center rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+            <a href="catalog.html" class="inline-flex mt-4 items-center justify-center rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
               Jelajahi Katalog
             </a>
           </div>
@@ -748,7 +363,7 @@
             <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
           </div>
           <div class="flex flex-col gap-2">
-            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border border-line py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent">
+            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent">
               Buka Halaman Keranjang
             </a>
             <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
