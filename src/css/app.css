@@ -73,6 +73,12 @@
 /* Dasar halaman */
 @layer base {
   html { background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
+  /* Tekstur titik halus: mengisi margin kosong di layar lebar, kartu tetap solid di atasnya */
+  body {
+    background-color: var(--bg);
+    background-image: radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1px, transparent 1.6px);
+    background-size: 22px 22px;
+  }
   body { line-height: 1.7; }
   h1, h2 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
   :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
@@ -106,6 +112,77 @@
       radial-gradient(circle, var(--mustard) 0 15%, var(--ink) 15.5% 17%, transparent 17.5%),
       repeating-radial-gradient(circle, #1A1714 0 2px, #322C27 2px 4px);
   }
+}
+
+/* Scrollbar sesuai tema: thumb tomat di atas track krem */
+html { scrollbar-color: var(--accent) var(--surface-2); }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--surface-2); }
+::-webkit-scrollbar-thumb { background: var(--accent); border: 3px solid var(--surface-2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
+
+/* Offcanvas <dialog>: backdrop gelap; tanpa animasi bila reduced motion */
+dialog::backdrop { background: rgb(26 23 20 / 0.55); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* allow-discrete menahan display/overlay sampai slide keluar selesai (Firefox: tutup tanpa animasi) */
+  dialog {
+    transition: translate 0.3s cubic-bezier(0.32, 0.72, 0, 1), display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+  }
+  dialog.right-0 { translate: 100% 0; }
+  dialog.left-0 { translate: -100% 0; }
+  dialog[open] { translate: 0 0; }
+  dialog::backdrop {
+    background: rgb(26 23 20 / 0);
+    transition: background-color 0.3s, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+  }
+  dialog[open]::backdrop { background: rgb(26 23 20 / 0.55); }
+  @starting-style {
+    dialog[open].right-0 { translate: 100% 0; }
+    dialog[open].left-0 { translate: -100% 0; }
+    dialog[open]::backdrop { background: rgb(26 23 20 / 0); }
+  }
+}
+
+/* Micro animation global: menempel ke class yang sudah dipakai di semua halaman */
+@media (prefers-reduced-motion: no-preference) {
+  @layer components {
+    /* Tombol & chip pill: membal saat ditekan */
+    .rounded-btn { transition: transform 0.15s ease, background-color 0.2s, color 0.2s, box-shadow 0.2s; }
+    .rounded-btn:active { transform: scale(0.95); }
+
+    /* Kartu yang bisa diklik: terangkat + bayangan keras */
+    a.rounded-card, article.rounded-card, label.rounded-2xl { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    a.rounded-card:hover, article.rounded-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--ink); }
+    label.rounded-2xl:hover { transform: translateY(-2px); }
+
+    /* Foto produk: miring sedikit saat kartunya di-hover */
+    .photo-tile img { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .group:hover .photo-tile img, .photo-tile:hover img { transform: scale(1.06) rotate(-3deg); }
+
+    /* Ikon panah ikut bergeser */
+    .bi-arrow-right, .bi-arrow-up-right, .bi-chevron-right { display: inline-block; transition: transform 0.2s ease; }
+    a:hover > .bi-arrow-right, button:hover > .bi-arrow-right, a:hover .bi-chevron-right { transform: translateX(4px); }
+    a:hover > .bi-arrow-up-right, a:hover span > .bi-arrow-up-right, a:hover p > .bi-arrow-up-right { transform: translate(3px, -3px); }
+
+    /* Ikon tambah ke keranjang berputar */
+    .bi-plus-lg, .bi-cart-plus { display: inline-block; transition: transform 0.25s ease; }
+    button:hover > .bi-plus-lg { transform: rotate(90deg); }
+    button:hover > .bi-cart-plus { transform: translateY(-2px); }
+
+    /* Input fokus: bayangan offset tomat */
+    input:not([type="checkbox"], [type="radio"]), textarea, select { transition: box-shadow 0.15s ease, transform 0.15s ease; }
+    input:not([type="checkbox"], [type="radio"]):focus, textarea:focus, select:focus { box-shadow: 4px 4px 0 var(--accent); transform: translate(-1px, -1px); outline: none; }
+
+    /* Wordmark: "iio" bergoyang saat di-hover */
+    a:hover > .text-accent:only-child { display: inline-block; animation: wobble 0.5s ease; }
+
+    /* Badge keranjang muncul dengan pop */
+    #cartBadge { animation: pop 0.3s ease; }
+  }
+
+  @keyframes wobble { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-8deg); } 60% { transform: rotate(6deg); } }
+  @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
 }
 
 /* Cegah konten hilang bila JS gagal atau reduced motion */

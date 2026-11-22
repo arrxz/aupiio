@@ -28,7 +28,7 @@
   <body class="bg-bg text-ink antialiased">
     <!-- Header (sama di semua halaman, kecuali checkout) -->
     <header class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200">
-      <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap">
+      <div class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap">
         <a class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8" href="index.html">
           aup<span class="text-accent">iio</span>
         </a>
@@ -82,7 +82,7 @@
       </div>
 
       <div id="searchPanel" class="hidden">
-        <form action="catalog.html" method="get" class="mx-auto max-w-7xl px-4 pt-3 sm:px-6" role="search">
+        <form action="catalog.html" method="get" class="mx-auto max-w-[1600px] px-4 pt-3 sm:px-6" role="search">
           <label for="siteSearch" class="sr-only">Cari produk</label>
           <input
             id="siteSearch"
@@ -97,7 +97,7 @@
 
     <!-- Breadcrumb & Mobile Filter Trigger -->
     <div class="border-b border-line bg-surface py-3">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div class="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6">
         <nav aria-label="breadcrumb" class="text-xs text-ink-muted">
           <a href="index.html" class="text-accent hover:underline">Beranda</a>
           <span class="mx-2 text-line">/</span>
@@ -116,7 +116,7 @@
 
     <!-- Main Content: Sidebar Filter (260px) + Listing (1fr) -->
     <main class="py-12 md:py-16">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-[1600px] px-4 sm:px-6">
         <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
           
           <!-- Desktop Filter Sidebar -->
@@ -389,7 +389,7 @@
 
     <!-- Mobile Filter Offcanvas (<dialog> + data-lenis-prevent) -->
     <dialog
-      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex backdrop:bg-black/50 transition-transform duration-300 left-0 right-auto starting:open:-translate-x-full border-r border-line bg-surface text-ink lg:hidden"
+      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex left-0 right-auto border-r border-line bg-surface text-ink lg:hidden"
       id="filterOffcanvas"
       aria-labelledby="filterOffcanvasLabel"
       data-lenis-prevent
@@ -427,7 +427,7 @@
 
     <!-- Mini-Cart Offcanvas -->
     <dialog
-      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex backdrop:bg-black/50 transition-transform duration-300 right-0 left-auto starting:open:translate-x-full border-l border-line bg-surface text-ink"
+      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex right-0 left-auto border-l border-line bg-surface text-ink"
       id="miniCart"
       aria-labelledby="miniCartLabel"
       data-lenis-prevent
@@ -459,7 +459,7 @@
 
     <!-- Footer (sama di semua halaman) -->
     <footer class="mt-16 bg-band text-band-muted">
-      <div class="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+      <div class="mx-auto max-w-[1600px] px-4 pt-14 sm:px-6">
         <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div class="col-span-2 md:col-span-1">
             <p class="text-sm leading-relaxed">Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk telinga yang peduli detail.</p>
