@@ -41,6 +41,35 @@
     if (e.key === "Escape") closeDropdowns();
   });
 
+  // Saring karakter terlarang saat mengetik/menempel (data-allow). Hanya kenyamanan: server tetap wajib validasi.
+  const ALLOW = { name: /[^A-Za-zÀ-ÿ' .-]/g, digits: /[^0-9]/g, code: /[^A-Z0-9]/g };
+  document.addEventListener("input", (e) => {
+    const el = e.target;
+    const re = ALLOW[el.dataset?.allow];
+    if (re) {
+      const clean = (el.dataset.allow === "code" ? el.value.toUpperCase() : el.value).replace(re, "");
+      if (clean !== el.value) el.value = clean;
+    }
+    el.setCustomValidity?.("");
+  });
+
+  // Pesan error bahasa Indonesia (event 'invalid' tidak bubble, jadi pakai capture)
+  document.addEventListener(
+    "invalid",
+    (e) => {
+      const el = e.target;
+      const v = el.validity;
+      el.setCustomValidity(
+        v.valueMissing ? "Kolom ini wajib diisi."
+        : v.typeMismatch ? "Format email belum benar, contoh: nama@email.com"
+        : v.tooShort ? `Minimal ${el.minLength} karakter (sekarang ${el.value.length}).`
+        : v.patternMismatch ? el.title
+        : ""
+      );
+    },
+    true
+  );
+
   // Event 'close' milik <dialog> tidak bubble, jadi dipasang per dialog
   document
     .querySelectorAll("dialog")

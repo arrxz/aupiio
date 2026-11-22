@@ -50,31 +50,31 @@
                 <div class="grid gap-4 sm:grid-cols-2 text-xs">
                   <div>
                     <label for="co-first" class="block text-ink-muted mb-1.5">Nama Depan</label>
-                    <input id="co-first" type="text" required placeholder="Nama depan" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-first" type="text" required autocomplete="given-name" data-allow="name" pattern="[A-Za-zÀ-ÿ' .\-]{2,60}" maxlength="60" title="Hanya huruf, spasi, titik, petik, atau tanda hubung (2–60 karakter)" placeholder="Nama depan" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                   <div>
                     <label for="co-last" class="block text-ink-muted mb-1.5">Nama Belakang</label>
-                    <input id="co-last" type="text" placeholder="Nama belakang" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-last" type="text" autocomplete="family-name" data-allow="name" pattern="[A-Za-zÀ-ÿ' .\-]{2,60}" maxlength="60" title="Hanya huruf, spasi, titik, petik, atau tanda hubung (2–60 karakter)" placeholder="Nama belakang" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                   <div class="sm:col-span-2">
                     <label for="co-email" class="block text-ink-muted mb-1.5">Alamat Email (Untuk Invoice & Kartu Garansi Digital)</label>
-                    <input id="co-email" type="email" required placeholder="audiophile@email.com" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-email" type="email" required maxlength="100" autocomplete="email" placeholder="audiophile@email.com" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                   <div class="sm:col-span-2">
                     <label for="co-wa" class="block text-ink-muted mb-1.5">Nomor WhatsApp</label>
-                    <input id="co-wa" type="tel" required placeholder="08xxxxxxxxxx" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-wa" type="tel" required data-allow="digits" inputmode="numeric" minlength="10" maxlength="15" pattern="(08|628)[0-9]{8,12}" autocomplete="tel" title="Diawali 08 atau 628, total 10–15 digit" placeholder="08xxxxxxxxxx" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                   <div class="sm:col-span-2">
                     <label for="co-address" class="block text-ink-muted mb-1.5">Alamat Lengkap Rumah</label>
-                    <textarea id="co-address" rows="2" required placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none"></textarea>
+                    <textarea id="co-address" rows="2" required minlength="10" maxlength="200" autocomplete="street-address" placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none"></textarea>
                   </div>
                   <div>
                     <label for="co-city" class="block text-ink-muted mb-1.5">Kota / Kabupaten</label>
-                    <input id="co-city" type="text" required class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-city" type="text" required autocomplete="address-level2" data-allow="name" pattern="[A-Za-zÀ-ÿ' .\-]{2,60}" maxlength="60" title="Hanya huruf, spasi, titik, petik, atau tanda hubung (2–60 karakter)" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                   <div>
                     <label for="co-zip" class="block text-ink-muted mb-1.5">Kode Pos</label>
-                    <input id="co-zip" type="text" required class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
+                    <input id="co-zip" type="text" required data-allow="digits" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" title="Kode pos 5 digit" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3 py-2 text-xs text-ink focus:border-accent focus:outline-none" />
                   </div>
                 </div>
               </div>
