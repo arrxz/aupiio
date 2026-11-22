@@ -972,12 +972,8 @@
   .text-\[11px\] {
     font-size: 11px;
   }
-  .text-\[22vw\] {
-    font-size: 22vw;
-  }
-  .leading-\[0\.8\] {
-    --tw-leading: 0.8;
-    line-height: 0.8;
+  .text-\[20vw\] {
+    font-size: 20vw;
   }
   .leading-none {
     --tw-leading: 1;
@@ -1393,8 +1389,8 @@
     .md\:py-24 {
       padding-block: calc(var(--spacing) * 24);
     }
-    .md\:text-\[17vw\] {
-      font-size: 17vw;
+    .md\:text-\[11vw\] {
+      font-size: 11vw;
     }
   }
   @media (width >= 62rem) {
@@ -1489,8 +1485,8 @@
     .xl\:grid-cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-    .xl\:text-\[15rem\] {
-      font-size: 15rem;
+    .xl\:text-\[9rem\] {
+      font-size: 9rem;
     }
   }
 }
