@@ -1240,14 +1240,8 @@
     .hover\:bg-bg:hover {
       background-color: var(--bg);
     }
-    .hover\:bg-cobalt:hover {
-      background-color: var(--cobalt);
-    }
     .hover\:bg-ink:hover {
       background-color: var(--ink);
-    }
-    .hover\:bg-mustard:hover {
-      background-color: var(--mustard);
     }
     .hover\:bg-surface-2:hover {
       background-color: var(--surface-2);
@@ -1269,9 +1263,6 @@
     }
     .hover\:text-ink:hover {
       color: var(--ink);
-    }
-    .hover\:text-white:hover {
-      color: var(--color-white);
     }
     .hover\:underline:hover {
       text-decoration-line: underline;
@@ -1578,6 +1569,76 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-hover);
+}
+@layer components {
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.875rem;
+    right: 0.875rem;
+    bottom: 0.3rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    scale: 0 1;
+    transform-origin: left;
+  }
+  .nav-link:hover::after, .nav-link:focus-visible::after {
+    scale: 1 1;
+  }
+}
+.nav-link[aria-current="page"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+.nav-link[aria-current="page"]::after {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .nav-link::after {
+    transition: scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  #mainNav:not(.hidden), #searchPanel:not(.hidden) {
+    animation: slide-down 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @media (min-width: 62rem) {
+    #mainNav:not(.hidden) {
+      animation: none;
+    }
+  }
+  #mainNav:not(.hidden) li {
+    animation: slide-down 0.3s cubic-bezier(0.32, 0.72, 0, 1) backwards;
+  }
+  #mainNav:not(.hidden) li:nth-child(2) {
+    animation-delay: 30ms;
+  }
+  #mainNav:not(.hidden) li:nth-child(3) {
+    animation-delay: 60ms;
+  }
+  #mainNav:not(.hidden) li:nth-child(4) {
+    animation-delay: 90ms;
+  }
+  #mainNav:not(.hidden) li:nth-child(5) {
+    animation-delay: 120ms;
+  }
+  #mainNav:not(.hidden) li:nth-child(6) {
+    animation-delay: 150ms;
+  }
+  #mainNav:not(.hidden) li:nth-child(7) {
+    animation-delay: 180ms;
+  }
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      translate: 0 -8px;
+    }
+  }
 }
 input:user-invalid, textarea:user-invalid, select:user-invalid {
   border-color: var(--bad);

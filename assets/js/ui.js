@@ -41,6 +41,15 @@
     if (e.key === "Escape") closeDropdowns();
   });
 
+  // Tandai link nav halaman aktif. Detail produk dianggap bagian dari Katalog.
+  const page = (p) => p.split("/").pop() || "index.html";
+  const here = page(location.pathname).replace("product-detail.html", "catalog.html");
+  const cat = new URLSearchParams(location.search).get("cat");
+  document.querySelectorAll("#mainNav a").forEach((a) => {
+    const u = new URL(a.href);
+    if (page(u.pathname) === here && u.searchParams.get("cat") === cat) a.setAttribute("aria-current", "page");
+  });
+
   // Saring karakter terlarang saat mengetik/menempel (data-allow). Hanya kenyamanan: server tetap wajib validasi.
   const ALLOW = { name: /[^A-Za-zÀ-ÿ' .-]/g, digits: /[^0-9]/g, code: /[^A-Z0-9]/g };
   document.addEventListener("input", (e) => {

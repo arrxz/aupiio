@@ -27,3 +27,4 @@ ehthumbs_vista.db
 *.sln
 *.sw?
 .superpowers/
+.playwright-mcp/
