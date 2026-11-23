@@ -14,9 +14,21 @@
     </script>
 
     <!-- Favicon (SVG + PNG Fallback) -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png" />
-    <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/logo/favicon.svg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/logo/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/images/logo/apple-touch-icon.png"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,21 +44,76 @@
   </head>
   <body class="bg-bg text-ink antialiased">
     <!-- Header (sama di semua halaman, kecuali checkout) -->
-    <header class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200">
-      <div class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap">
-        <a class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8" href="index.html">
+    <header
+      class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200"
+    >
+      <div
+        class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap"
+      >
+        <a
+          class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8"
+          href="index.html"
+        >
           aup<span class="text-accent">iio</span>
         </a>
 
-        <nav id="mainNav" class="order-last hidden basis-full lg:order-none lg:flex lg:flex-1 lg:basis-auto" aria-label="Navigasi utama">
-          <ul class="flex flex-col gap-1 pt-3 text-sm font-bold lg:flex-row lg:items-center lg:pt-0">
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="index.html">Beranda</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html">Katalog</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=iem">IEM</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=dac-amp">DAC/Amp</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=aksesoris">Aksesoris</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="about.html">Panduan</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="contact.html">Kontak</a></li>
+        <nav
+          id="mainNav"
+          class="order-last hidden basis-full lg:order-none lg:flex lg:flex-1 lg:basis-auto"
+          aria-label="Navigasi utama"
+        >
+          <ul
+            class="flex flex-col gap-1 pt-3 text-sm font-bold lg:flex-row lg:items-center lg:pt-0"
+          >
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="index.html"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html"
+                >Katalog</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=iem"
+                >IEM</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=dac-amp"
+                >DAC/Amp</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=aksesoris"
+                >Aksesoris</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="about.html"
+                >Panduan</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="contact.html"
+                >Kontak</a
+              >
+            </li>
           </ul>
         </nav>
 
@@ -71,7 +138,12 @@
         >
           <i class="bi bi-bag" aria-hidden="true"></i>
           <span class="hidden sm:inline">Keranjang</span>
-          <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full border-2 border-ink bg-mustard px-1.5 text-[11px] font-bold text-ink" style="display: none;">0</span>
+          <span
+            id="cartBadge"
+            class="absolute -right-1.5 -top-1.5 rounded-full border-2 border-ink bg-mustard px-1.5 text-[11px] font-bold text-ink"
+            style="display: none"
+            >0</span
+          >
         </button>
 
         <button
@@ -88,10 +160,16 @@
       </div>
 
       <div id="searchPanel" class="hidden">
-        <form action="catalog.html" method="get" class="mx-auto max-w-[1600px] px-4 pt-3 sm:px-6" role="search">
+        <form
+          action="catalog.html"
+          method="get"
+          class="mx-auto max-w-[1600px] px-4 pt-3 sm:px-6"
+          role="search"
+        >
           <label for="siteSearch" class="sr-only">Cari produk</label>
           <input
-            id="siteSearch" maxlength="60"
+            id="siteSearch"
+            maxlength="60"
             type="search"
             name="q"
             placeholder="Cari IEM, DAC, kabel..."
@@ -104,9 +182,16 @@
     <!-- Breadcrumb -->
     <div class="border-b border-line bg-surface py-3">
       <div class="mx-auto max-w-[1600px] px-4 sm:px-6 text-xs text-ink-muted">
-        <a href="index.html" class="text-accent-strong hover:underline">Beranda</a>
+        <a href="index.html" class="text-accent-strong hover:underline"
+          >Beranda</a
+        >
         <span class="mx-2 text-line">/</span>
-        <a id="detailBreadcrumbCat" href="catalog.html?cat=iem" class="text-accent-strong hover:underline">In-Ear Monitor</a>
+        <a
+          id="detailBreadcrumbCat"
+          href="catalog.html?cat=iem"
+          class="text-accent-strong hover:underline"
+          >In-Ear Monitor</a
+        >
         <span class="mx-2 text-line">/</span>
         <span class="text-ink">Tangzu Wan'er S.G</span>
       </div>
@@ -116,26 +201,46 @@
     <main class="py-12 md:py-16">
       <div class="mx-auto max-w-[1600px] px-4 sm:px-6">
         <div class="grid gap-12 lg:grid-cols-[7fr_5fr]">
-          
           <!-- Kolom 1: Galeri Foto (7fr) -->
           <div data-reveal>
-            <div class="relative flex aspect-square sm:aspect-4/3 w-full items-center justify-center rounded-card border-2 border-ink bg-photo-tile p-6 sm:p-12 overflow-hidden">
-              <span class="absolute left-4 top-4 z-10 rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">Paling Populer</span>
-              <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain p-[6%] mix-blend-multiply" />
+            <div
+              class="relative flex aspect-square sm:aspect-4/3 w-full items-center justify-center rounded-card border-2 border-ink bg-photo-tile p-6 sm:p-12 overflow-hidden"
+            >
+              <span
+                class="absolute left-4 top-4 z-10 rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong"
+                >Paling Populer</span
+              >
+              <img
+                src="assets/images/products/tangzu wan er sg.jpg"
+                alt="Tangzu Wan'er S.G"
+                class="h-full w-full object-contain p-[6%] mix-blend-multiply"
+              />
             </div>
 
             <!-- Thumbnail Grid -->
             <div class="mt-4 grid grid-cols-4 gap-3">
-              <div class="aspect-square flex items-center justify-center rounded-2xl border border-accent bg-surface cursor-pointer p-1 overflow-hidden">
-                <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain mix-blend-multiply" />
+              <div
+                class="aspect-square flex items-center justify-center rounded-2xl border border-accent bg-surface cursor-pointer p-1 overflow-hidden"
+              >
+                <img
+                  src="assets/images/products/tangzu wan er sg.jpg"
+                  alt="Tangzu Wan'er S.G"
+                  class="h-full w-full object-contain mix-blend-multiply"
+                />
               </div>
-              <div class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent">
+              <div
+                class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent"
+              >
                 <i class="bi bi-box text-2xl text-ink-muted"></i>
               </div>
-              <div class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent">
+              <div
+                class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent"
+              >
                 <i class="bi bi-bezier2 text-2xl text-ink-muted"></i>
               </div>
-              <div class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent">
+              <div
+                class="aspect-square flex items-center justify-center rounded-2xl border-2 border-ink bg-photo-tile cursor-pointer p-2 hover:border-accent"
+              >
                 <i class="bi bi-disc text-2xl text-ink-muted"></i>
               </div>
             </div>
@@ -143,58 +248,141 @@
 
           <!-- Kolom 2: Info & Aksi Pembelian (5fr) -->
           <div data-reveal>
-            <span class="text-xs font-semibold uppercase tracking-widest text-ink-muted">Tangzu Audio</span>
-            <h1 class="mt-1 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">Tangzu Wan'er S.G In-Ear Monitor</h1>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-ink-muted"
+              >Tangzu Audio</span
+            >
+            <h1
+              class="mt-1 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl"
+            >
+              Tangzu Wan'er S.G In-Ear Monitor
+            </h1>
 
             <div class="mt-3 flex items-center gap-3">
               <div class="flex text-warn text-xs">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-half"></i>
               </div>
               <span class="text-xs font-semibold text-ink">4.8</span>
-              <span class="text-xs text-ink-muted">(142 ulasan audiophile)</span>
+              <span class="text-xs text-ink-muted"
+                >(142 ulasan audiophile)</span
+              >
             </div>
 
             <!-- Harga & Status Stok -->
-            <div class="mt-6 rounded-card border-2 border-ink bg-surface p-4 shadow-sm">
+            <div
+              class="mt-6 rounded-card border-2 border-ink bg-surface p-4 shadow-sm"
+            >
               <div class="flex items-baseline gap-3">
-                <span class="font-mono text-3xl font-bold text-accent-strong tabular-nums">Rp 320.000</span>
-                <span class="font-mono text-sm text-ink-muted line-through">Rp 375.000</span>
+                <span
+                  class="font-mono text-3xl font-bold text-accent-strong tabular-nums"
+                  >Rp 320.000</span
+                >
+                <span class="font-mono text-sm text-ink-muted line-through"
+                  >Rp 375.000</span
+                >
               </div>
               <span class="mt-1.5 flex items-center gap-1.5 text-xs text-ok">
-                <i class="bi bi-check-circle-fill"></i> Stok tersedia (Siap kirim hari ini)
+                <i class="bi bi-check-circle-fill"></i> Stok tersedia (Siap
+                kirim hari ini)
               </span>
             </div>
 
             <!-- Chips Signature -->
             <div class="mt-6">
-              <span class="text-xs font-semibold uppercase tracking-wider text-ink-muted">Karakter & Driver:</span>
+              <span
+                class="text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >Karakter & Driver:</span
+              >
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">Warm</span>
-                <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted">Lush Vocal</span>
-                <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted">10mm Dynamic Driver</span>
-                <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted">0.78mm 2-Pin</span>
+                <span
+                  class="rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong"
+                  >Warm</span
+                >
+                <span
+                  class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted"
+                  >Lush Vocal</span
+                >
+                <span
+                  class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted"
+                  >10mm Dynamic Driver</span
+                >
+                <span
+                  class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted"
+                  >0.78mm 2-Pin</span
+                >
               </div>
             </div>
 
             <!-- Varian Pilihan -->
             <div class="mt-6">
-              <span class="text-xs font-semibold uppercase tracking-wider text-ink-muted">Warna Faceplate:</span>
+              <span
+                class="text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >Warna Faceplate:</span
+              >
               <div class="mt-2 flex gap-2">
-                <button class="rounded-btn border border-accent bg-accent-soft px-4 py-2 text-xs font-semibold text-accent-strong">White (Jade)</button>
-                <button class="rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong">Black (Classic)</button>
-                <button class="rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong">Clear (Limited)</button>
+                <button
+                  class="rounded-btn border border-accent bg-accent-soft px-4 py-2 text-xs font-semibold text-accent-strong"
+                >
+                  White (Jade)
+                </button>
+                <button
+                  class="rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong"
+                >
+                  Black (Classic)
+                </button>
+                <button
+                  class="rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong"
+                >
+                  Clear (Limited)
+                </button>
               </div>
             </div>
 
             <!-- Quantity & Tombol Tambah ke Keranjang -->
             <div class="mt-8 flex items-center gap-4">
-              <div class="flex h-11 w-32 items-center justify-between rounded-2xl border-2 border-ink bg-surface px-3">
-                <button type="button" onclick="document.getElementById('pQty').value = Math.max(1, parseInt(document.getElementById('pQty').value) - 1)" class="text-ink-muted hover:text-accent-strong font-bold">-</button>
-                <input id="pQty" type="number" value="1" min="1" readonly class="w-10 bg-transparent text-center font-mono text-sm text-ink focus:outline-none" />
-                <button type="button" onclick="document.getElementById('pQty').value = parseInt(document.getElementById('pQty').value) + 1" class="text-ink-muted hover:text-accent-strong font-bold">+</button>
+              <div
+                class="flex h-11 w-32 items-center justify-between rounded-2xl border-2 border-ink bg-surface px-3"
+              >
+                <button
+                  type="button"
+                  onclick="
+                    document.getElementById('pQty').value = Math.max(
+                      1,
+                      parseInt(document.getElementById('pQty').value) - 1,
+                    )
+                  "
+                  class="text-ink-muted hover:text-accent-strong font-bold"
+                >
+                  -
+                </button>
+                <input
+                  id="pQty"
+                  type="number"
+                  value="1"
+                  min="1"
+                  readonly
+                  class="w-10 bg-transparent text-center font-mono text-sm text-ink focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onclick="
+                    document.getElementById('pQty').value =
+                      parseInt(document.getElementById('pQty').value) + 1
+                  "
+                  class="text-ink-muted hover:text-accent-strong font-bold"
+                >
+                  +
+                </button>
               </div>
               <button
-                onclick="window.aupiioAddToCart('iem-001', parseInt(document.getElementById('pQty').value))"
+                onclick="
+                  window.aupiioAddToCart(
+                    'iem-001',
+                    parseInt(document.getElementById('pQty').value),
+                  )
+                "
                 class="flex-1 inline-flex h-11 items-center justify-center rounded-btn bg-accent px-6 text-sm font-semibold text-accent-ink transition hover:bg-accent-hover shadow-sm"
               >
                 <i class="bi bi-cart-plus mr-2"></i> Tambah ke Keranjang
@@ -202,18 +390,37 @@
             </div>
 
             <!-- Bar Kepercayaan -->
-            <div class="mt-8 grid grid-cols-2 gap-3 rounded-card border-2 border-ink bg-surface p-4 text-xs text-ink-muted shadow-sm">
-              <div class="flex items-center gap-2"><i class="bi bi-patch-check text-accent-strong text-sm"></i> 100% Original</div>
-              <div class="flex items-center gap-2"><i class="bi bi-shield-check text-ok text-sm"></i> Garansi Resmi 1 Thn</div>
-              <div class="flex items-center gap-2"><i class="bi bi-box-seam text-accent-strong text-sm"></i> Hardbox Included</div>
-              <div class="flex items-center gap-2"><i class="bi bi-arrow-repeat text-warn text-sm"></i> 7 Hari Retur Cacat</div>
+            <div
+              class="mt-8 grid grid-cols-2 gap-3 rounded-card border-2 border-ink bg-surface p-4 text-xs text-ink-muted shadow-sm"
+            >
+              <div class="flex items-center gap-2">
+                <i class="bi bi-patch-check text-accent-strong text-sm"></i>
+                100% Original
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="bi bi-shield-check text-ok text-sm"></i> Garansi Resmi
+                1 Thn
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="bi bi-box-seam text-accent-strong text-sm"></i>
+                Hardbox Included
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="bi bi-arrow-repeat text-warn text-sm"></i> 7 Hari
+                Retur Cacat
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Tabel Spesifikasi & Analisis Akustik (Markup Bersih Tailwind) -->
-        <div class="mt-16 rounded-card border-2 border-ink bg-surface p-6 sm:p-8" data-reveal>
-          <h3 class="font-display text-xl font-extrabold tracking-tight text-ink mb-6 flex items-center gap-2">
+        <div
+          class="mt-16 rounded-card border-2 border-ink bg-surface p-6 sm:p-8"
+          data-reveal
+        >
+          <h3
+            class="font-display text-xl font-extrabold tracking-tight text-ink mb-6 flex items-center gap-2"
+          >
             <i class="bi bi-cpu text-accent"></i> Spesifikasi Teknis Hardware
           </h3>
 
@@ -221,36 +428,62 @@
             <table class="w-full border-collapse text-xs sm:text-sm">
               <tbody class="divide-y divide-line">
                 <tr class="even:bg-surface-2">
-                  <td class="w-2/5 px-4 py-3 text-ink-muted">Driver Configuration</td>
-                  <td class="px-4 py-3 font-mono text-ink">1x 10mm Dynamic Driver (PET Diaphragm with N52 Magnet)</td>
+                  <td class="w-2/5 px-4 py-3 text-ink-muted">
+                    Driver Configuration
+                  </td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    1x 10mm Dynamic Driver (PET Diaphragm with N52 Magnet)
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
                   <td class="w-2/5 px-4 py-3 text-ink-muted">Impedance</td>
-                  <td class="px-4 py-3 font-mono text-ink">20 &Omega; @1kHz (Mudah di-drive langsung smartphone)</td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    20 &Omega; @1kHz (Mudah di-drive langsung smartphone)
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
                   <td class="w-2/5 px-4 py-3 text-ink-muted">Sensitivity</td>
-                  <td class="px-4 py-3 font-mono text-ink">107 dB / Vrms @1kHz</td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    107 dB / Vrms @1kHz
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
-                  <td class="w-2/5 px-4 py-3 text-ink-muted">Frequency Response Range</td>
-                  <td class="px-4 py-3 font-mono text-ink">20 Hz - 20,000 Hz</td>
+                  <td class="w-2/5 px-4 py-3 text-ink-muted">
+                    Frequency Response Range
+                  </td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    20 Hz - 20,000 Hz
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
-                  <td class="w-2/5 px-4 py-3 text-ink-muted">Total Harmonic Distortion (THD)</td>
-                  <td class="px-4 py-3 font-mono text-ink">&lt; 0.5% @1kHz 94dB</td>
+                  <td class="w-2/5 px-4 py-3 text-ink-muted">
+                    Total Harmonic Distortion (THD)
+                  </td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    &lt; 0.5% @1kHz 94dB
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
-                  <td class="w-2/5 px-4 py-3 text-ink-muted">Connector Pin Type</td>
-                  <td class="px-4 py-3 font-mono text-ink">0.78mm 2-Pin Detachable</td>
+                  <td class="w-2/5 px-4 py-3 text-ink-muted">
+                    Connector Pin Type
+                  </td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    0.78mm 2-Pin Detachable
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
-                  <td class="w-2/5 px-4 py-3 text-ink-muted">Termination Plug</td>
-                  <td class="px-4 py-3 font-mono text-ink">3.5mm Single Ended Gold-Plated</td>
+                  <td class="w-2/5 px-4 py-3 text-ink-muted">
+                    Termination Plug
+                  </td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    3.5mm Single Ended Gold-Plated
+                  </td>
                 </tr>
                 <tr class="even:bg-surface-2">
                   <td class="w-2/5 px-4 py-3 text-ink-muted">Cable Material</td>
-                  <td class="px-4 py-3 font-mono text-ink">4-Core High Purity Oxygen Free Copper (OFC)</td>
+                  <td class="px-4 py-3 font-mono text-ink">
+                    4-Core High Purity Oxygen Free Copper (OFC)
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -258,23 +491,55 @@
 
           <!-- Analisis Suara 4 Pilar -->
           <div class="mt-8 border-t border-line pt-8">
-            <h4 class="font-display text-lg font-extrabold tracking-tight text-ink mb-4">Karakter Suara & Analisis Frekuensi</h4>
+            <h4
+              class="font-display text-lg font-extrabold tracking-tight text-ink mb-4"
+            >
+              Karakter Suara & Analisis Frekuensi
+            </h4>
             <div class="grid gap-6 sm:grid-cols-2">
               <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-disc mr-1"></i> Bass</h5>
-                <p class="text-xs text-ink-muted">Sub-bass berbobot dan empuk. Kontrol bass bersih dan tidak bleeding ke sektor vokal.</p>
+                <h5
+                  class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"
+                >
+                  <i class="bi bi-disc mr-1"></i> Bass
+                </h5>
+                <p class="text-xs text-ink-muted">
+                  Sub-bass berbobot dan empuk. Kontrol bass bersih dan tidak
+                  bleeding ke sektor vokal.
+                </p>
               </div>
               <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-mic mr-1"></i> Mid / Vokal</h5>
-                <p class="text-xs text-ink-muted">Vokal tebal, intimate, dan bertekstur. Sangat ramah untuk vokal wanita tanpa kesan menusuk.</p>
+                <h5
+                  class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"
+                >
+                  <i class="bi bi-mic mr-1"></i> Mid / Vokal
+                </h5>
+                <p class="text-xs text-ink-muted">
+                  Vokal tebal, intimate, dan bertekstur. Sangat ramah untuk
+                  vokal wanita tanpa kesan menusuk.
+                </p>
               </div>
               <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-soundwave mr-1"></i> Treble</h5>
-                <p class="text-xs text-ink-muted">Smooth, sparkling secukupnya, non-fatiguing untuk sesi mendengarkan panjang berjam-jam.</p>
+                <h5
+                  class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"
+                >
+                  <i class="bi bi-soundwave mr-1"></i> Treble
+                </h5>
+                <p class="text-xs text-ink-muted">
+                  Smooth, sparkling secukupnya, non-fatiguing untuk sesi
+                  mendengarkan panjang berjam-jam.
+                </p>
               </div>
               <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-aspect-ratio mr-1"></i> Soundstage</h5>
-                <p class="text-xs text-ink-muted">Pemisahan instrumen rapi dengan ruang panggung proporsional dan imaging akurat.</p>
+                <h5
+                  class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"
+                >
+                  <i class="bi bi-aspect-ratio mr-1"></i> Soundstage
+                </h5>
+                <p class="text-xs text-ink-muted">
+                  Pemisahan instrumen rapi dengan ruang panggung proporsional
+                  dan imaging akurat.
+                </p>
               </div>
             </div>
           </div>
@@ -283,11 +548,18 @@
     </main>
 
     <!-- Sticky Add-to-Cart Bar for Mobile (Section 4 & 7.2) -->
-    <div class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] lg:hidden shadow-[0_-4px_16px_rgba(28,25,23,.08)]">
+    <div
+      class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] lg:hidden shadow-[0_-4px_16px_rgba(28,25,23,.08)]"
+    >
       <div class="flex items-center justify-between gap-3">
         <div>
-          <span class="block text-[11px] text-ink-muted">Tangzu Wan'er S.G</span>
-          <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 320.000</span>
+          <span class="block text-[11px] text-ink-muted"
+            >Tangzu Wan'er S.G</span
+          >
+          <span
+            class="font-mono text-base font-bold text-accent-strong tabular-nums"
+            >Rp 320.000</span
+          >
         </div>
         <button
           onclick="window.aupiioAddToCart('iem-001', 1)"
@@ -306,23 +578,46 @@
       data-lenis-prevent
     >
       <div class="flex items-center justify-between border-b border-line p-4">
-        <h3 id="miniCartLabel" class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2">
+        <h3
+          id="miniCartLabel"
+          class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2"
+        >
           <i class="bi bi-bag text-accent"></i> Keranjang Belanja
         </h3>
-        <button type="button" class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink" data-dismiss="offcanvas" aria-label="Tutup"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+          data-dismiss="offcanvas"
+          aria-label="Tutup"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="grow overflow-y-auto flex flex-col justify-between p-4" data-lenis-prevent>
+      <div
+        class="grow overflow-y-auto flex flex-col justify-between p-4"
+        data-lenis-prevent
+      >
         <div id="miniCartBody" class="flex flex-col gap-3"></div>
         <div class="border-t border-line pt-4">
           <div class="flex items-center justify-between mb-3 text-sm">
             <span class="text-ink-muted">Subtotal:</span>
-            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+            <span
+              id="miniCartSubtotal"
+              class="font-mono text-base font-semibold text-accent-strong"
+              >Rp 0</span
+            >
           </div>
           <div class="flex flex-col gap-2">
-            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+            <a
+              href="cart.html"
+              class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong"
+            >
               Buka Halaman Keranjang
             </a>
-            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+            <a
+              href="checkout.html"
+              class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
               Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
             </a>
           </div>
@@ -335,35 +630,89 @@
       <div class="mx-auto max-w-[1600px] px-4 pt-14 sm:px-6">
         <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div class="col-span-2 md:col-span-1">
-            <p class="text-sm leading-relaxed">Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk telinga yang peduli detail.</p>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 rounded-btn bg-mustard px-4 py-2 text-sm font-bold text-ink transition hover:bg-band-ink">
-              <i class="bi bi-whatsapp" aria-hidden="true"></i> Konsultasi via WhatsApp
+            <p class="text-sm leading-relaxed">
+              Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk
+              telinga yang peduli detail.
+            </p>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 rounded-btn bg-mustard px-4 py-2 text-sm font-bold text-ink transition hover:bg-band-ink"
+            >
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Konsultasi via
+              WhatsApp
             </a>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Belanja</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Belanja
+            </h2>
             <ul class="mt-4 flex flex-col gap-2 text-sm">
-              <li><a href="catalog.html" class="hover:text-band-ink">Semua Produk</a></li>
-              <li><a href="catalog.html?cat=iem" class="hover:text-band-ink">In-Ear Monitor</a></li>
-              <li><a href="catalog.html?cat=dac-amp" class="hover:text-band-ink">DAC &amp; Amp</a></li>
-              <li><a href="catalog.html?cat=aksesoris" class="hover:text-band-ink">Aksesoris</a></li>
+              <li>
+                <a href="catalog.html" class="hover:text-band-ink"
+                  >Semua Produk</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=iem" class="hover:text-band-ink"
+                  >In-Ear Monitor</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=dac-amp" class="hover:text-band-ink"
+                  >DAC &amp; Amp</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=aksesoris" class="hover:text-band-ink"
+                  >Aksesoris</a
+                >
+              </li>
             </ul>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Toko</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Toko
+            </h2>
             <ul class="mt-4 flex flex-col gap-2 text-sm">
-              <li><a href="about.html" class="hover:text-band-ink">Tentang &amp; Panduan</a></li>
-              <li><a href="contact.html" class="hover:text-band-ink">Kontak &amp; Garansi</a></li>
-              <li><a href="cart.html" class="hover:text-band-ink">Keranjang</a></li>
+              <li>
+                <a href="about.html" class="hover:text-band-ink"
+                  >Tentang &amp; Panduan</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-band-ink"
+                  >Kontak &amp; Garansi</a
+                >
+              </li>
+              <li>
+                <a href="cart.html" class="hover:text-band-ink">Keranjang</a>
+              </li>
             </ul>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Jam Buka</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Jam Buka
+            </h2>
             <p class="mt-4 text-sm">Senin–Sabtu, 09.00–21.00 WIB</p>
           </div>
         </div>
-        <p class="mt-12 select-none pb-4 font-display text-[20vw] font-extrabold leading-none tracking-tighter text-band-ink md:text-[11vw] xl:text-[9rem]" aria-hidden="true">aup<span class="text-accent">iio</span></p>
-        <div class="flex flex-col gap-2 border-t border-band-muted/30 py-5 text-xs sm:flex-row sm:justify-between">
+        <p
+          class="mt-12 select-none pb-4 font-display text-[20vw] font-extrabold leading-none tracking-tighter text-band-ink md:text-[11vw] xl:text-[9rem]"
+          aria-hidden="true"
+        >
+          aup<span class="text-accent">iio</span>
+        </p>
+        <div
+          class="flex flex-col gap-2 border-t border-band-muted/30 py-5 text-xs sm:flex-row sm:justify-between"
+        >
           <span>&copy; 2026 aupiio</span>
           <span>Proyek Web Fundamental</span>
         </div>

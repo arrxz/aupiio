@@ -204,221 +204,240 @@
     <main class="py-12 md:py-16">
       <div class="mx-auto max-w-[1600px] px-4 sm:px-6">
         <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
-                    <!-- Desktop Filter Sidebar -->
+                              <!-- Desktop Filter Sidebar -->
           <aside class="hidden lg:block">
             <div
-              class="sticky top-24 rounded-card border-2 border-ink bg-surface p-5"
+              class="sticky top-24 rounded-card border-2 border-ink bg-surface p-5 shadow-[4px_4px_0_var(--ink)]"
             >
+              <!-- Sidebar Header -->
               <div
-                class="mb-5 flex items-center justify-between border-b border-line pb-3"
+                class="mb-5 flex items-center justify-between border-b-2 border-ink/10 pb-3.5"
               >
                 <h3
-                  class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2"
+                  class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2.5"
                 >
-                  <i class="bi bi-sliders text-accent"></i> Filter Audio
+                  <span class="flex h-7 w-7 items-center justify-center rounded-lg border-2 border-ink bg-accent text-accent-ink shadow-[2px_2px_0_var(--ink)]">
+                    <i class="bi bi-sliders text-xs"></i>
+                  </span>
+                  <span>Filter Audio</span>
                 </h3>
                 <button
                   type="button"
                   onclick="window.aupiioSetCategory('all')"
-                  class="text-xs text-ink-muted hover:text-accent cursor-pointer"
-                  >Reset</button
+                  class="rounded-full border border-line bg-surface-2 px-2.5 py-1 text-[11px] font-mono font-bold text-ink-muted transition hover:border-ink hover:text-ink hover:bg-surface cursor-pointer"
+                  title="Reset semua filter"
                 >
+                  Reset
+                </button>
               </div>
 
               <!-- Filter: Kategori Produk -->
-              <div class="mb-6 border-b border-line pb-5">
+              <div class="mb-5 border-b border-line pb-5">
                 <h4
-                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                  class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70 flex items-center justify-between"
                 >
-                  Kategori Produk
+                  <span>Kategori Produk</span>
+                  <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
                 </h4>
-                <div class="flex flex-col gap-2.5 text-xs" id="categoryFilterDesktop">
-                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
-                    <div class="flex items-center gap-2">
+                <div class="flex flex-col gap-2 text-xs" id="categoryFilterDesktop">
+                  <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+                    <div class="flex items-center gap-2.5">
                       <input
                         type="radio"
                         name="catFilterDesktop"
                         value="all"
                         checked
-                        class="text-accent focus:ring-accent"
+                        class="sr-only"
                       />
-                      <span class="font-medium">Semua Produk</span>
+                      <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                      </span>
+                      <span class="font-medium text-ink group-has-[:checked]:font-bold">Semua Produk</span>
                     </div>
-                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">14</span>
+                    <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">14</span>
                   </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
-                    <div class="flex items-center gap-2">
+
+                  <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+                    <div class="flex items-center gap-2.5">
                       <input
                         type="radio"
                         name="catFilterDesktop"
                         value="iem"
-                        class="text-accent focus:ring-accent"
+                        class="sr-only"
                       />
-                      <span>In-Ear Monitor (IEM)</span>
+                      <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                      </span>
+                      <span class="font-medium text-ink group-has-[:checked]:font-bold">In-Ear Monitor (IEM)</span>
                     </div>
-                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">8</span>
+                    <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">8</span>
                   </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
-                    <div class="flex items-center gap-2">
+
+                  <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+                    <div class="flex items-center gap-2.5">
                       <input
                         type="radio"
                         name="catFilterDesktop"
                         value="dac-amp"
-                        class="text-accent focus:ring-accent"
+                        class="sr-only"
                       />
-                      <span>DAC &amp; Amplifier</span>
+                      <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                      </span>
+                      <span class="font-medium text-ink group-has-[:checked]:font-bold">DAC &amp; Amplifier</span>
                     </div>
-                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">3</span>
+                    <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">3</span>
                   </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
-                    <div class="flex items-center gap-2">
+
+                  <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+                    <div class="flex items-center gap-2.5">
                       <input
                         type="radio"
                         name="catFilterDesktop"
                         value="accessories"
-                        class="text-accent focus:ring-accent"
+                        class="sr-only"
                       />
-                      <span>Aksesoris &amp; Kabel</span>
+                      <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                        <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                      </span>
+                      <span class="font-medium text-ink group-has-[:checked]:font-bold">Aksesoris &amp; Kabel</span>
                     </div>
-                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">3</span>
+                    <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">3</span>
                   </label>
                 </div>
               </div>
 
               <!-- Filter: Jenis Driver -->
-              <div class="mb-6">
+              <div class="mb-5 border-b border-line pb-5">
                 <h4
-                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                  class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
                 >
                   Jenis Driver
                 </h4>
-                <div class="flex flex-col gap-2 text-xs">
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      checked
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+                <div class="flex flex-col gap-1.5 text-xs">
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" checked class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>Dynamic Driver (DD)</span>
                   </label>
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>Planar Magnetic</span>
                   </label>
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>Balanced Armature</span>
                   </label>
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>Hybrid (DD + BA)</span>
                   </label>
                 </div>
               </div>
 
               <!-- Filter: Konektor Pin -->
-              <div class="mb-6">
+              <div class="mb-5 border-b border-line pb-5">
                 <h4
-                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                  class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
                 >
                   Konektor Pin
                 </h4>
-                <div class="flex flex-col gap-2 text-xs">
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      checked
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+                <div class="flex flex-col gap-1.5 text-xs">
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" checked class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>0.78mm 2-Pin</span>
                   </label>
-                  <label
-                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
-                  >
-                    <input
-                      type="checkbox"
-                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                    />
+
+                  <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                    <input type="checkbox" class="sr-only" />
+                    <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                      <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                    </span>
                     <span>MMCX</span>
                   </label>
                 </div>
               </div>
 
               <!-- Filter: Sound Signature -->
-              <div class="mb-6">
+              <div class="mb-5 border-b border-line pb-5">
                 <h4
-                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                  class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
                 >
                   Sound Signature
                 </h4>
-                <div class="flex flex-wrap gap-1.5">
-                  <span
-                    class="cursor-pointer rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
-                    >Warm</span
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-ink bg-accent px-3 py-1 font-mono text-[11px] font-bold text-accent-ink shadow-[2px_2px_0_var(--ink)] transition hover:scale-105 active:scale-95 cursor-pointer"
                   >
-                  <span
-                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
-                    >Neutral</span
+                    Warm
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-ink bg-surface px-3 py-1 font-mono text-[11px] font-semibold text-ink transition hover:border-accent hover:text-accent hover:shadow-[2px_2px_0_var(--ink)] active:scale-95 cursor-pointer"
                   >
-                  <span
-                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
-                    >V-shaped</span
+                    Neutral
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-ink bg-surface px-3 py-1 font-mono text-[11px] font-semibold text-ink transition hover:border-accent hover:text-accent hover:shadow-[2px_2px_0_var(--ink)] active:scale-95 cursor-pointer"
                   >
-                  <span
-                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
-                    >Analitis</span
+                    V-shaped
+                  </button>
+                  <button
+                    type="button"
+                    class="rounded-full border-2 border-ink bg-surface px-3 py-1 font-mono text-[11px] font-semibold text-ink transition hover:border-accent hover:text-accent hover:shadow-[2px_2px_0_var(--ink)] active:scale-95 cursor-pointer"
                   >
+                    Analitis
+                  </button>
                 </div>
               </div>
 
               <!-- Filter: Status Stok -->
-              <div class="mb-4">
+              <div class="mb-6">
                 <h4
-                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                  class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
                 >
                   Ketersediaan
                 </h4>
-                <label
-                  class="flex items-center gap-2 text-xs cursor-pointer hover:text-accent"
-                >
-                  <input
-                    type="checkbox"
-                    checked
-                    class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
-                  />
+                <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+                  <input type="checkbox" checked class="sr-only" />
+                  <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                    <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+                  </span>
                   <span>Hanya yang Tersedia</span>
                 </label>
               </div>
 
+              <!-- Action Button -->
               <button
                 type="button"
-                class="w-full rounded-btn bg-accent py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+                class="w-full inline-flex items-center justify-center gap-2 rounded-btn border-2 border-ink bg-accent py-2.5 text-xs font-bold text-accent-ink shadow-[3px_3px_0_var(--ink)] transition hover:bg-accent-hover hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--ink)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0_var(--ink)] cursor-pointer"
               >
-                Terapkan Filter
+                <i class="bi bi-funnel-fill text-xs"></i>
+                <span>Terapkan Filter</span>
               </button>
             </div>
           </aside>
 
-          <!-- Listing Section -->
+<!-- Listing Section -->
           <section>
             <!-- Category Quick Tabs / Pills -->
             <div class="mb-6 flex flex-wrap items-center gap-2" id="categoryQuickPills">
@@ -1451,23 +1470,26 @@
       </div>
     </main>
 
-    <!-- Mobile Filter Offcanvas (<dialog> + data-lenis-prevent) -->
+        <!-- Mobile Filter Offcanvas (<dialog> + data-lenis-prevent) -->
     <dialog
-      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex left-0 right-auto border-r border-line bg-surface text-ink lg:hidden"
+      class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex left-0 right-auto border-r-2 border-ink bg-surface text-ink lg:hidden shadow-2xl"
       id="filterOffcanvas"
       aria-labelledby="filterOffcanvasLabel"
       data-lenis-prevent
     >
-      <div class="flex items-center justify-between border-b border-line p-4">
+      <div class="flex items-center justify-between border-b-2 border-ink/10 p-4">
         <h3
           id="filterOffcanvasLabel"
-          class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2"
+          class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2.5"
         >
-          <i class="bi bi-sliders text-accent"></i> Filter Audio
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg border-2 border-ink bg-accent text-accent-ink shadow-[2px_2px_0_var(--ink)]">
+            <i class="bi bi-sliders text-xs"></i>
+          </span>
+          <span>Filter Audio</span>
         </h3>
         <button
           type="button"
-          class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+          class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface text-ink transition hover:bg-surface-2 hover:border-accent"
           data-dismiss="offcanvas"
           aria-label="Tutup"
         >
@@ -1481,78 +1503,103 @@
         <!-- Filter Kategori Mobile -->
         <div class="border-b border-line pb-4">
           <h4
-            class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+            class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70 flex items-center justify-between"
           >
-            Kategori Produk
+            <span>Kategori Produk</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
           </h4>
-          <div class="flex flex-col gap-2.5 text-xs" id="categoryFilterMobile">
-            <label class="flex items-center justify-between cursor-pointer">
-              <div class="flex items-center gap-2">
-                <input type="radio" name="catFilterMobile" value="all" checked />
-                <span class="font-medium">Semua Produk</span>
+          <div class="flex flex-col gap-2 text-xs" id="categoryFilterMobile">
+            <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="catFilterMobile" value="all" checked class="sr-only" />
+                <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                  <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                </span>
+                <span class="font-medium text-ink group-has-[:checked]:font-bold">Semua Produk</span>
               </div>
-              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">14</span>
+              <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">14</span>
             </label>
-            <label class="flex items-center justify-between cursor-pointer">
-              <div class="flex items-center gap-2">
-                <input type="radio" name="catFilterMobile" value="iem" />
-                <span>In-Ear Monitor (IEM)</span>
+            <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="catFilterMobile" value="iem" class="sr-only" />
+                <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                  <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                </span>
+                <span class="font-medium text-ink group-has-[:checked]:font-bold">In-Ear Monitor (IEM)</span>
               </div>
-              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">8</span>
+              <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">8</span>
             </label>
-            <label class="flex items-center justify-between cursor-pointer">
-              <div class="flex items-center gap-2">
-                <input type="radio" name="catFilterMobile" value="dac-amp" />
-                <span>DAC &amp; Amplifier</span>
+            <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="catFilterMobile" value="dac-amp" class="sr-only" />
+                <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                  <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                </span>
+                <span class="font-medium text-ink group-has-[:checked]:font-bold">DAC &amp; Amplifier</span>
               </div>
-              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">3</span>
+              <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">3</span>
             </label>
-            <label class="flex items-center justify-between cursor-pointer">
-              <div class="flex items-center gap-2">
-                <input type="radio" name="catFilterMobile" value="accessories" />
-                <span>Aksesoris Audio</span>
+            <label class="group flex items-center justify-between rounded-xl border border-line/70 bg-surface px-3 py-2 text-xs cursor-pointer transition hover:border-ink hover:bg-surface-2/50 has-[:checked]:border-2 has-[:checked]:border-ink has-[:checked]:bg-mustard/20 has-[:checked]:shadow-[2px_2px_0_var(--ink)]">
+              <div class="flex items-center gap-2.5">
+                <input type="radio" name="catFilterMobile" value="accessories" class="sr-only" />
+                <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-surface transition group-has-[:checked]:border-ink group-has-[:checked]:bg-accent">
+                  <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[:checked]:opacity-100"></span>
+                </span>
+                <span class="font-medium text-ink group-has-[:checked]:font-bold">Aksesoris &amp; Kabel</span>
               </div>
-              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">3</span>
+              <span class="rounded-full border border-line/80 bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold text-ink-muted group-has-[:checked]:border-ink group-has-[:checked]:bg-surface group-has-[:checked]:text-ink">3</span>
             </label>
           </div>
         </div>
 
-        <div>
+        <div class="border-b border-line pb-4">
           <h4
-            class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+            class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
           >
             Jenis Driver
           </h4>
-          <div class="flex flex-col gap-2 text-xs">
-            <label class="flex items-center gap-2"
-              ><input type="checkbox" checked /> Dynamic Driver</label
-            >
-            <label class="flex items-center gap-2"
-              ><input type="checkbox" /> Planar Magnetic</label
-            >
-            <label class="flex items-center gap-2"
-              ><input type="checkbox" /> Balanced Armature</label
-            >
+          <div class="flex flex-col gap-1.5 text-xs">
+            <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+              <input type="checkbox" checked class="sr-only" />
+              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+              </span>
+              <span>Dynamic Driver (DD)</span>
+            </label>
+            <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+              <input type="checkbox" class="sr-only" />
+              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+              </span>
+              <span>Planar Magnetic</span>
+            </label>
+            <label class="group flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-ink cursor-pointer transition hover:bg-surface-2/60 has-[:checked]:font-semibold">
+              <input type="checkbox" class="sr-only" />
+              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-ink bg-surface transition group-hover:border-accent group-has-[:checked]:border-ink group-has-[:checked]:bg-accent group-has-[:checked]:text-white">
+                <i class="bi bi-check-lg text-xs font-black leading-none opacity-0 transition group-has-[:checked]:opacity-100"></i>
+              </span>
+              <span>Balanced Armature</span>
+            </label>
           </div>
         </div>
 
         <div>
           <h4
-            class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+            class="mb-3 font-mono text-[11px] font-bold uppercase tracking-wider text-ink/70"
           >
             Sound Signature
           </h4>
-          <div class="flex flex-wrap gap-1.5">
+          <div class="flex flex-wrap gap-2">
             <span
-              class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent"
+              class="rounded-full border-2 border-ink bg-accent px-3 py-1 font-mono text-[11px] font-bold text-accent-ink shadow-[2px_2px_0_var(--ink)]"
               >Warm</span
             >
             <span
-              class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted"
+              class="rounded-full border-2 border-ink bg-surface px-3 py-1 font-mono text-[11px] font-semibold text-ink"
               >Neutral</span
             >
             <span
-              class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted"
+              class="rounded-full border-2 border-ink bg-surface px-3 py-1 font-mono text-[11px] font-semibold text-ink"
               >V-shaped</span
             >
           </div>
@@ -1560,9 +1607,10 @@
 
         <button
           data-dismiss="offcanvas"
-          class="mt-auto w-full rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink"
+          class="mt-auto w-full inline-flex items-center justify-center gap-2 rounded-btn border-2 border-ink bg-accent py-2.5 text-xs font-bold text-accent-ink shadow-[3px_3px_0_var(--ink)] transition hover:bg-accent-hover"
         >
-          Terapkan Filter
+          <i class="bi bi-funnel-fill text-xs"></i>
+          <span>Terapkan Filter</span>
         </button>
       </div>
     </dialog>

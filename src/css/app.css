@@ -82,6 +82,7 @@
   body { line-height: 1.7; }
   h1, h2 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
   :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); }
 }
 
 /* Komponen Tambahan & Utilitas Foto Sesuai AUDIO-STORE-STYLE.md Bagian 7 */
