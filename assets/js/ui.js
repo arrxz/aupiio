@@ -59,22 +59,48 @@
       const clean = (el.dataset.allow === "code" ? el.value.toUpperCase() : el.value).replace(re, "");
       if (clean !== el.value) el.value = clean;
     }
-    el.setCustomValidity?.("");
+    // Field yang sedang error dicek ulang tiap ketikan; checkValidity memicu 'invalid' bila masih salah
+    if (el.hasAttribute?.("aria-invalid") && el.checkValidity()) showError(el, "");
   });
 
-  // Pesan error bahasa Indonesia (event 'invalid' tidak bubble, jadi pakai capture)
+  const message = (el) => {
+    const v = el.validity;
+    return v.valueMissing ? "Kolom ini wajib diisi."
+      : v.typeMismatch ? "Format email belum benar, contoh: nama@email.com"
+      : v.tooShort ? `Minimal ${el.minLength} karakter (sekarang ${el.value.length}).`
+      : v.patternMismatch ? el.title
+      : el.validationMessage;
+  };
+
+  // Pesan error inline bergaya tema, menggantikan bubble native yang tidak bisa di-styling
+  const showError = (el, msg) => {
+    let p = el.nextElementSibling?.classList.contains("field-error") ? el.nextElementSibling : null;
+    if (!msg) {
+      p?.remove();
+      el.removeAttribute("aria-invalid");
+      el.removeAttribute("aria-describedby");
+      return;
+    }
+    if (!p) {
+      p = document.createElement("p");
+      p.className = "field-error";
+      p.id = `${el.id || el.name || "field"}-error`;
+      el.after(p);
+      el.setAttribute("aria-describedby", p.id);
+    }
+    p.textContent = msg;
+    el.setAttribute("aria-invalid", "true");
+  };
+
+  // Event 'invalid' tidak bubble, jadi pakai capture
   document.addEventListener(
     "invalid",
     (e) => {
+      e.preventDefault(); // matikan bubble native
       const el = e.target;
-      const v = el.validity;
-      el.setCustomValidity(
-        v.valueMissing ? "Kolom ini wajib diisi."
-        : v.typeMismatch ? "Format email belum benar, contoh: nama@email.com"
-        : v.tooShort ? `Minimal ${el.minLength} karakter (sekarang ${el.value.length}).`
-        : v.patternMismatch ? el.title
-        : ""
-      );
+      showError(el, message(el));
+      // Saat submit, fokus ke field salah yang pertama saja
+      if (el.form?.querySelector(":invalid") === el && document.activeElement !== el) el.focus();
     },
     true
   );
