@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <!-- Grooves styling -->
+    <style>
+      .bg { fill: #C8361F; }
+      .vinyl { fill: #1A1714; stroke: #1C1917; stroke-width: 1.5; }
+      .groove-light { fill: none; stroke: #38312B; stroke-width: 0.75; }
+      .groove-mid { fill: none; stroke: #2A2420; stroke-width: 0.6; }
+      .label { fill: #F2B33D; stroke: #1C1917; stroke-width: 1.2; }
+      .hole { fill: #1C1917; }
+    </style>
+  </defs>
+
+  <!-- Terracotta Rounded Card (Matches Analog Pop Theme) -->
+  <rect class="bg" width="64" height="64" rx="14" />
+
+  <!-- Vinyl Disc Body -->
+  <circle class="vinyl" cx="32" cy="32" r="25" />
+
+  <!-- Grooves (Concentric Circles) -->
+  <circle class="groove-light" cx="32" cy="32" r="22.5" />
+  <circle class="groove-mid" cx="32" cy="32" r="20.5" />
+  <circle class="groove-light" cx="32" cy="32" r="18.5" />
+  <circle class="groove-mid" cx="32" cy="32" r="16.5" />
+  <circle class="groove-light" cx="32" cy="32" r="14.5" />
+  <circle class="groove-mid" cx="32" cy="32" r="12.5" />
+
+  <!-- Center Label (Mustard Yellow) -->
+  <circle class="label" cx="32" cy="32" r="9" />
+
+  <!-- Spindle Hole -->
+  <circle class="hole" cx="32" cy="32" r="2.5" />
+</svg>
