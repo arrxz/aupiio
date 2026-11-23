@@ -389,6 +389,22 @@ window.aupiioSetCategory = function (rawCategory, pushUrl = true) {
     }
   });
 
+  // Micro animation saat pengguna mengganti filter: kartu muncul berurutan, penghitung membal
+  if (pushUrl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    cards.forEach((card) => {
+      if (card.style.display === "none") return;
+      card.animate(
+        [
+          { opacity: 0, translate: "0 14px", scale: "0.96" },
+          { opacity: 1, translate: "0 0", scale: "1" },
+        ],
+        { duration: 340, delay: Math.min(i++ * 45, 360), easing: "cubic-bezier(0.34, 1.56, 0.64, 1)", fill: "backwards" }
+      );
+    });
+    counter?.animate([{ scale: "1" }, { scale: "1.05" }, { scale: "1" }], { duration: 260, easing: "ease-out" });
+  }
+
   // Sync URL history without full reload
   if (pushUrl && window.history && window.history.pushState) {
     const newUrl = category === "all" ? "catalog.html" : `catalog.html?cat=${category === "accessories" ? "aksesoris" : category}`;

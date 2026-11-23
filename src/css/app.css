@@ -242,7 +242,14 @@ html { scrollbar-color: var(--accent) var(--surface-2); }
 @media (prefers-reduced-motion: no-preference) {
   .filter-option, .filter-chip, .filter-box, .filter-count { transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
   .filter-box > * { transition: opacity 0.15s ease; }
-  .filter-chip:active { scale: 0.95; }
+  .filter-chip:active, .filter-option:active { scale: 0.97; }
+
+  /* Membal saat dicentang: animasi otomatis jalan begitu :checked mulai cocok */
+  .filter-option:has(:checked) .filter-box,
+  .filter-option:has(:checked) .filter-count { animation: filter-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .filter-chip:has(:checked) { animation: chip-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @keyframes filter-pop { 0% { scale: 0.6; } 60% { scale: 1.18; } 100% { scale: 1; } }
+  @keyframes chip-pop { 0% { scale: 0.92; } 60% { scale: 1.06; } 100% { scale: 1; } }
 }
 
 /* Field tidak valid (baru tampil setelah pengguna berinteraksi) */
