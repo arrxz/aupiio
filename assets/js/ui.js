@@ -8,10 +8,44 @@
     const panel =
       btn.dataset.toggle === "dropdown" ? btn.nextElementSibling : document.querySelector(btn.dataset.target);
     if (!panel) return;
-    panel.classList.toggle("hidden", !open);
-    if (open && (panel.id === "searchPanel" || btn.dataset.target === "#searchPanel")) {
-      const input = panel.querySelector("input");
-      if (input) setTimeout(() => input.focus(), 60);
+
+    if (open) {
+      if (panel._closeTimer) {
+        clearTimeout(panel._closeTimer);
+        panel._closeTimer = null;
+      }
+      panel.classList.remove("is-closing");
+      panel.classList.remove("hidden");
+      if (panel.id === "searchPanel" || btn.dataset.target === "#searchPanel") {
+        const input = panel.querySelector("input");
+        if (input) setTimeout(() => input.focus(), 60);
+      }
+    } else {
+      if (panel.classList.contains("hidden")) return;
+
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) {
+        panel.classList.remove("is-closing");
+        panel.classList.add("hidden");
+        return;
+      }
+
+      panel.classList.add("is-closing");
+      if (panel._closeTimer) clearTimeout(panel._closeTimer);
+
+      const finishClose = () => {
+        panel.classList.remove("is-closing");
+        panel.classList.add("hidden");
+        panel._closeTimer = null;
+        panel.removeEventListener("animationend", onAnimEnd);
+      };
+
+      const onAnimEnd = (ev) => {
+        if (ev.target === panel) finishClose();
+      };
+
+      panel.addEventListener("animationend", onAnimEnd);
+      panel._closeTimer = setTimeout(finishClose, 200);
     }
   };
 

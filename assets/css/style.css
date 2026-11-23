@@ -9,7 +9,6 @@
     --spacing: 0.25rem;
     --container-sm: 24rem;
     --container-md: 28rem;
-    --container-7xl: 80rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
@@ -46,7 +45,6 @@
     --leading-relaxed: 1.625;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
-    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-md: 12px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1763,15 +1761,20 @@ option {
     }
   }
 }
-#searchPanel:not(.hidden) {
+#searchPanel:not(.hidden):not(.is-closing) {
   animation: search-slide-down 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: top center;
 }
-#searchPanel:not(.hidden) form {
+#searchPanel:not(.hidden):not(.is-closing) form {
   animation: search-fade-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-#searchPanel:not(.hidden) input {
+#searchPanel:not(.hidden):not(.is-closing) input {
   animation: search-input-pop 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+#searchPanel.is-closing {
+  animation: search-slide-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+  pointer-events: none;
 }
 @keyframes search-slide-down {
   0% {
@@ -1781,6 +1784,16 @@ option {
   100% {
     opacity: 1;
     transform: translateY(0) scaleY(1);
+  }
+}
+@keyframes search-slide-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.92);
   }
 }
 @keyframes search-fade-in {
@@ -1814,25 +1827,43 @@ option {
 [data-target="#searchPanel"][aria-expanded="true"] i {
   transform: rotate(90deg) scale(1.1);
 }
+[data-toggle="dropdown"] svg {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
 [data-toggle="dropdown"][aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
-[role="listbox"]:not(.hidden) {
+[role="listbox"]:not(.hidden):not(.is-closing), [role="menu"]:not(.hidden):not(.is-closing), .dropdown-menu:not(.hidden):not(.is-closing) {
   animation: dropdown-pop 0.22s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
   transform-origin: top center;
+}
+[role="listbox"].is-closing, [role="menu"].is-closing, .dropdown-menu.is-closing {
+  animation: dropdown-close 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+  pointer-events: none;
 }
 @keyframes dropdown-pop {
   0% {
     opacity: 0;
-    transform: translateY(-6px) scale(0.97);
+    transform: translateY(-8px) scale(0.96);
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
+@keyframes dropdown-close {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  #searchPanel:not(.hidden), #searchPanel:not(.hidden) form, #searchPanel:not(.hidden) input, [data-target="#searchPanel"] i, [role="listbox"]:not(.hidden), [data-toggle="dropdown"] svg {
+  #searchPanel:not(.hidden), #searchPanel.is-closing, #searchPanel:not(.hidden) form, #searchPanel:not(.hidden) input, [data-target="#searchPanel"] i, [role="listbox"]:not(.hidden), [role="listbox"].is-closing, [role="menu"]:not(.hidden), [role="menu"].is-closing, .dropdown-menu:not(.hidden), .dropdown-menu.is-closing, [data-toggle="dropdown"] svg {
     animation: none !important;
     transition: none !important;
   }
@@ -2203,11 +2234,6 @@ dialog::backdrop {
   syntax: "*";
   inherits: false;
   initial-value: 1;
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: block))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
