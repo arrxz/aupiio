@@ -261,53 +261,22 @@ option { background: var(--surface); color: var(--ink); }
   }
 }
 
-/* Micro-animation saat membuka dan menutup search bar */
+/* Search bar: overflow hidden untuk JS max-height transition */
 #searchPanel {
   overflow: hidden;
 }
 #searchPanel > form {
   min-height: 0;
 }
-#searchPanel:not(.hidden):not(.is-closing) {
-  display: grid;
-  animation: search-expand-down 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+
+/* Animasi konten search bar (form & input) saat membuka */
 #searchPanel:not(.hidden):not(.is-closing) form {
   animation: search-fade-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 #searchPanel:not(.hidden):not(.is-closing) input {
   animation: search-input-pop 0.32s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
 }
-#searchPanel.is-closing {
-  display: grid;
-  animation: search-collapse-up 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  pointer-events: none;
-}
 
-@keyframes search-expand-down {
-  0% {
-    grid-template-rows: 0fr;
-    max-height: 0;
-    opacity: 0;
-  }
-  100% {
-    grid-template-rows: 1fr;
-    max-height: 120px;
-    opacity: 1;
-  }
-}
-@keyframes search-collapse-up {
-  0% {
-    grid-template-rows: 1fr;
-    max-height: 120px;
-    opacity: 1;
-  }
-  100% {
-    grid-template-rows: 0fr;
-    max-height: 0;
-    opacity: 0;
-  }
-}
 @keyframes search-fade-in {
   0% {
     opacity: 0;
@@ -402,7 +371,6 @@ option { background: var(--surface); color: var(--ink); }
     transition: none !important;
   }
 }
-
 /* Offcanvas <dialog>: backdrop gelap; tanpa animasi bila reduced motion */
 dialog::backdrop { background: rgb(26 23 20 / 0.55); }
 
