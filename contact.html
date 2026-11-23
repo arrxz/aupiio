@@ -107,8 +107,7 @@
           
           <!-- Formulir Kontak / Konsultasi (7 Cols) -->
           <div class="lg:col-span-7" data-reveal>
-            <span class="rounded-full border border-accent bg-accent/10 px-3 py-1 text-xs font-medium text-accent">Pusat Layanan Konsultasi</span>
-            <h1 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Hubungi Tim Konsultan Audio Kami</h1>
+            <h1 class="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Hubungi Tim Konsultan Audio Kami</h1>
             <p class="mt-3 text-sm text-ink-muted">
               Punya pertanyaan seputar kecocokan IEM dengan genre favorit, kabel balanced 4.4mm, atau ingin klaim garansi? Kirim pesan Anda di bawah ini.
             </p>
@@ -125,15 +124,57 @@
                 </div>
               </div>
 
-              <div class="text-xs">
-                <label for="ct-topic" class="block text-ink-muted mb-1.5 font-medium">Topik Bantuan</label>
-                <select id="ct-topic" class="w-full rounded-xl border-2 border-ink bg-surface-2 px-3.5 py-2.5 text-xs text-ink focus:border-accent focus:outline-none">
-                  <option value="sound">Konsultasi Rekomendasi IEM & Sound Signature</option>
+              <!-- Topik Bantuan (Dropdown yang selalu membuka ke bawah) -->
+              <div class="relative text-xs" id="ct-topic-container">
+                <label id="ct-topic-field-label" class="block text-ink-muted mb-1.5 font-medium">Topik Bantuan</label>
+                <!-- Native select tetap ada untuk submit form -->
+                <select id="ct-topic" name="topic" class="sr-only" tabindex="-1" aria-hidden="true">
+                  <option value="sound" selected>Konsultasi Rekomendasi IEM & Sound Signature</option>
                   <option value="dac">Tanya Kompatibilitas Dongle DAC & Smartphone</option>
                   <option value="order">Status Pesanan & Pengiriman</option>
                   <option value="warranty">Klaim Garansi & Penggantian Unit</option>
                   <option value="other">Pertanyaan Lainnya</option>
                 </select>
+
+                <!-- Tombol pemicu dropdown kustom -->
+                <button
+                  type="button"
+                  id="ct-topic-btn"
+                  data-toggle="dropdown"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-labelledby="ct-topic-field-label ct-topic-label"
+                  class="flex w-full items-center justify-between rounded-xl border-2 border-ink bg-surface-2 px-3.5 py-2.5 text-left text-xs font-medium text-ink transition focus:border-accent focus:outline-none"
+                >
+                  <span id="ct-topic-label">Konsultasi Rekomendasi IEM & Sound Signature</span>
+                  <svg class="h-4 w-4 shrink-0 text-ink transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+
+                <!-- Menu dropdown yang selalu muncul ke bawah (top-full mt-1.5) -->
+                <ul
+                  id="ct-topic-list"
+                  role="listbox"
+                  aria-labelledby="ct-topic-field-label"
+                  class="absolute left-0 top-full z-30 mt-1.5 hidden w-full rounded-2xl border-2 border-ink bg-surface p-1.5 shadow-[6px_6px_0px_#1C1917]"
+                >
+                  <li role="option" aria-selected="true" data-value="sound" class="cursor-pointer rounded-xl bg-ink px-3.5 py-2.5 font-bold text-bg transition hover:bg-mustard hover:text-ink">
+                    Konsultasi Rekomendasi IEM & Sound Signature
+                  </li>
+                  <li role="option" aria-selected="false" data-value="dac" class="cursor-pointer rounded-xl px-3.5 py-2.5 text-ink transition hover:bg-mustard">
+                    Tanya Kompatibilitas Dongle DAC & Smartphone
+                  </li>
+                  <li role="option" aria-selected="false" data-value="order" class="cursor-pointer rounded-xl px-3.5 py-2.5 text-ink transition hover:bg-mustard">
+                    Status Pesanan & Pengiriman
+                  </li>
+                  <li role="option" aria-selected="false" data-value="warranty" class="cursor-pointer rounded-xl px-3.5 py-2.5 text-ink transition hover:bg-mustard">
+                    Klaim Garansi & Penggantian Unit
+                  </li>
+                  <li role="option" aria-selected="false" data-value="other" class="cursor-pointer rounded-xl px-3.5 py-2.5 text-ink transition hover:bg-mustard">
+                    Pertanyaan Lainnya
+                  </li>
+                </ul>
               </div>
 
               <div class="text-xs">

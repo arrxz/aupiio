@@ -1,83 +1,93 @@
-# 🎧 aupiio - E-Commerce Audiophile & In-Ear Monitors (IEM)
+# aupiio
 
-Proyek website e-commerce khusus personal audio, In-Ear Monitor (IEM), DAC/Amp, dan aksesoris audiophile untuk mata kuliah **Web Fundamental**. Dibangun menggunakan **HTML5**, **CSS3**, **JavaScript**, dan framework responsif **Bootstrap 5.3** dengan tema visual **"Amber Studio"** (mengacu pada panduan [AUDIO-STORE-STYLE.md](file:///d:/KAMPUS/Sem%203/Web%20Fundamental/Web%20Iem/AUDIO-STORE-STYLE.md)).
+Toko online personal audio (IEM, DAC/Amp, aksesoris) untuk mata kuliah **Web Fundamental**. Situs statis multi-halaman dengan tema visual **Warm Analog Pop**: alas krem, blok warna tomat, kobalt, dan mustard, serta layout bento grid.
 
----
+## Menjalankan
 
-## 📂 Struktur Direktori Proyek
+Butuh Node.js 18+.
+
+```bash
+npm install
+npm run dev      # compile CSS lalu jalankan Vite di http://localhost:5173
+npm run build    # compile CSS lalu build ke dist/
+npm run preview  # pratinjau hasil build
+```
+
+Halaman juga bisa dibuka langsung dari file (`index.html`) karena CSS sudah ter-compile di `assets/css/style.css`. Setelah menambah atau mengubah class Tailwind di HTML, jalankan ulang `npm run css`. Dev server tidak meng-compile ulang CSS secara otomatis.
+
+## Stack
+
+| Bagian | Teknologi |
+|---|---|
+| Markup | HTML statis, 7 halaman |
+| Styling | Tailwind CSS v4 (`src/css/app.css` ke `assets/css/style.css` lewat `@tailwindcss/cli`) |
+| Interaksi UI | `assets/js/ui.js` (vanilla JS, pengganti Bootstrap JS) |
+| Gerak | GSAP + ScrollTrigger + Lenis via CDN, plus animasi CSS |
+| Ikon & font | Bootstrap Icons (icon font), Google Fonts: Bricolage Grotesque, Instrument Serif, JetBrains Mono |
+| Dev server & build | Vite 6 |
+
+Bootstrap (framework CSS/JS) sudah tidak dipakai. Yang tersisa hanya icon font `bootstrap-icons`.
+
+## Halaman
+
+| File | Isi |
+|---|---|
+| `index.html` | Beranda bento: hero, produk pilihan, kategori, sound signature, testimoni, produk, panduan |
+| `catalog.html` | Katalog dengan filter (sidebar desktop, panel `<dialog>` di mobile) |
+| `product-detail.html` | Galeri, panel beli, tabel spesifikasi, analisis suara |
+| `cart.html` | Tabel keranjang, kode promo, ringkasan |
+| `checkout.html` | Form 3 langkah: pengiriman, kurir, pembayaran |
+| `about.html` | Cerita toko dan tiga pilar nilai |
+| `contact.html` | Form konsultasi, info toko, FAQ |
+
+## Struktur
 
 ```text
 Web Iem/
-│
-├── assets/                           # Folder aset statis
-│   ├── css/
-│   │   └── style.css                 # Custom styling & variabel palet warna
+├── *.html                    # 7 halaman (lihat tabel di atas)
+├── src/
+│   ├── css/app.css           # SUMBER styling: token, komponen, animasi
+│   └── js/                   # versi ES module dari JS (belum dipakai halaman)
+├── assets/
+│   ├── css/style.css         # HASIL compile app.css (jangan diedit manual)
 │   ├── js/
-│   │   ├── main.js                   # Interaksi UI, scroll navbar, badge keranjang
-│   │   ├── products.js               # Data dummy produk & spesifikasi audio (IEM, DAC, Tips)
-│   │   └── cart.js                   # Logika penambahan keranjang (localStorage)
-│   ├── images/
-│   │   ├── banners/                  # Banner slider & promosi homepage
-│   │   ├── brands/                   # Logo brand (Moondrop, Tangzu, FiiO, 7Hz, SpinFit)
-│   │   ├── icons/                    # Favicon & icon audio
-│   │   └── products/                 # Foto produk IEM, DAC, kabel, eartips
-│   └── fonts/                        # Folder font lokal (opsional)
-│
-├── docs/                             # Tempat menyimpan dokumen perencanaan
-│   └── README.md                     # Panduan integrasi wireframe & palet warna
-│
-├── index.html                        # Halaman Beranda (Hero, Featured Gear, Kategori)
-├── catalog.html                      # Katalog Produk (Filter Driver, Sound Signature, Range Harga)
-├── product-detail.html               # Halaman Detail Produk (Specs Teknis Audiophile, FR Graph, Review)
-├── cart.html                         # Keranjang Belanja (Tabel Produk, Promo, Ringkasan)
-├── checkout.html                     # Checkout & Pembayaran (Alamat Kirim, Pilihan QRIS/VA)
-├── about.html                        # Tentang Kami & Filosofi Audiophile
-├── contact.html                      # Bantuan Konsultan Audio, FAQ & Klaim Garansi
-└── README.md                         # Dokumentasi panduan proyek
+│   │   ├── ui.js             # collapse, dropdown, offcanvas, nav aktif, validasi form
+│   │   ├── cart.js           # keranjang di localStorage (aupiio_cart)
+│   │   ├── products.js       # data produk contoh + formatRupiah()
+│   │   ├── content.js        # teks pemasaran beranda (COPY)
+│   │   └── main.js           # Lenis, GSAP reveal, animasi hero, shadow header
+│   └── images/
+│       ├── logo/             # favicon
+│       └── products/         # foto produk
+├── docs/                     # dokumen desain (lihat docs/README.md)
+├── AUDIO-STORE-STYLE.md      # sistem desain Warm Analog Pop
+├── AUDIO-STORE-STACK-MOTION.md  # arsitektur teknis & sistem gerak
+└── vite.config.js            # input build multi-halaman
 ```
 
----
+## Fitur
 
-## 🌟 Fitur Khusus Dunia Audiophile yang Sudah Disediakan
+- **Keranjang:** tersimpan di `localStorage`. Badge di header ter-update otomatis dan mini-cart terbuka setiap kali produk ditambahkan.
+- **Navigasi:** halaman aktif ditandai pill hitam (`aria-current="page"`). Menu mobile dan panel pencarian slide turun saat dibuka.
+- **Validasi form:** karakter terlarang disaring saat diketik (`data-allow`), pesan error inline berbahasa Indonesia, dan fokus otomatis ke field pertama yang salah.
+- **Gerak:** micro animation global (tombol, kartu, foto, ikon panah) dan animasi panel serta dropdown. Semuanya mati saat `prefers-reduced-motion`.
+- **Aksesibilitas:** label terhubung ke field, target sentuh header 44px, kontras token dicek (lihat `AUDIO-STORE-STYLE.md`).
 
-1. **Filter Berbasis Spesifikasi Audio (`catalog.html`):**
-   - **Tipe Driver:** Dynamic Driver (DD), Planar Magnetic, Balanced Armature (BA), Hybrid.
-   - **Sound Signature:** Warm-Balanced, Neutral / Harman, V-Shape, Bright / Analytical.
-2. **Tab Spesifikasi Audiophile (`product-detail.html`):**
-   - Tabel driver configuration, impedance ($\Omega$), sensitivity (dB), pin connector (0.78mm 2-Pin / MMCX), jack plug termination (3.5mm SE vs 4.4mm Balanced).
-   - Slot visual **Frequency Response Graph (FR Graph)**.
-   - Analisis suara terbagi menjadi 4 pilar: _Bass, Midrange/Vokal, Treble, dan Soundstage_.
-3. **Simulasi Keranjang Belanja (`cart.js` & `cart.html`):**
-   - Menggunakan `localStorage` browser sehingga jumlah barang langsung terhitung dinamis pada badge navbar.
-4. **Desain Mobile-First & Responsif:**
-   - Menggunakan grid system Bootstrap 5.3 yang ramah diakses dari layar smartphone, tablet, maupun laptop.
+## Mengubah tampilan
 
----
+Semua styling bersumber dari `src/css/app.css`. Jangan edit `assets/css/style.css`, karena file itu ditimpa setiap compile.
 
-## 🎨 Cara Menerapkan Palet Warna & Wireframe Anda
+- **Warna:** ubah variabel di blok `:root`. Nama class Tailwind (`bg-accent`, `text-ink`, `bg-cobalt`, dll.) mengikuti token ini.
+- **Font dan radius:** ada di blok `@theme inline`.
+- **Header dan footer:** markup-nya disalin ke setiap halaman (tanpa partial), jadi perubahan harus diterapkan ke semua file `.html`.
 
-1. **Palet Warna:**
-   - Buka file [`assets/css/style.css`](file:///d:/KAMPUS/Sem%203/Web%20Fundamental/Web%20Iem/assets/css/style.css).
-   - Ubah variabel warna di dalam blok `:root` (`--audio-primary`, `--audio-secondary`, `--audio-gold`, dll.) sesuai kode HEX dari palet Anda.
-2. **Wireframe & Desain:**
-   - Simpan sketsa atau ekspor gambar desain di folder [`docs/`](file:///d:/KAMPUS/Sem%203/Web%20Fundamental/Web%20Iem/docs/).
-3. **Gambar Produk & Banner:**
-   - Letakkan foto-foto IEM / DAC di [`assets/images/products/`](file:///d:/KAMPUS/Sem%203/Web%20Fundamental/Web%20Iem/assets/images/products/) dan ganti placeholder icon di file HTML menjadi tag `<img src="assets/images/products/nama-file.png">`.
+Detail token, kontras, dan aturan komponen ada di [`AUDIO-STORE-STYLE.md`](AUDIO-STORE-STYLE.md).
 
----
+## Keterbatasan yang diketahui
 
-## 🚀 Cara Menjalankan Website (Vite + Modern Stack)
-
-1. Pasang dependensi proyek:
-   ```bash
-   npm install
-   ```
-2. Jalankan server pengembangan lokal (Vite Dev Server):
-   ```bash
-   npm run dev
-   ```
-   Buka tautan lokal yang tampil di terminal (biasanya `http://localhost:5173`).
-3. Kompilasi untuk produksi (Build):
-   ```bash
-   npm run build
-   ```
+- **Belum ada backend.** Form contact dan checkout tidak mengirim ke mana pun, dan validasinya hanya di browser (bisa dilewati). Kalau nanti ada server, validasi wajib diulang di sana.
+- **Data contoh.** Harga, stok, testimoni, dan nomor WhatsApp (`6281234567890`) masih placeholder.
+- **Filter katalog belum berfungsi.** Parameter `?cat=` dan `?sig=` hanya dipakai untuk penanda nav aktif, produk tidak difilter.
+- **`dist/` tanpa JS.** Vite tidak menyalin script klasik di `assets/js/`, jadi hasil `npm run build` belum punya interaksi.
+- **`cart.html` tidak punya dialog `#miniCart`**, sehingga tombol Keranjang di header halaman itu tidak membuka apa-apa.
+- **Dropdown kustom** (`appearance: base-select`) hanya tampil di Chrome/Edge 135+. Browser lain memakai dropdown native.

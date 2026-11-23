@@ -7,7 +7,12 @@
     btn.setAttribute("aria-expanded", String(open));
     const panel =
       btn.dataset.toggle === "dropdown" ? btn.nextElementSibling : document.querySelector(btn.dataset.target);
-    panel?.classList.toggle("hidden", !open);
+    if (!panel) return;
+    panel.classList.toggle("hidden", !open);
+    if (open && (panel.id === "searchPanel" || btn.dataset.target === "#searchPanel")) {
+      const input = panel.querySelector("input");
+      if (input) setTimeout(() => input.focus(), 60);
+    }
   };
 
   const closeDropdowns = (except) =>
@@ -22,6 +27,34 @@
   };
 
   document.addEventListener("click", (e) => {
+    // 1. Klik opsi custom dropdown (listbox)
+    const opt = e.target.closest('[role="listbox"] [role="option"]');
+    if (opt) {
+      const listbox = opt.closest('[role="listbox"]');
+      const container = listbox.closest(".relative") || listbox.parentElement;
+      const btn = container?.querySelector('[data-toggle="dropdown"]');
+      const select = container?.querySelector("select");
+      const label = container?.querySelector("#ct-topic-label, .dropdown-selected-label");
+
+      if (listbox) {
+        listbox.querySelectorAll('[role="option"]').forEach((o) => {
+          const isSel = o === opt;
+          o.setAttribute("aria-selected", String(isSel));
+          o.classList.toggle("bg-ink", isSel);
+          o.classList.toggle("text-bg", isSel);
+          o.classList.toggle("font-bold", isSel);
+          o.classList.toggle("text-ink", !isSel);
+        });
+        if (label) label.textContent = opt.textContent.trim();
+        if (select) {
+          select.value = opt.dataset.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        if (btn) setExpanded(btn, false);
+        return;
+      }
+    }
+
     const btn = e.target.closest("[data-toggle]");
     closeDropdowns(btn);
 
