@@ -3,92 +3,42 @@
  * Markup: data-toggle="collapse|dropdown|offcanvas", data-target="#id", data-dismiss="offcanvas".
  */
 (() => {
-  // Animasi tinggi panel (search bar) pakai max-height transition
-  const animatePanel = (panel, open) => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (open) {
-      if (panel._closeTimer) {
-        clearTimeout(panel._closeTimer);
-        panel._closeTimer = null;
-      }
-      panel.style.overflow = "hidden";
-      panel.style.maxHeight = "0px";
-      panel.style.transition = "none";
-      panel.style.opacity = "0";
-      panel.classList.remove("is-closing");
-      panel.classList.remove("hidden");
-
-      if (prefersReduced) {
-        panel.style.maxHeight = "";
-        panel.style.overflow = "";
-        panel.style.opacity = "";
-        return;
-      }
-
-      requestAnimationFrame(() => {
-        const target = panel.scrollHeight;
-        panel.style.transition = "max-height 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.22s ease";
-        panel.style.maxHeight = target + "px";
-        panel.style.opacity = "1";
-
-        const cleanup = () => {
-          panel.style.maxHeight = "";
-          panel.style.overflow = "";
-          panel.style.transition = "";
-          panel.style.opacity = "";
-          panel.removeEventListener("transitionend", cleanup);
-        };
-        panel.addEventListener("transitionend", cleanup);
-      });
-    } else {
-      if (panel.classList.contains("hidden")) return;
-
-      if (prefersReduced) {
-        panel.classList.add("hidden");
-        return;
-      }
-
-      const current = panel.scrollHeight;
-      panel.style.overflow = "hidden";
-      panel.style.maxHeight = current + "px";
-      panel.style.opacity = "1";
-      panel.classList.add("is-closing");
-
-      if (panel._closeTimer) clearTimeout(panel._closeTimer);
-
-      requestAnimationFrame(() => {
-        panel.style.transition = "max-height 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.18s ease";
-        panel.style.maxHeight = "0px";
-        panel.style.opacity = "0";
-      });
-
-      const finishClose = () => {
-        panel.classList.remove("is-closing");
-        panel.classList.add("hidden");
-        panel.style.maxHeight = "";
-        panel.style.overflow = "";
-        panel.style.transition = "";
-        panel.style.opacity = "";
-        panel._closeTimer = null;
-      };
-      panel._closeTimer = setTimeout(finishClose, 260);
-    }
-  };
-
   const setExpanded = (btn, open) => {
     btn.setAttribute("aria-expanded", String(open));
     const isDropdown = btn.dataset.toggle === "dropdown";
     const panel = isDropdown ? btn.nextElementSibling : document.querySelector(btn.dataset.target);
     if (!panel) return;
 
-    // Pakai animasi max-height hanya untuk searchPanel (bukan dropdown listbox)
-    const isSearch = panel.id === "searchPanel" || btn.dataset.target === "#searchPanel";
-    if (isSearch) {
-      animatePanel(panel, open);
+    // Search bar: animasi ekspansi tinggi (bar hitam header meluncur mulus ke bawah)
+    if (panel.id === "searchPanel" || btn.dataset.target === "#searchPanel") {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       if (open) {
+        if (panel._closeTimer) {
+          clearTimeout(panel._closeTimer);
+          panel._closeTimer = null;
+        }
+        panel.classList.remove("hidden");
+        if (prefersReduced) {
+          panel.classList.add("is-open");
+        } else {
+          // Trigger reflow agar transisi height berjalan mulus dari 0
+          void panel.offsetHeight;
+          panel.classList.add("is-open");
+        }
         const input = panel.querySelector("input");
         if (input) setTimeout(() => input.focus(), 60);
+      } else {
+        panel.classList.remove("is-open");
+        if (prefersReduced) {
+          panel.classList.add("hidden");
+        } else {
+          if (panel._closeTimer) clearTimeout(panel._closeTimer);
+          panel._closeTimer = setTimeout(() => {
+            panel.classList.add("hidden");
+            panel._closeTimer = null;
+          }, 280);
+        }
       }
       return;
     }

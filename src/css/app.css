@@ -261,41 +261,25 @@ option { background: var(--surface); color: var(--ink); }
   }
 }
 
-/* Search bar: overflow hidden untuk JS max-height transition */
+/* Micro-animation saat membuka dan menutup search bar */
 #searchPanel {
+  height: 0;
+  opacity: 0;
   overflow: hidden;
+  pointer-events: none;
+  transition: height 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
 }
-#searchPanel > form {
-  min-height: 0;
+#searchPanel.is-open {
+  height: 68px;
+  opacity: 1;
+  pointer-events: auto;
 }
-
-/* Animasi konten search bar (form & input) saat membuka */
-#searchPanel:not(.hidden):not(.is-closing) form {
-  animation: search-fade-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+#searchPanel form {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-8px);
 }
-#searchPanel:not(.hidden):not(.is-closing) input {
-  animation: search-input-pop 0.32s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
-}
-
-@keyframes search-fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes search-input-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+#searchPanel.is-open form {
+  transform: translateY(0);
 }
 
 /* Micro-interaction tombol search saat aktif */
@@ -355,10 +339,8 @@ option { background: var(--surface); color: var(--ink); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #searchPanel:not(.hidden),
-  #searchPanel.is-closing,
-  #searchPanel:not(.hidden) form,
-  #searchPanel:not(.hidden) input,
+  #searchPanel,
+  #searchPanel form,
   [data-target="#searchPanel"] i,
   [role="listbox"]:not(.hidden),
   [role="listbox"].is-closing,
