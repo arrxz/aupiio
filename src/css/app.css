@@ -161,6 +161,90 @@ html { scrollbar-color: var(--accent) var(--surface-2); }
   @keyframes slide-down { from { opacity: 0; translate: 0 -8px; } }
 }
 
+/* Panel filter katalog: grup, opsi radio/checkbox, chip. Input asli disembunyikan (sr-only) tapi tetap fokusable. */
+@layer components {
+  .filter-group { border-top: 1px solid var(--line); padding-block: 1.1rem; }
+  .filter-group:first-child { border-top: 0; padding-top: 0.25rem; }
+  /* float: legend keluar dari garis border fieldset, jadi garis tidak terpotong */
+  .filter-legend + * { clear: both; }
+  .filter-legend {
+    float: left;
+    width: 100%;
+    margin-bottom: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .filter-option:hover { background: var(--surface-2); }
+  .filter-option:has(:checked) { background: color-mix(in srgb, var(--mustard) 28%, transparent); font-weight: 700; }
+  .filter-option:has(:focus-visible), .filter-chip:has(:focus-visible) { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+  .filter-count {
+    margin-left: auto;
+    min-width: 1.75rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    background: var(--surface-2);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--ink-muted);
+  }
+  .filter-option:has(:checked) .filter-count { background: var(--ink); color: var(--bg); }
+
+  /* Kotak penanda: bulat untuk radio, persegi untuk checkbox */
+  .filter-box {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid var(--ink);
+    border-radius: 0.3rem;
+    background: var(--surface);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+  }
+  .filter-box > * { opacity: 0; }
+  .filter-option:has(:checked) .filter-box { background: var(--accent); border-color: var(--accent); }
+  .filter-option:has(:checked) .filter-box > * { opacity: 1; }
+  .filter-option:has([type="radio"]) .filter-box { border-radius: 50%; }
+  .filter-dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #FFFFFF; }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .filter-chip:hover { background: var(--surface-2); }
+  .filter-chip:has(:checked) { background: var(--ink); color: var(--bg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .filter-option, .filter-chip, .filter-box, .filter-count { transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+  .filter-box > * { transition: opacity 0.15s ease; }
+  .filter-chip:active { scale: 0.95; }
+}
+
 /* Field tidak valid (baru tampil setelah pengguna berinteraksi) */
 input:user-invalid, textarea:user-invalid, select:user-invalid,
 [aria-invalid="true"] { border-color: var(--bad); }
