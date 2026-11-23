@@ -14,9 +14,21 @@
     </script>
 
     <!-- Favicon (SVG + PNG Fallback) -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png" />
-    <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/logo/favicon.svg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/logo/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/images/logo/apple-touch-icon.png"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,21 +44,76 @@
   </head>
   <body class="bg-bg text-ink antialiased">
     <!-- Header (sama di semua halaman, kecuali checkout) -->
-    <header class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200">
-      <div class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap">
-        <a class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8" href="index.html">
+    <header
+      class="site-header sticky top-0 z-40 border-b-2 border-ink bg-bg py-3 transition-shadow duration-200"
+    >
+      <div
+        class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-2 px-4 sm:px-6 lg:flex-nowrap"
+      >
+        <a
+          class="mr-auto font-display text-3xl font-extrabold tracking-tight text-ink lg:mr-8"
+          href="index.html"
+        >
           aup<span class="text-accent">iio</span>
         </a>
 
-        <nav id="mainNav" class="order-last hidden basis-full lg:order-none lg:flex lg:flex-1 lg:basis-auto" aria-label="Navigasi utama">
-          <ul class="flex flex-col gap-1 pt-3 text-sm font-bold lg:flex-row lg:items-center lg:pt-0">
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="index.html">Beranda</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html">Katalog</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=iem">IEM</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=dac-amp">DAC/Amp</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="catalog.html?cat=aksesoris">Aksesoris</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="about.html">Panduan</a></li>
-            <li><a class="nav-link block rounded-btn px-3.5 py-2 text-ink" href="contact.html">Kontak</a></li>
+        <nav
+          id="mainNav"
+          class="order-last hidden basis-full lg:order-none lg:flex lg:flex-1 lg:basis-auto"
+          aria-label="Navigasi utama"
+        >
+          <ul
+            class="flex flex-col gap-1 pt-3 text-sm font-bold lg:flex-row lg:items-center lg:pt-0"
+          >
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="index.html"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html"
+                >Katalog</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=iem"
+                >IEM</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=dac-amp"
+                >DAC/Amp</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="catalog.html?cat=aksesoris"
+                >Aksesoris</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="about.html"
+                >Panduan</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link block rounded-btn px-3.5 py-2 text-ink"
+                href="contact.html"
+                >Kontak</a
+              >
+            </li>
           </ul>
         </nav>
 
@@ -71,7 +138,12 @@
         >
           <i class="bi bi-bag" aria-hidden="true"></i>
           <span class="hidden sm:inline">Keranjang</span>
-          <span id="cartBadge" class="absolute -right-1.5 -top-1.5 rounded-full border-2 border-ink bg-mustard px-1.5 text-[11px] font-bold text-ink" style="display: none;">0</span>
+          <span
+            id="cartBadge"
+            class="absolute -right-1.5 -top-1.5 rounded-full border-2 border-ink bg-mustard px-1.5 text-[11px] font-bold text-ink"
+            style="display: none"
+            >0</span
+          >
         </button>
 
         <button
@@ -88,10 +160,16 @@
       </div>
 
       <div id="searchPanel" class="hidden">
-        <form action="catalog.html" method="get" class="mx-auto max-w-[1600px] px-4 pt-3 sm:px-6" role="search">
+        <form
+          action="catalog.html"
+          method="get"
+          class="mx-auto max-w-[1600px] px-4 pt-3 sm:px-6"
+          role="search"
+        >
           <label for="siteSearch" class="sr-only">Cari produk</label>
           <input
-            id="siteSearch" maxlength="60"
+            id="siteSearch"
+            maxlength="60"
             type="search"
             name="q"
             placeholder="Cari IEM, DAC, kabel..."
@@ -103,7 +181,9 @@
 
     <!-- Breadcrumb & Mobile Filter Trigger -->
     <div class="border-b border-line bg-surface py-3">
-      <div class="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6">
+      <div
+        class="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6"
+      >
         <nav aria-label="breadcrumb" class="text-xs text-ink-muted">
           <a href="index.html" class="text-accent hover:underline">Beranda</a>
           <span class="mx-2 text-line">/</span>
@@ -124,35 +204,130 @@
     <main class="py-12 md:py-16">
       <div class="mx-auto max-w-[1600px] px-4 sm:px-6">
         <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
-          
-          <!-- Desktop Filter Sidebar -->
+                    <!-- Desktop Filter Sidebar -->
           <aside class="hidden lg:block">
-            <div class="sticky top-24 rounded-card border-2 border-ink bg-surface p-5">
-              <div class="mb-5 flex items-center justify-between border-b border-line pb-3">
-                <h3 class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2">
+            <div
+              class="sticky top-24 rounded-card border-2 border-ink bg-surface p-5"
+            >
+              <div
+                class="mb-5 flex items-center justify-between border-b border-line pb-3"
+              >
+                <h3
+                  class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2"
+                >
                   <i class="bi bi-sliders text-accent"></i> Filter Audio
                 </h3>
-                <a href="catalog.html" class="text-xs text-ink-muted hover:text-accent">Reset</a>
+                <button
+                  type="button"
+                  onclick="window.aupiioSetCategory('all')"
+                  class="text-xs text-ink-muted hover:text-accent cursor-pointer"
+                  >Reset</button
+                >
+              </div>
+
+              <!-- Filter: Kategori Produk -->
+              <div class="mb-6 border-b border-line pb-5">
+                <h4
+                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >
+                  Kategori Produk
+                </h4>
+                <div class="flex flex-col gap-2.5 text-xs" id="categoryFilterDesktop">
+                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="catFilterDesktop"
+                        value="all"
+                        checked
+                        class="text-accent focus:ring-accent"
+                      />
+                      <span class="font-medium">Semua Produk</span>
+                    </div>
+                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">14</span>
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="catFilterDesktop"
+                        value="iem"
+                        class="text-accent focus:ring-accent"
+                      />
+                      <span>In-Ear Monitor (IEM)</span>
+                    </div>
+                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">8</span>
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="catFilterDesktop"
+                        value="dac-amp"
+                        class="text-accent focus:ring-accent"
+                      />
+                      <span>DAC &amp; Amplifier</span>
+                    </div>
+                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">3</span>
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer hover:text-accent">
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="catFilterDesktop"
+                        value="accessories"
+                        class="text-accent focus:ring-accent"
+                      />
+                      <span>Aksesoris &amp; Kabel</span>
+                    </div>
+                    <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] font-semibold text-ink-muted">3</span>
+                  </label>
+                </div>
               </div>
 
               <!-- Filter: Jenis Driver -->
               <div class="mb-6">
-                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Jenis Driver</h4>
+                <h4
+                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >
+                  Jenis Driver
+                </h4>
                 <div class="flex flex-col gap-2 text-xs">
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      checked
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>Dynamic Driver (DD)</span>
                   </label>
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>Planar Magnetic</span>
                   </label>
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>Balanced Armature</span>
                   </label>
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>Hybrid (DD + BA)</span>
                   </label>
                 </div>
@@ -160,14 +335,29 @@
 
               <!-- Filter: Konektor Pin -->
               <div class="mb-6">
-                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Konektor Pin</h4>
+                <h4
+                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >
+                  Konektor Pin
+                </h4>
                 <div class="flex flex-col gap-2 text-xs">
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      checked
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>0.78mm 2-Pin</span>
                   </label>
-                  <label class="flex items-center gap-2 cursor-pointer hover:text-accent">
-                    <input type="checkbox" class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-accent"
+                  >
+                    <input
+                      type="checkbox"
+                      class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                    />
                     <span>MMCX</span>
                   </label>
                 </div>
@@ -175,25 +365,54 @@
 
               <!-- Filter: Sound Signature -->
               <div class="mb-6">
-                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Sound Signature</h4>
+                <h4
+                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >
+                  Sound Signature
+                </h4>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="cursor-pointer rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">Warm</span>
-                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">Neutral</span>
-                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">V-shaped</span>
-                  <span class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent">Analitis</span>
+                  <span
+                    class="cursor-pointer rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
+                    >Warm</span
+                  >
+                  <span
+                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
+                    >Neutral</span
+                  >
+                  <span
+                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
+                    >V-shaped</span
+                  >
+                  <span
+                    class="cursor-pointer rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-ink-muted hover:border-accent hover:text-accent"
+                    >Analitis</span
+                  >
                 </div>
               </div>
 
               <!-- Filter: Status Stok -->
               <div class="mb-4">
-                <h4 class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted">Ketersediaan</h4>
-                <label class="flex items-center gap-2 text-xs cursor-pointer hover:text-accent">
-                  <input type="checkbox" checked class="rounded border-line bg-surface-2 text-accent focus:ring-accent" />
+                <h4
+                  class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+                >
+                  Ketersediaan
+                </h4>
+                <label
+                  class="flex items-center gap-2 text-xs cursor-pointer hover:text-accent"
+                >
+                  <input
+                    type="checkbox"
+                    checked
+                    class="rounded border-line bg-surface-2 text-accent focus:ring-accent"
+                  />
                   <span>Hanya yang Tersedia</span>
                 </label>
               </div>
 
-              <button class="w-full rounded-btn bg-accent py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+              <button
+                type="button"
+                class="w-full rounded-btn bg-accent py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+              >
                 Terapkan Filter
               </button>
             </div>
@@ -201,19 +420,72 @@
 
           <!-- Listing Section -->
           <section>
+            <!-- Category Quick Tabs / Pills -->
+            <div class="mb-6 flex flex-wrap items-center gap-2" id="categoryQuickPills">
+              <button
+                type="button"
+                data-category-filter="all"
+                class="cat-pill rounded-full border-2 border-ink bg-ink px-4 py-1.5 text-xs font-bold text-bg transition hover:border-accent"
+              >
+                Semua Gear <span class="opacity-70">(14)</span>
+              </button>
+              <button
+                type="button"
+                data-category-filter="iem"
+                class="cat-pill rounded-full border-2 border-ink bg-surface px-4 py-1.5 text-xs font-bold text-ink transition hover:border-accent hover:text-accent"
+              >
+                In-Ear Monitor <span class="opacity-70">(8)</span>
+              </button>
+              <button
+                type="button"
+                data-category-filter="dac-amp"
+                class="cat-pill rounded-full border-2 border-ink bg-surface px-4 py-1.5 text-xs font-bold text-ink transition hover:border-accent hover:text-accent"
+              >
+                DAC &amp; Amp <span class="opacity-70">(3)</span>
+              </button>
+              <button
+                type="button"
+                data-category-filter="accessories"
+                class="cat-pill rounded-full border-2 border-ink bg-surface px-4 py-1.5 text-xs font-bold text-ink transition hover:border-accent hover:text-accent"
+              >
+                Aksesoris <span class="opacity-70">(3)</span>
+              </button>
+            </div>
+
             <!-- Filter Bar & Sorter -->
-            <div class="mb-8 flex flex-col gap-4 border-b border-line pb-4 sm:flex-row sm:items-center sm:justify-between" data-reveal>
+            <div
+              class="mb-6 flex flex-col gap-4 border-b border-line pb-4 sm:flex-row sm:items-center sm:justify-between"
+              data-reveal
+            >
               <div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-wrap" id="activeFilterTags">
                   <span class="text-xs text-ink-muted">Filter aktif:</span>
-                  <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">In-Ear Monitor &times;</span>
-                  <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">Tersedia &times;</span>
+                  <button
+                    type="button"
+                    id="activeCatBadge"
+                    class="hidden items-center gap-1.5 rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent transition hover:bg-accent/20"
+                    title="Klik untuk hapus filter kategori"
+                  >
+                    <span id="activeCatText">In-Ear Monitor</span>
+                    <i class="bi bi-x text-sm leading-none font-bold"></i>
+                  </button>
+                  <span
+                    id="activeStockBadge"
+                    class="rounded-full border border-line bg-surface-2 px-2.5 py-0.5 text-xs text-ink-muted"
+                    >Tersedia &times;</span
+                  >
                 </div>
-                <span class="mt-1 block text-xs text-ink-muted">Menampilkan 14 gear audio terkurasi</span>
+                <span id="catalogCount" class="mt-1 block text-xs text-ink-muted"
+                  >Menampilkan 14 gear audio terkurasi</span
+                >
               </div>
 
               <div class="flex items-center gap-2">
-                <label for="sortSelect" class="text-xs text-ink-muted text-nowrap">Urutkan:</label>
+                <label
+                  for="sortSelect"
+                  class="text-xs text-ink-muted text-nowrap"
+                  >Urutkan:</label
+                >
                 <select
                   id="sortSelect"
                   class="rounded-xl border-2 border-ink bg-surface-2 px-3 py-1.5 text-xs text-ink focus:border-accent focus:outline-none"
@@ -226,26 +498,74 @@
               </div>
             </div>
 
+            <!-- Empty State jika kategori tidak memiliki produk -->
+            <div id="catalogEmptyState" class="hidden rounded-card border-2 border-dashed border-line bg-surface p-12 text-center my-8">
+              <i class="bi bi-inbox text-5xl text-ink-muted mb-3 block"></i>
+              <h3 class="font-display text-lg font-bold text-ink">Tidak ada produk dalam kategori ini</h3>
+              <p class="mt-1 text-xs text-ink-muted">Silakan pilih kategori lain atau reset filter untuk melihat katalog lengkap.</p>
+              <button
+                type="button"
+                onclick="window.aupiioSetCategory('all')"
+                class="mt-4 inline-flex items-center gap-2 rounded-btn border-2 border-ink bg-accent px-4 py-2 text-xs font-bold text-accent-ink hover:bg-accent-hover transition"
+              >
+                <i class="bi bi-arrow-repeat"></i> Tampilkan Semua Produk
+              </button>
+            </div>
+
             <!-- Product Grid: grid grid-cols-2 gap-5 md:grid-cols-3 -->
-            <div class="grid grid-cols-2 gap-5 md:grid-cols-3">
-              
-              <!-- Item 1: Tangzu Wan'er -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-001" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/tangzu wan er sg.jpg" alt="Tangzu Wan'er S.G" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+            <div class="grid grid-cols-2 gap-5 md:grid-cols-3" id="productGrid">
+              <!-- Item: Tangzu Wan'er S.G -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-001"
+                data-price="320000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-001"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/tangzu wan er sg.jpg"
+                    alt="Tangzu Wan'er S.G"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
+                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
+                    <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
+                  </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-001" class="transition hover:text-accent-strong">Tangzu Wan'er S.G</a>
+                    <a
+                      href="product-detail.html?id=iem-001"
+                      class="transition hover:text-accent-strong"
+                      >Tangzu Wan'er S.G</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Warm</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">1 DD</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Warm</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >1 DD</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 320.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 320.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -259,23 +579,58 @@
                 </div>
               </article>
 
-              <!-- Item 2: Moondrop Chu II -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-002" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/moondrop chu 2.png" alt="Moondrop Chu II" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+              <!-- Item: Moondrop Chu II -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-002"
+                data-price="350000"
+                data-rating="4.7"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-002"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/moondrop chu 2.png"
+                    alt="Moondrop Chu II"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
+                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
+                    <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
+                  </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-002" class="transition hover:text-accent-strong">Moondrop Chu II</a>
+                    <a
+                      href="product-detail.html?id=iem-002"
+                      class="transition hover:text-accent-strong"
+                      >Moondrop Chu II</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Neutral</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Al-Mg DD</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Neutral</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Al-Mg DD</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 350.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 350.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -289,23 +644,58 @@
                 </div>
               </article>
 
-              <!-- Item 3: 7Hz Timeless -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-003" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/7hz timeless.png" alt="7Hz Timeless Planar" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
+              <!-- Item: 7Hz Timeless Planar -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-003"
+                data-price="3150000"
+                data-rating="4.9"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-003"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/7hz timeless.png"
+                    alt="7Hz Timeless Planar"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
+                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
+                    <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
+                  </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz Audio</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz Audio</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-003" class="transition hover:text-accent-strong">7Hz Timeless Planar</a>
+                    <a
+                      href="product-detail.html?id=iem-003"
+                      class="transition hover:text-accent-strong"
+                      >7Hz Timeless Planar</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Analitis</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Planar</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Analitis</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Planar</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 3.150.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 3.150.000</span
+                      >
                       <small class="block text-[11px] text-warn"><i class="bi bi-exclamation-circle-fill mr-1"></i>Sisa 2 unit</small>
                     </div>
                     <button
@@ -319,89 +709,58 @@
                 </div>
               </article>
 
-              <!-- Item 4: FiiO KA13 -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=dac-001" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/fiio ka13.png" alt="FiiO KA13 Portable DAC" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" />
-                </a>
-                <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">FiiO</div>
-                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=dac-001" class="transition hover:text-accent-strong">FiiO KA13 Portable DAC</a>
-                  </h3>
-                  <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Dual CS43131</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">4.4mm</span>
-                  </div>
-                  <div class="mt-auto pt-4 flex items-center justify-between">
-                    <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 1.150.000</span>
-                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
-                    </div>
-                    <button
-                      onclick="window.aupiioAddToCart('dac-001', 1)"
-                      class="rounded-btn border-2 border-ink p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                      title="Tambah ke Keranjang"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Item 5: SpinFit CP100+ -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=acc-001" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/cp100.png" alt="SpinFit CP100+ Medical Eartips" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
-                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
-                    <i class="bi bi-disc text-5xl text-accent transition group-hover:scale-110"></i>
-                  </div>
-                </a>
-                <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">SpinFit</div>
-                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=acc-001" class="transition hover:text-accent-strong">SpinFit CP100+ Medical Eartips</a>
-                  </h3>
-                  <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Silicone 3D</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Bore 4.5mm</span>
-                  </div>
-                  <div class="mt-auto pt-4 flex items-center justify-between">
-                    <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 165.000</span>
-                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
-                    </div>
-                    <button
-                      onclick="window.aupiioAddToCart('acc-001', 1)"
-                      class="rounded-btn border-2 border-ink p-2 text-ink transition hover:border-accent hover:text-accent-strong"
-                      title="Tambah ke Keranjang"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Item 6: 7Hz x Crinacle Zero:2 -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-004" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/7hz zero 2.png" alt="7Hz x Crinacle Zero:2" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: 7Hz x Crinacle Zero:2 -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-004"
+                data-price="345000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-004"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/7hz zero 2.png"
+                    alt="7Hz x Crinacle Zero:2"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz x Crinacle</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">7Hz x Crinacle</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-004" class="transition hover:text-accent-strong">7Hz x Crinacle Zero:2</a>
+                    <a
+                      href="product-detail.html?id=iem-004"
+                      class="transition hover:text-accent-strong"
+                      >7Hz x Crinacle Zero:2</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Warm Bass</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">10mm DD</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Warm Bass</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >10mm DD</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 345.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 345.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -415,26 +774,58 @@
                 </div>
               </article>
 
-              <!-- Item 7: KZ Castor Harman Target -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-005" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/kz castor.png" alt="KZ Castor Harman Target" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: KZ Castor Harman Target -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-005"
+                data-price="220000"
+                data-rating="4.6"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-005"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/kz castor.png"
+                    alt="KZ Castor Harman Target"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Knowledge Zenith</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Knowledge Zenith</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-005" class="transition hover:text-accent-strong">KZ Castor Harman Target</a>
+                    <a
+                      href="product-detail.html?id=iem-005"
+                      class="transition hover:text-accent-strong"
+                      >KZ Castor Harman Target</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Harman</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Dual DD</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Harman</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Dual DD</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 220.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 220.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -448,26 +839,58 @@
                 </div>
               </article>
 
-              <!-- Item 8: Truthear x Crinacle Zero: RED -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-006" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/truthear zero red.png" alt="Truthear x Crinacle Zero: RED" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: Truthear x Crinacle Zero: RED -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-006"
+                data-price="890000"
+                data-rating="4.9"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-006"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/truthear zero red.png"
+                    alt="Truthear x Crinacle Zero: RED"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Truthear Audio</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Truthear Audio</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-006" class="transition hover:text-accent-strong">Truthear x Crinacle Zero: RED</a>
+                    <a
+                      href="product-detail.html?id=iem-006"
+                      class="transition hover:text-accent-strong"
+                      >Truthear x Crinacle Zero: RED</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Balanced Warm</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">2DD Crossover</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Balanced Warm</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >2DD Crossover</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 890.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 890.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -481,26 +904,58 @@
                 </div>
               </article>
 
-              <!-- Item 9: Moondrop Blessing 3 -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-007" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/moondrop blessing 3.png" alt="Moondrop Blessing 3" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: Moondrop Blessing 3 -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-007"
+                data-price="4950000"
+                data-rating="5.0"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-007"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/moondrop blessing 3.png"
+                    alt="Moondrop Blessing 3"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-007" class="transition hover:text-accent-strong">Moondrop Blessing 3</a>
+                    <a
+                      href="product-detail.html?id=iem-007"
+                      class="transition hover:text-accent-strong"
+                      >Moondrop Blessing 3</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Harman Reference</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">2DD + 4BA</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Reference</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >2DD + 4BA</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 4.950.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 4.950.000</span
+                      >
                       <small class="block text-[11px] text-warn"><i class="bi bi-exclamation-circle-fill mr-1"></i>Sisa 3 unit</small>
                     </div>
                     <button
@@ -514,26 +969,58 @@
                 </div>
               </article>
 
-              <!-- Item 10: Sennheiser IE 200 -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=iem-008" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/sennheiser ie 200.png" alt="Sennheiser IE 200" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: Sennheiser IE 200 -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="iem"
+                data-id="iem-008"
+                data-price="2390000"
+                data-rating="4.7"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=iem-008"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/sennheiser ie 200.png"
+                    alt="Sennheiser IE 200"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-headphones text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Sennheiser</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Sennheiser</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-accent/40 bg-accent/10 text-accent-strong">IEM</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=iem-008" class="transition hover:text-accent-strong">Sennheiser IE 200</a>
+                    <a
+                      href="product-detail.html?id=iem-008"
+                      class="transition hover:text-accent-strong"
+                      >Sennheiser IE 200</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Diffuse Field</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">TrueResponse 7mm</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Diffuse Field</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >TrueResponse 7mm</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 2.390.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 2.390.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -547,26 +1034,123 @@
                 </div>
               </article>
 
-              <!-- Item 11: Moondrop Dawn Pro Portable DAC -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=dac-002" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/moondrop dawn pro.png" alt="Moondrop Dawn Pro Portable DAC" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: FiiO KA13 Portable DAC -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="dac-amp"
+                data-id="dac-001"
+                data-price="1150000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=dac-001"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/fiio ka13.png"
+                    alt="FiiO KA13 Portable DAC"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
+                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
+                    <i class="bi bi-cpu text-5xl text-accent transition group-hover:scale-110"></i>
+                  </div>
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">FiiO</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-mustard/60 bg-mustard/20 text-ink">DAC/Amp</span>
+                  </div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a
+                      href="product-detail.html?id=dac-001"
+                      class="transition hover:text-accent-strong"
+                      >FiiO KA13 Portable DAC</a
+                    >
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Dual CS43131</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >4.4mm Bal</span
+                    >
+                  </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 1.150.000</span
+                      >
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('dac-001', 1)"
+                      class="rounded-btn border-2 border-ink p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item: Moondrop Dawn Pro Portable DAC -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="dac-amp"
+                data-id="dac-002"
+                data-price="780000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=dac-002"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/moondrop dawn pro.png"
+                    alt="Moondrop Dawn Pro Portable DAC"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-soundwave text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Moondrop</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-mustard/60 bg-mustard/20 text-ink">DAC/Amp</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=dac-002" class="transition hover:text-accent-strong">Moondrop Dawn Pro Portable DAC</a>
+                    <a
+                      href="product-detail.html?id=dac-002"
+                      class="transition hover:text-accent-strong"
+                      >Moondrop Dawn Pro Portable DAC</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Dual CS43131</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">4.4mm Bal</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Dual CS43131</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >4.4mm Bal</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 780.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 780.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -580,26 +1164,58 @@
                 </div>
               </article>
 
-              <!-- Item 12: iFi Audio GO Link -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=dac-003" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/ifi go link.png" alt="iFi Audio GO Link" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: iFi Audio GO Link -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="dac-amp"
+                data-id="dac-003"
+                data-price="990000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=dac-003"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/ifi go link.png"
+                    alt="iFi Audio GO Link"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-usb-symbol text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">iFi Audio</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">iFi Audio</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-mustard/60 bg-mustard/20 text-ink">DAC/Amp</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=dac-003" class="transition hover:text-accent-strong">iFi Audio GO Link</a>
+                    <a
+                      href="product-detail.html?id=dac-003"
+                      class="transition hover:text-accent-strong"
+                      >iFi Audio GO Link</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Sabre ES9219</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">DSD256</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Sabre ES9219</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >DSD256</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 990.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 990.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -613,26 +1229,123 @@
                 </div>
               </article>
 
-              <!-- Item 13: Tripowin Zonie Cable -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=acc-002" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/tripowin zonie.png" alt="Tripowin Zonie 16-Core Silver Cable" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: SpinFit CP100+ Medical Eartips -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="accessories"
+                data-id="acc-001"
+                data-price="165000"
+                data-rating="4.9"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=acc-001"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/cp100.png"
+                    alt="SpinFit CP100+ Medical Eartips"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
+                  <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
+                    <i class="bi bi-disc text-5xl text-accent transition group-hover:scale-110"></i>
+                  </div>
+                </a>
+                <div class="flex flex-1 flex-col p-4">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">SpinFit</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-ink/30 bg-surface-2 text-ink">Aksesoris</span>
+                  </div>
+                  <h3 class="mt-1 font-semibold text-ink line-clamp-1">
+                    <a
+                      href="product-detail.html?id=acc-001"
+                      class="transition hover:text-accent-strong"
+                      >SpinFit CP100+ Medical Eartips</a
+                    >
+                  </h3>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Silicone 3D</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Bore 4.5mm</span
+                    >
+                  </div>
+                  <div class="mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 165.000</span
+                      >
+                      <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
+                    </div>
+                    <button
+                      onclick="window.aupiioAddToCart('acc-001', 1)"
+                      class="rounded-btn border-2 border-ink p-2 text-ink transition hover:border-accent hover:text-accent-strong"
+                      title="Tambah ke Keranjang"
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item: Tripowin Zonie 16-Core Silver Cable -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="accessories"
+                data-id="acc-002"
+                data-price="285000"
+                data-rating="4.9"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=acc-002"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/tripowin zonie.png"
+                    alt="Tripowin Zonie 16-Core Silver Cable"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-reception-4 text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Tripowin</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Tripowin</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-ink/30 bg-surface-2 text-ink">Aksesoris</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=acc-002" class="transition hover:text-accent-strong">Tripowin Zonie 16-Core Silver Cable</a>
+                    <a
+                      href="product-detail.html?id=acc-002"
+                      class="transition hover:text-accent-strong"
+                      >Tripowin Zonie 16-Core Silver Cable</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Silver-Plated</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">0.78mm 2-Pin</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Silver-Plated</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >0.78mm 2-Pin</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 285.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 285.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -646,26 +1359,58 @@
                 </div>
               </article>
 
-              <!-- Item 14: Tangzu Tang Sancai Eartips -->
-              <article class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent" data-reveal>
-                <a href="product-detail.html?id=acc-003" class="photo-tile transition group-hover:scale-105">
-                  <img src="assets/images/products/tang sancai.png" alt="Tangzu Tang Sancai Silicone Eartips" class="h-full w-full object-contain p-[8%] mix-blend-multiply" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+              <!-- Item: Tangzu Tang Sancai Silicone Eartips -->
+              <article
+                class="product-card group flex h-full flex-col overflow-hidden rounded-card border-2 border-ink bg-surface transition hover:-translate-y-1 hover:border-accent"
+                data-category="accessories"
+                data-id="acc-003"
+                data-price="125000"
+                data-rating="4.8"
+                data-reveal
+              >
+                <a
+                  href="product-detail.html?id=acc-003"
+                  class="photo-tile transition group-hover:scale-105"
+                >
+                  <img
+                    src="assets/images/products/tang sancai.png"
+                    alt="Tangzu Tang Sancai Silicone Eartips"
+                    class="h-full w-full object-contain p-[8%] mix-blend-multiply"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                  />
                   <div class="hidden flex h-full w-full items-center justify-center text-ink-muted">
                     <i class="bi bi-disc text-5xl text-accent transition group-hover:scale-110"></i>
                   </div>
                 </a>
                 <div class="flex flex-1 flex-col p-4">
-                  <div class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[11px] uppercase tracking-wider text-ink-muted">Tangzu Audio</span>
+                    <span class="rounded-full border px-2 py-0.5 text-[10px] font-bold border-ink/30 bg-surface-2 text-ink">Aksesoris</span>
+                  </div>
                   <h3 class="mt-1 font-semibold text-ink line-clamp-1">
-                    <a href="product-detail.html?id=acc-003" class="transition hover:text-accent-strong">Tangzu Tang Sancai Silicone Eartips</a>
+                    <a
+                      href="product-detail.html?id=acc-003"
+                      class="transition hover:text-accent-strong"
+                      >Tangzu Tang Sancai Silicone Eartips</a
+                    >
                   </h3>
                   <div class="mt-2 flex flex-wrap gap-1.5">
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Medical Grade</span>
-                    <span class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">Matte Texture</span>
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Medical Grade</span
+                    >
+                    <span
+                      class="rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted"
+                      >Matte Texture</span
+                    >
                   </div>
                   <div class="mt-auto pt-4 flex items-center justify-between">
                     <div>
-                      <span class="font-mono text-base font-bold text-accent-strong tabular-nums">Rp 125.000</span>
+                      <span
+                        class="font-mono text-base font-bold text-accent-strong tabular-nums"
+                        >Rp 125.000</span
+                      >
                       <small class="block text-[11px] text-ok"><i class="bi bi-check-circle-fill mr-1"></i>Tersedia</small>
                     </div>
                     <button
@@ -678,15 +1423,28 @@
                   </div>
                 </div>
               </article>
-
             </div>
 
             <!-- Pagination -->
-            <div class="mt-12 flex justify-center gap-2">
-              <span class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface-2 text-xs text-ink-muted opacity-50">&laquo;</span>
-              <span class="flex h-9 w-9 items-center justify-center rounded-btn bg-accent text-xs font-semibold text-accent-ink">1</span>
-              <a href="#" class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface text-xs text-ink hover:border-accent">2</a>
-              <a href="#" class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface text-xs text-ink hover:border-accent">&raquo;</a>
+            <div class="mt-12 flex justify-center gap-2" id="catalogPagination">
+              <span
+                class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface-2 text-xs text-ink-muted opacity-50"
+                >&laquo;</span
+              >
+              <span
+                class="flex h-9 w-9 items-center justify-center rounded-btn bg-accent text-xs font-semibold text-accent-ink"
+                >1</span
+              >
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface text-xs text-ink hover:border-accent"
+                >2</a
+              >
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-btn border-2 border-ink bg-surface text-xs text-ink hover:border-accent"
+                >&raquo;</a
+              >
             </div>
           </section>
         </div>
@@ -701,37 +1459,115 @@
       data-lenis-prevent
     >
       <div class="flex items-center justify-between border-b border-line p-4">
-        <h3 id="filterOffcanvasLabel" class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2">
+        <h3
+          id="filterOffcanvasLabel"
+          class="font-display text-base font-extrabold tracking-tight text-ink flex items-center gap-2"
+        >
           <i class="bi bi-sliders text-accent"></i> Filter Audio
         </h3>
-        <button type="button" class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink" data-dismiss="offcanvas" aria-label="Tutup"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+          data-dismiss="offcanvas"
+          aria-label="Tutup"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="grow overflow-y-auto p-4 flex flex-col gap-5" data-lenis-prevent>
+      <div
+        class="grow overflow-y-auto p-4 flex flex-col gap-5"
+        data-lenis-prevent
+      >
+        <!-- Filter Kategori Mobile -->
+        <div class="border-b border-line pb-4">
+          <h4
+            class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+          >
+            Kategori Produk
+          </h4>
+          <div class="flex flex-col gap-2.5 text-xs" id="categoryFilterMobile">
+            <label class="flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="catFilterMobile" value="all" checked />
+                <span class="font-medium">Semua Produk</span>
+              </div>
+              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">14</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="catFilterMobile" value="iem" />
+                <span>In-Ear Monitor (IEM)</span>
+              </div>
+              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">8</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="catFilterMobile" value="dac-amp" />
+                <span>DAC &amp; Amplifier</span>
+              </div>
+              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">3</span>
+            </label>
+            <label class="flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="catFilterMobile" value="accessories" />
+                <span>Aksesoris Audio</span>
+              </div>
+              <span class="rounded-full bg-surface-2 px-2 py-0.5 text-[10px] text-ink-muted">3</span>
+            </label>
+          </div>
+        </div>
+
         <div>
-          <h4 class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">Jenis Driver</h4>
+          <h4
+            class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+          >
+            Jenis Driver
+          </h4>
           <div class="flex flex-col gap-2 text-xs">
-            <label class="flex items-center gap-2"><input type="checkbox" checked /> Dynamic Driver</label>
-            <label class="flex items-center gap-2"><input type="checkbox" /> Planar Magnetic</label>
-            <label class="flex items-center gap-2"><input type="checkbox" /> Balanced Armature</label>
+            <label class="flex items-center gap-2"
+              ><input type="checkbox" checked /> Dynamic Driver</label
+            >
+            <label class="flex items-center gap-2"
+              ><input type="checkbox" /> Planar Magnetic</label
+            >
+            <label class="flex items-center gap-2"
+              ><input type="checkbox" /> Balanced Armature</label
+            >
           </div>
         </div>
 
         <div>
-          <h4 class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">Sound Signature</h4>
+          <h4
+            class="mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted"
+          >
+            Sound Signature
+          </h4>
           <div class="flex flex-wrap gap-1.5">
-            <span class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent">Warm</span>
-            <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">Neutral</span>
-            <span class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted">V-shaped</span>
+            <span
+              class="rounded-full border border-accent bg-accent/10 px-2.5 py-0.5 text-xs text-accent"
+              >Warm</span
+            >
+            <span
+              class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted"
+              >Neutral</span
+            >
+            <span
+              class="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted"
+              >V-shaped</span
+            >
           </div>
         </div>
 
-        <button data-dismiss="offcanvas" class="mt-auto w-full rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink">
+        <button
+          data-dismiss="offcanvas"
+          class="mt-auto w-full rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink"
+        >
           Terapkan Filter
         </button>
       </div>
     </dialog>
 
-    <!-- Mini-Cart Offcanvas -->
+<!-- Mini-Cart Offcanvas -->
     <dialog
       class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex right-0 left-auto border-l border-line bg-surface text-ink"
       id="miniCart"
@@ -739,23 +1575,46 @@
       data-lenis-prevent
     >
       <div class="flex items-center justify-between border-b border-line p-4">
-        <h3 id="miniCartLabel" class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2">
+        <h3
+          id="miniCartLabel"
+          class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2"
+        >
           <i class="bi bi-bag text-accent"></i> Keranjang Belanja
         </h3>
-        <button type="button" class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink" data-dismiss="offcanvas" aria-label="Tutup"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+          data-dismiss="offcanvas"
+          aria-label="Tutup"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="grow overflow-y-auto flex flex-col justify-between p-4" data-lenis-prevent>
+      <div
+        class="grow overflow-y-auto flex flex-col justify-between p-4"
+        data-lenis-prevent
+      >
         <div id="miniCartBody" class="flex flex-col gap-3"></div>
         <div class="border-t border-line pt-4">
           <div class="flex items-center justify-between mb-3 text-sm">
             <span class="text-ink-muted">Subtotal:</span>
-            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+            <span
+              id="miniCartSubtotal"
+              class="font-mono text-base font-semibold text-accent-strong"
+              >Rp 0</span
+            >
           </div>
           <div class="flex flex-col gap-2">
-            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+            <a
+              href="cart.html"
+              class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong"
+            >
               Buka Halaman Keranjang
             </a>
-            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+            <a
+              href="checkout.html"
+              class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover"
+            >
               Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
             </a>
           </div>
@@ -768,35 +1627,89 @@
       <div class="mx-auto max-w-[1600px] px-4 pt-14 sm:px-6">
         <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div class="col-span-2 md:col-span-1">
-            <p class="text-sm leading-relaxed">Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk telinga yang peduli detail.</p>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 rounded-btn bg-mustard px-4 py-2 text-sm font-bold text-ink transition hover:bg-band-ink">
-              <i class="bi bi-whatsapp" aria-hidden="true"></i> Konsultasi via WhatsApp
+            <p class="text-sm leading-relaxed">
+              Toko personal audio: IEM, DAC/Amp, dan aksesoris pilihan untuk
+              telinga yang peduli detail.
+            </p>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 rounded-btn bg-mustard px-4 py-2 text-sm font-bold text-ink transition hover:bg-band-ink"
+            >
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Konsultasi via
+              WhatsApp
             </a>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Belanja</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Belanja
+            </h2>
             <ul class="mt-4 flex flex-col gap-2 text-sm">
-              <li><a href="catalog.html" class="hover:text-band-ink">Semua Produk</a></li>
-              <li><a href="catalog.html?cat=iem" class="hover:text-band-ink">In-Ear Monitor</a></li>
-              <li><a href="catalog.html?cat=dac-amp" class="hover:text-band-ink">DAC &amp; Amp</a></li>
-              <li><a href="catalog.html?cat=aksesoris" class="hover:text-band-ink">Aksesoris</a></li>
+              <li>
+                <a href="catalog.html" class="hover:text-band-ink"
+                  >Semua Produk</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=iem" class="hover:text-band-ink"
+                  >In-Ear Monitor</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=dac-amp" class="hover:text-band-ink"
+                  >DAC &amp; Amp</a
+                >
+              </li>
+              <li>
+                <a href="catalog.html?cat=aksesoris" class="hover:text-band-ink"
+                  >Aksesoris</a
+                >
+              </li>
             </ul>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Toko</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Toko
+            </h2>
             <ul class="mt-4 flex flex-col gap-2 text-sm">
-              <li><a href="about.html" class="hover:text-band-ink">Tentang &amp; Panduan</a></li>
-              <li><a href="contact.html" class="hover:text-band-ink">Kontak &amp; Garansi</a></li>
-              <li><a href="cart.html" class="hover:text-band-ink">Keranjang</a></li>
+              <li>
+                <a href="about.html" class="hover:text-band-ink"
+                  >Tentang &amp; Panduan</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-band-ink"
+                  >Kontak &amp; Garansi</a
+                >
+              </li>
+              <li>
+                <a href="cart.html" class="hover:text-band-ink">Keranjang</a>
+              </li>
             </ul>
           </div>
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-widest text-band-accent">Jam Buka</h2>
+            <h2
+              class="font-mono text-xs uppercase tracking-widest text-band-accent"
+            >
+              Jam Buka
+            </h2>
             <p class="mt-4 text-sm">Senin–Sabtu, 09.00–21.00 WIB</p>
           </div>
         </div>
-        <p class="mt-12 select-none pb-4 font-display text-[20vw] font-extrabold leading-none tracking-tighter text-band-ink md:text-[11vw] xl:text-[9rem]" aria-hidden="true">aup<span class="text-accent">iio</span></p>
-        <div class="flex flex-col gap-2 border-t border-band-muted/30 py-5 text-xs sm:flex-row sm:justify-between">
+        <p
+          class="mt-12 select-none pb-4 font-display text-[20vw] font-extrabold leading-none tracking-tighter text-band-ink md:text-[11vw] xl:text-[9rem]"
+          aria-hidden="true"
+        >
+          aup<span class="text-accent">iio</span>
+        </p>
+        <div
+          class="flex flex-col gap-2 border-t border-band-muted/30 py-5 text-xs sm:flex-row sm:justify-between"
+        >
           <span>&copy; 2026 aupiio</span>
           <span>Proyek Web Fundamental</span>
         </div>

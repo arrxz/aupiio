@@ -281,10 +281,180 @@ function formatRupiah(number) {
   }).format(number);
 }
 
-// Inisialisasi detail produk dinamis bila berada di product-detail.html
+// --- Category Filtering Engine for catalog.html ---
+const CATEGORY_NAMES = {
+  all: "Semua Produk",
+  iem: "In-Ear Monitor",
+  "dac-amp": "DAC & Amplifier",
+  accessories: "Aksesoris Audio",
+  aksesoris: "Aksesoris Audio",
+};
+
+function normalizeCategory(cat) {
+  if (!cat) return "all";
+  const c = String(cat).toLowerCase().trim();
+  if (c === "aksesoris") return "accessories";
+  if (c === "dac" || c === "amp" || c === "dacamp") return "dac-amp";
+  return ["iem", "dac-amp", "accessories"].includes(c) ? c : "all";
+}
+
+window.aupiioSetCategory = function (rawCategory, pushUrl = true) {
+  const category = normalizeCategory(rawCategory);
+  const cards = document.querySelectorAll(".product-card");
+  if (!cards.length) return;
+
+  let visibleCount = 0;
+  cards.forEach((card) => {
+    const cardCat = card.dataset.category;
+    if (category === "all" || cardCat === category) {
+      card.style.display = "";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  // Update empty state
+  const emptyState = document.getElementById("catalogEmptyState");
+  if (emptyState) {
+    if (visibleCount === 0) {
+      emptyState.classList.remove("hidden");
+    } else {
+      emptyState.classList.add("hidden");
+    }
+  }
+
+  // Update counter
+  const counter = document.getElementById("catalogCount");
+  if (counter) {
+    if (category === "all") {
+      counter.textContent = `Menampilkan ${visibleCount} gear audio terkurasi`;
+    } else {
+      counter.textContent = `Menampilkan ${visibleCount} gear audio terkurasi (${CATEGORY_NAMES[category] || category})`;
+    }
+  }
+
+  // Update active category badge in filter tags
+  const activeBadge = document.getElementById("activeCatBadge");
+  const activeText = document.getElementById("activeCatText");
+  if (activeBadge && activeText) {
+    if (category === "all") {
+      activeBadge.classList.add("hidden");
+      activeBadge.classList.remove("inline-flex");
+    } else {
+      activeBadge.classList.remove("hidden");
+      activeBadge.classList.add("inline-flex");
+      activeText.textContent = CATEGORY_NAMES[category] || category;
+    }
+  }
+
+  // Update Category Quick Pills
+  document.querySelectorAll(".cat-pill").forEach((pill) => {
+    const pillCat = pill.dataset.categoryFilter;
+    if (pillCat === category) {
+      pill.classList.remove("bg-surface", "text-ink");
+      pill.classList.add("bg-ink", "text-bg");
+    } else {
+      pill.classList.remove("bg-ink", "text-bg");
+      pill.classList.add("bg-surface", "text-ink");
+    }
+  });
+
+  // Update Radio Desktop & Mobile
+  const radioDesktop = document.querySelector(
+    `input[name="catFilterDesktop"][value="${category}"]`
+  );
+  if (radioDesktop) radioDesktop.checked = true;
+
+  const radioMobile = document.querySelector(
+    `input[name="catFilterMobile"][value="${category}"]`
+  );
+  if (radioMobile) radioMobile.checked = true;
+
+  // Update Header Nav Links aria-current
+  document.querySelectorAll("#mainNav .nav-link").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    if (category === "all") {
+      if (href === "catalog.html" || href.endsWith("/catalog.html")) {
+        link.setAttribute("aria-current", "page");
+      } else if (href.includes("cat=")) {
+        link.removeAttribute("aria-current");
+      }
+    } else {
+      if (href.includes(`cat=${category}`) || (category === "accessories" && href.includes("cat=aksesoris"))) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  });
+
+  // Sync URL history without full reload
+  if (pushUrl && window.history && window.history.pushState) {
+    const newUrl = category === "all" ? "catalog.html" : `catalog.html?cat=${category === "accessories" ? "aksesoris" : category}`;
+    if (window.location.search || category !== "all") {
+      window.history.pushState({ category }, "", newUrl);
+    }
+  }
+};
+
+// Inisialisasi logika katalog & detail produk
 document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const productId = params.get("id");
+  // 1. Inisialisasi Filter Kategori di catalog.html
+  if (document.getElementById("productGrid") || document.querySelector(".product-card")) {
+    const params = new URLSearchParams(window.location.search);
+    const initialCat = params.get("cat") || "all";
+    window.aupiioSetCategory(initialCat, false);
+
+    // Click handler untuk tombol active badge (hapus filter)
+    const activeBadge = document.getElementById("activeCatBadge");
+    if (activeBadge) {
+      activeBadge.addEventListener("click", () => window.aupiioSetCategory("all"));
+    }
+
+    // Click handlers untuk Quick Pills
+    document.querySelectorAll(".cat-pill").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        const cat = pill.dataset.categoryFilter;
+        window.aupiioSetCategory(cat);
+      });
+    });
+
+    // Radio Desktop Change
+    document.querySelectorAll('input[name="catFilterDesktop"]').forEach((radio) => {
+      radio.addEventListener("change", (e) => {
+        if (e.target.checked) window.aupiioSetCategory(e.target.value);
+      });
+    });
+
+    // Radio Mobile Change
+    document.querySelectorAll('input[name="catFilterMobile"]').forEach((radio) => {
+      radio.addEventListener("change", (e) => {
+        if (e.target.checked) window.aupiioSetCategory(e.target.value);
+      });
+    });
+
+    // Intercept navbar category links if already on catalog page
+    document.querySelectorAll('#mainNav a[href*="catalog.html"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href") || "";
+        const url = new URL(href, window.location.href);
+        const cat = url.searchParams.get("cat") || "all";
+        e.preventDefault();
+        window.aupiioSetCategory(cat);
+      });
+    });
+
+    // Popstate back/forward button support
+    window.addEventListener("popstate", () => {
+      const p = new URLSearchParams(window.location.search);
+      window.aupiioSetCategory(p.get("cat") || "all", false);
+    });
+  }
+
+  // 2. Inisialisasi detail produk dinamis bila berada di product-detail.html
+  const detailParams = new URLSearchParams(window.location.search);
+  const productId = detailParams.get("id");
   if (!productId || productId === "iem-001") return; // Gunakan default jika iem-001
 
   const p = AUDIO_PRODUCTS.find((item) => item.id === productId);
@@ -296,6 +466,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const breadcrumbLast = document.querySelector('nav[aria-label="breadcrumb"] span:last-child, .mx-auto.max-w-\\[1600px\\].text-xs.text-ink-muted span.text-ink');
   if (breadcrumbLast) breadcrumbLast.textContent = p.name;
+
+  // Update Breadcrumb Kategori
+  const breadcrumbCat = document.querySelector('#detailBreadcrumbCat, .mx-auto.max-w-\\[1600px\\].text-xs.text-ink-muted a[href*="catalog"]');
+  if (breadcrumbCat) {
+    if (p.category === 'iem') {
+      breadcrumbCat.textContent = 'In-Ear Monitor';
+      breadcrumbCat.href = 'catalog.html?cat=iem';
+    } else if (p.category === 'dac-amp') {
+      breadcrumbCat.textContent = 'DAC & Amp';
+      breadcrumbCat.href = 'catalog.html?cat=dac-amp';
+    } else if (p.category === 'accessories') {
+      breadcrumbCat.textContent = 'Aksesoris';
+      breadcrumbCat.href = 'catalog.html?cat=aksesoris';
+    }
+  }
+
+  // Update Badge Tag di Atas Foto Utama
+  const galleryBadge = document.querySelector(".relative.flex.aspect-square span.absolute, .relative.flex.aspect-4\\/3 span.absolute");
+  if (galleryBadge) {
+    if (p.category === 'iem') {
+      galleryBadge.textContent = 'In-Ear Monitor';
+    } else if (p.category === 'dac-amp') {
+      galleryBadge.textContent = 'DAC & Amplifier';
+    } else if (p.category === 'accessories') {
+      galleryBadge.textContent = 'Aksesoris Audio';
+    }
+  }
 
   // Update Brand & Rating
   const brandEl = document.querySelector(".text-xs.font-semibold.uppercase.tracking-widest.text-ink-muted");

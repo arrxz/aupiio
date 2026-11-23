@@ -339,6 +339,9 @@
   .my-5 {
     margin-block: calc(var(--spacing) * 5);
   }
+  .my-8 {
+    margin-block: calc(var(--spacing) * 8);
+  }
   .mt-0\.5 {
     margin-top: calc(var(--spacing) * 0.5);
   }
@@ -708,8 +711,18 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
   }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
   .border-accent {
     border-color: var(--accent);
+  }
+  .border-accent\/40 {
+    border-color: var(--accent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+    }
   }
   .border-band-muted\/30 {
     border-color: var(--band-muted);
@@ -720,8 +733,20 @@
   .border-ink {
     border-color: var(--ink);
   }
+  .border-ink\/30 {
+    border-color: var(--ink);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--ink) 30%, transparent);
+    }
+  }
   .border-line {
     border-color: var(--line);
+  }
+  .border-mustard\/60 {
+    border-color: var(--mustard);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--mustard) 60%, transparent);
+    }
   }
   .border-white {
     border-color: var(--color-white);
@@ -758,6 +783,12 @@
   }
   .bg-mustard {
     background-color: var(--mustard);
+  }
+  .bg-mustard\/20 {
+    background-color: var(--mustard);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--mustard) 20%, transparent);
+    }
   }
   .bg-photo-tile {
     background-color: var(--photo-tile);
@@ -812,6 +843,9 @@
   }
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
   }
   .p-\[6\%\] {
     padding: 6%;
@@ -897,6 +931,9 @@
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
   .pb-\[calc\(\.75rem\+env\(safe-area-inset-bottom\)\)\] {
     padding-bottom: calc(.75rem + env(safe-area-inset-bottom));
   }
@@ -954,6 +991,9 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[10px\] {
+    font-size: 10px;
   }
   .text-\[11px\] {
     font-size: 11px;
@@ -1090,6 +1130,9 @@
   .opacity-50 {
     opacity: 50%;
   }
+  .opacity-70 {
+    opacity: 70%;
+  }
   .mix-blend-multiply {
     mix-blend-mode: multiply;
   }
@@ -1212,6 +1255,14 @@
     }
     .hover\:bg-accent-hover:hover {
       background-color: var(--accent-hover);
+    }
+    .hover\:bg-accent\/20:hover {
+      background-color: var(--accent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-accent\/20:hover {
+        background-color: color-mix(in oklab, var(--accent) 20%, transparent);
+      }
     }
     .hover\:bg-band-ink:hover {
       background-color: var(--band-ink);
