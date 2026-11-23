@@ -45,7 +45,7 @@
       };
 
       panel.addEventListener("animationend", onAnimEnd);
-      panel._closeTimer = setTimeout(finishClose, 200);
+      panel._closeTimer = setTimeout(finishClose, 260);
     }
   };
 
