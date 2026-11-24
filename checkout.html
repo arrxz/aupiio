@@ -8,13 +8,15 @@
 
     <script>
       document.documentElement.classList.add("js");
-      // Preloader tampil saat refresh dan saat masuk dari luar situs (alamat diketik, tautan eksternal).
-      // Klik tautan antar-halaman tidak memicunya, supaya navigasi tidak tertahan layar loading.
-      try {
-        var nav = performance.getEntriesByType("navigation")[0];
-        var internal = document.referrer.indexOf(location.origin) === 0;
-        if ((nav && nav.type === "reload") || !internal) document.documentElement.classList.add("preload");
-      } catch (e) {}
+      // Preloader tampil di: refresh, kunjungan pertama di tab ini, dan masuk dari luar situs.
+      // Klik tautan antar-halaman setelahnya tidak memicunya, supaya navigasi tidak tertahan.
+      (function () {
+        var internal = document.referrer.indexOf(location.origin) === 0, seen;
+        // sessionStorage bisa error (mode privat/cookie diblokir): anggap sudah pernah lihat bila datang dari dalam situs
+        try { seen = !!sessionStorage.getItem("aupiio_seen"); sessionStorage.setItem("aupiio_seen", "1"); } catch (e) { seen = internal; }
+        var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+        if ((nav && nav.type === "reload") || !seen || !internal) document.documentElement.classList.add("preload");
+      })();
     </script>
 
     <!-- Favicon (SVG + PNG Fallback) -->
