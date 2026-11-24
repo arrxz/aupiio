@@ -8,12 +8,12 @@
 
     <script>
       document.documentElement.classList.add("js");
-      // Preloader hanya di kunjungan pertama per sesi. try/catch: sessionStorage bisa error di mode privat.
+      // Preloader tampil saat refresh dan saat masuk dari luar situs (alamat diketik, tautan eksternal).
+      // Klik tautan antar-halaman tidak memicunya, supaya navigasi tidak tertahan layar loading.
       try {
-        if (!sessionStorage.getItem("aupiio_seen")) {
-          sessionStorage.setItem("aupiio_seen", "1");
-          document.documentElement.classList.add("preload");
-        }
+        var nav = performance.getEntriesByType("navigation")[0];
+        var internal = document.referrer.indexOf(location.origin) === 0;
+        if ((nav && nav.type === "reload") || !internal) document.documentElement.classList.add("preload");
       } catch (e) {}
     </script>
 

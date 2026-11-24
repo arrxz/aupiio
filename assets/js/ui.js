@@ -207,8 +207,8 @@
     .querySelectorAll("dialog")
     .forEach((d) => d.addEventListener("close", () => document.dispatchEvent(new Event("offcanvas:hidden"))));
 
-  // Preloader kunjungan pertama: tutup saat halaman siap, minimal 800ms supaya tidak berkedip.
-  // Pengaman bila skrip ini gagal ada di CSS (#preloader, 3.5 detik).
+  // Preloader: tutup saat halaman siap, tapi tampil minimal 2 detik. Angka ini juga dipakai main.js untuk menunda animasi hero.
+  // Pengaman bila skrip ini gagal ada di CSS (#preloader, 5 detik).
   const pre = document.getElementById("preloader");
   const root = document.documentElement;
   if (pre && root.classList.contains("preload")) {
@@ -221,7 +221,7 @@
         pre.remove();
       }, 450);
     };
-    const ready = () => setTimeout(hide, Math.max(0, 800 - (performance.now() - t0)));
+    const ready = () => setTimeout(hide, Math.max(0, 2000 - (performance.now() - t0)));
     document.readyState === "complete" ? ready() : addEventListener("load", ready, { once: true });
   }
 })();

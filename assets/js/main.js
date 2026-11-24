@@ -71,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // 2. Timeline masuk hero sekali (±0.8s): subteks, tombol, baris kepercayaan, dan kartu muncul bergantian (y 24→0, autoAlpha)
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      // Bila preloader tampil (2 detik, lihat ui.js), tunda entrance hero sampai layar loading terangkat
+      const tl = gsap.timeline({ delay: document.documentElement.classList.contains("preload") ? 2 : 0, defaults: { ease: "power2.out" } });
       const h1 = hero.querySelector("h1");
       const subtext = hero.querySelector(".hero-subtext, p");
       const actions = hero.querySelector(".hero-actions");

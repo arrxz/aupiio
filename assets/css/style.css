@@ -2316,7 +2316,7 @@ dialog::backdrop {
     gap: 1.5rem;
     background: var(--bg);
     transition: opacity 0.4s ease, visibility 0.4s;
-    animation: preloader-failsafe 0.4s ease 3.5s forwards;
+    animation: preloader-failsafe 0.4s ease 5s forwards;
   }
   #preloader.done {
     opacity: 0;
