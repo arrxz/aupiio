@@ -8,6 +8,13 @@
 
     <script>
       document.documentElement.classList.add("js");
+      // Preloader hanya di kunjungan pertama per sesi. try/catch: sessionStorage bisa error di mode privat.
+      try {
+        if (!sessionStorage.getItem("aupiio_seen")) {
+          sessionStorage.setItem("aupiio_seen", "1");
+          document.documentElement.classList.add("preload");
+        }
+      } catch (e) {}
     </script>
 
     <!-- Favicon (SVG + PNG Fallback) -->
@@ -28,6 +35,10 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body class="bg-bg text-ink antialiased">
+    <div id="preloader" aria-hidden="true">
+      <div class="vinyl"></div>
+      <p>aup<span>iio</span></p>
+    </div>
     <header class="border-b-2 border-ink bg-bg py-4">
       <div class="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-6">
         <a class="font-display text-3xl font-extrabold tracking-tight text-ink" href="index.html">aup<span class="text-accent">iio</span></a>

@@ -2299,6 +2299,71 @@ dialog::backdrop {
     visibility: hidden;
   }
 }
+#preloader {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .preload body {
+    overflow: hidden;
+  }
+  .preload #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 1.5rem;
+    background: var(--bg);
+    transition: opacity 0.4s ease, visibility 0.4s;
+    animation: preloader-failsafe 0.4s ease 3.5s forwards;
+  }
+  #preloader.done {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #preloader .vinyl {
+    position: relative;
+    width: 7rem;
+    border: 6px solid var(--ink);
+    animation: preloader-spin 1s linear infinite;
+  }
+  #preloader .vinyl::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(transparent 0 70%, rgb(255 255 255 / 0.28) 85%, transparent 100%);
+  }
+  #preloader p {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    animation: preloader-text 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  }
+  #preloader p span {
+    color: var(--accent);
+  }
+  @keyframes preloader-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes preloader-text {
+    from {
+      opacity: 0;
+      translate: 0 10px;
+    }
+  }
+  @keyframes preloader-failsafe {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;

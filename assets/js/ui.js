@@ -206,4 +206,22 @@
   document
     .querySelectorAll("dialog")
     .forEach((d) => d.addEventListener("close", () => document.dispatchEvent(new Event("offcanvas:hidden"))));
+
+  // Preloader kunjungan pertama: tutup saat halaman siap, minimal 800ms supaya tidak berkedip.
+  // Pengaman bila skrip ini gagal ada di CSS (#preloader, 3.5 detik).
+  const pre = document.getElementById("preloader");
+  const root = document.documentElement;
+  if (pre && root.classList.contains("preload")) {
+    const t0 = performance.now();
+    const hide = () => {
+      pre.classList.add("done");
+      // Tunggu fade selesai; menghapus .preload lebih awal membuat overlay hilang tanpa transisi
+      setTimeout(() => {
+        root.classList.remove("preload");
+        pre.remove();
+      }, 450);
+    };
+    const ready = () => setTimeout(hide, Math.max(0, 800 - (performance.now() - t0)));
+    document.readyState === "complete" ? ready() : addEventListener("load", ready, { once: true });
+  }
 })();
