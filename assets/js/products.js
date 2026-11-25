@@ -469,68 +469,223 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 2. Inisialisasi detail produk dinamis bila berada di product-detail.html
-  const detailParams = new URLSearchParams(window.location.search);
-  const productId = detailParams.get("id");
-  if (!productId || productId === "iem-001") return; // Gunakan default jika iem-001
+  const detailTitleEl = document.getElementById("detailTitle");
+  if (!detailTitleEl) return;
 
-  const p = AUDIO_PRODUCTS.find((item) => item.id === productId);
+  const detailParams = new URLSearchParams(window.location.search);
+  const productId = detailParams.get("id") || "iem-001";
+  const p = AUDIO_PRODUCTS.find((item) => item.id === productId) || AUDIO_PRODUCTS[0];
   if (!p) return;
 
+  const catInfo = {
+    iem: { label: "In-Ear Monitor", badge: "In-Ear Monitor", href: "catalog.html?cat=iem", icon: "bi-headphones" },
+    "dac-amp": { label: "DAC & Amplifier", badge: "DAC & Amp", href: "catalog.html?cat=dac-amp", icon: "bi-cpu" },
+    accessories: { label: "Aksesoris Audio", badge: "Aksesoris", href: "catalog.html?cat=aksesoris", icon: "bi-disc" },
+  }[p.category] || { label: "Gear Audio", badge: "Audio", href: "catalog.html", icon: "bi-headphones" };
+
+  document.title = `${p.name} | aupiio`;
+
   // Update Breadcrumb & Judul
-  const pageTitle = document.querySelector("h1");
-  if (pageTitle) pageTitle.textContent = `${p.name} ${p.category === 'iem' ? 'In-Ear Monitor' : ''}`;
+  detailTitleEl.textContent = p.category === "iem" && !p.name.toLowerCase().includes("iem") ? `${p.name} In-Ear Monitor` : p.name;
 
-  const breadcrumbLast = document.querySelector('nav[aria-label="breadcrumb"] span:last-child, .mx-auto.max-w-\\[1600px\\].text-xs.text-ink-muted span.text-ink');
-  if (breadcrumbLast) breadcrumbLast.textContent = p.name;
-
-  // Update Breadcrumb Kategori
-  const breadcrumbCat = document.querySelector('#detailBreadcrumbCat, .mx-auto.max-w-\\[1600px\\].text-xs.text-ink-muted a[href*="catalog"]');
+  const breadcrumbCat = document.getElementById("detailBreadcrumbCat");
   if (breadcrumbCat) {
-    if (p.category === 'iem') {
-      breadcrumbCat.textContent = 'In-Ear Monitor';
-      breadcrumbCat.href = 'catalog.html?cat=iem';
-    } else if (p.category === 'dac-amp') {
-      breadcrumbCat.textContent = 'DAC & Amp';
-      breadcrumbCat.href = 'catalog.html?cat=dac-amp';
-    } else if (p.category === 'accessories') {
-      breadcrumbCat.textContent = 'Aksesoris';
-      breadcrumbCat.href = 'catalog.html?cat=aksesoris';
-    }
+    breadcrumbCat.textContent = catInfo.badge;
+    breadcrumbCat.href = catInfo.href;
   }
 
-  // Update Badge Tag di Atas Foto Utama
-  const galleryBadge = document.querySelector(".relative.flex.aspect-square span.absolute, .relative.flex.aspect-4\\/3 span.absolute");
-  if (galleryBadge) {
-    if (p.category === 'iem') {
-      galleryBadge.textContent = 'In-Ear Monitor';
-    } else if (p.category === 'dac-amp') {
-      galleryBadge.textContent = 'DAC & Amplifier';
-    } else if (p.category === 'accessories') {
-      galleryBadge.textContent = 'Aksesoris Audio';
-    }
-  }
+  const breadcrumbName = document.getElementById("detailBreadcrumbName");
+  if (breadcrumbName) breadcrumbName.textContent = p.name;
 
-  // Update Brand & Rating
-  const brandEl = document.querySelector(".text-xs.font-semibold.uppercase.tracking-widest.text-ink-muted");
+  const galleryBadge = document.getElementById("detailGalleryBadge");
+  if (galleryBadge) galleryBadge.textContent = catInfo.label;
+
+  // Brand, Deskripsi & Rating
+  const brandEl = document.getElementById("detailBrand");
   if (brandEl) brandEl.textContent = p.brand;
 
-  const ratingNum = document.querySelector(".text-xs.font-semibold.text-ink");
+  const descEl = document.getElementById("detailDesc");
+  if (descEl) descEl.textContent = p.description;
+
+  const ratingStars = document.getElementById("detailRatingStars");
+  if (ratingStars) {
+    const full = Math.floor(p.rating);
+    const half = p.rating - full >= 0.3 ? 1 : 0;
+    const empty = 5 - full - half;
+    ratingStars.innerHTML =
+      '<i class="bi bi-star-fill"></i>'.repeat(full) +
+      (half ? '<i class="bi bi-star-half"></i>' : "") +
+      '<i class="bi bi-star"></i>'.repeat(empty);
+  }
+
+  const ratingNum = document.getElementById("detailRatingNum");
   if (ratingNum) ratingNum.textContent = String(p.rating);
 
-  const reviewCount = document.querySelector(".text-xs.text-ink-muted");
+  const reviewCount = document.getElementById("detailReviewCount");
   if (reviewCount) reviewCount.textContent = `(${p.reviewsCount} ulasan audiophile)`;
 
-  // Update Harga
-  const priceEl = document.querySelector(".font-mono.text-3xl.font-bold.text-accent-strong");
+  // Harga & Status Stok
+  const priceEl = document.getElementById("detailPrice");
   if (priceEl) priceEl.textContent = formatRupiah(p.price);
 
+  const oldPriceEl = document.getElementById("detailOldPrice");
+  if (oldPriceEl) {
+    if (p.id === "iem-001") {
+      oldPriceEl.classList.remove("hidden");
+    } else {
+      oldPriceEl.classList.add("hidden");
+    }
+  }
+
+  const stockEl = document.getElementById("detailStock");
+  if (stockEl) {
+    if (p.stock === "low_stock") {
+      stockEl.className = "mt-1.5 flex items-center gap-1.5 text-xs text-warn font-medium";
+      stockEl.innerHTML = `<i class="bi bi-exclamation-circle-fill"></i> ${p.stockText} (Segera pesan sebelum kehabisan)`;
+    } else {
+      stockEl.className = "mt-1.5 flex items-center gap-1.5 text-xs text-ok font-medium";
+      stockEl.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${p.stockText} (Siap kirim hari ini)`;
+    }
+  }
+
+  // Chips Karakter & Driver
+  const chipsEl = document.getElementById("detailChips");
+  if (chipsEl) {
+    const chips = [p.soundSignature, p.driverType, p.pinType].filter((v) => v && v !== "-");
+    chipsEl.innerHTML = chips
+      .map((c, idx) =>
+        idx === 0
+          ? `<span class="rounded-full border border-accent bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">${c}</span>`
+          : `<span class="rounded-full border border-line px-3 py-1 text-xs text-ink-muted">${c}</span>`
+      )
+      .join("");
+  }
+
+  // Varian Pilihan sesuai kategori + interaksi klik
+  const variantLabelEl = document.getElementById("detailVariantLabel");
+  const variantListEl = document.getElementById("detailVariantList");
+  if (variantLabelEl && variantListEl) {
+    let vLabel = "Pilihan Varian:";
+    let variants = ["Standard Edition"];
+    if (p.id === "iem-001") {
+      vLabel = "Warna Faceplate:";
+      variants = ["White (Jade)", "Black (Classic)", "Clear (Limited)"];
+    } else if (p.category === "iem") {
+      vLabel = "Opsi Kabel / Terminasi:";
+      variants = ["3.5mm Non-Mic", "3.5mm + Mic", "4.4mm Balanced"];
+    } else if (p.category === "dac-amp") {
+      vLabel = "Konektor Sumber:";
+      variants = ["USB Type-C", "USB-C + Lightning Adapter"];
+    } else if (p.id === "acc-002") {
+      vLabel = "Tipe Konektor IEM:";
+      variants = ["0.78mm 2-Pin", "MMCX", "QDC 2-Pin"];
+    } else {
+      vLabel = "Ukuran Eartips:";
+      variants = ["Set S / M / L (3 Pasang)", "Size M (2 Pasang)", "Size S (2 Pasang)"];
+    }
+
+    variantLabelEl.textContent = vLabel;
+    variantListEl.innerHTML = variants
+      .map((v, i) =>
+        i === 0
+          ? `<button type="button" class="variant-btn rounded-btn border-2 border-accent bg-accent-soft px-4 py-2 text-xs font-semibold text-accent-strong cursor-pointer transition">${v}</button>`
+          : `<button type="button" class="variant-btn rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong cursor-pointer transition">${v}</button>`
+      )
+      .join("");
+
+    variantListEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".variant-btn");
+      if (!btn) return;
+      variantListEl.querySelectorAll(".variant-btn").forEach((b) => {
+        const active = b === btn;
+        b.className = active
+          ? "variant-btn rounded-btn border-2 border-accent bg-accent-soft px-4 py-2 text-xs font-semibold text-accent-strong cursor-pointer transition"
+          : "variant-btn rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs text-ink hover:border-accent hover:text-accent-strong cursor-pointer transition";
+      });
+    });
+  }
+
+  // Tabel Spesifikasi Teknis Hardware
+  const specsBody = document.getElementById("detailSpecsBody");
+  if (specsBody) {
+    const rows = [
+      ["Brand / Pabrikan", p.brand],
+      ["Kategori", catInfo.label],
+      ["Konfigurasi Driver / Chip", p.driverType],
+      [p.category === "dac-amp" ? "Output Power" : "Impedansi", p.impedance],
+      [p.category === "dac-amp" ? "Dukungan Format / SNR" : "Sensitivitas", p.sensitivity],
+      ["Karakter Suara", p.soundSignature],
+      ["Konektor / Ukuran", p.pinType],
+    ].filter(([, val]) => val && val !== "-");
+
+    specsBody.innerHTML = rows
+      .map(
+        ([k, v]) => `
+        <tr class="even:bg-surface-2">
+          <td class="w-2/5 px-4 py-3 text-ink-muted">${k}</td>
+          <td class="px-4 py-3 font-mono text-ink">${v}</td>
+        </tr>`
+      )
+      .join("");
+  }
+
+  // Analisis 4 Pilar sesuai kategori
+  const soundSection = document.getElementById("detailSoundSection");
+  if (soundSection) {
+    let cardsHtml = "";
+    if (p.category === "accessories") {
+      cardsHtml = `
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-earbuds mr-1"></i> Kenyamanan & Fit</h5>
+          <p class="text-xs text-ink-muted">Dirancang ergonomis untuk mengurangi tekanan di liang telinga saat sesi dengar berjam-jam.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-shield-check mr-1"></i> Material Pilihan</h5>
+          <p class="text-xs text-ink-muted">${p.driverType} berkualitas tinggi yang lentur, awet, dan ramah di kulit.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-plug mr-1"></i> Kompatibilitas</h5>
+          <p class="text-xs text-ink-muted">Cocok untuk standar ${p.pinType} pada mayoritas IEM modern di katalog aupiio.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-soundwave mr-1"></i> Efek Akustik</h5>
+          <p class="text-xs text-ink-muted">${p.soundSignature} dengan isolasi suara pasif yang lebih kedap dan konsisten.</p>
+        </div>`;
+    } else if (p.category === "dac-amp") {
+      cardsHtml = `
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-lightning-charge mr-1"></i> Tenaga & Headroom</h5>
+          <p class="text-xs text-ink-muted">Daya ${p.impedance} mampu men-drive IEM sensitif hingga headphone planar ringan dengan mudah.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-cpu mr-1"></i> Arsitektur DAC</h5>
+          <p class="text-xs text-ink-muted">Menggunakan ${p.driverType} untuk konversi sinyal digital yang presisi dan bebas noise lantai.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-soundwave mr-1"></i> Karakter Output</h5>
+          <p class="text-xs text-ink-muted">Menyajikan karakter ${p.soundSignature} yang menjaga detail rekaman asli tetap utuh.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ink bg-surface-2 p-4">
+          <h5 class="text-xs font-semibold uppercase tracking-wider text-accent mb-1"><i class="bi bi-phone mr-1"></i> Plug & Play</h5>
+          <p class="text-xs text-ink-muted">Kompatibel langsung dengan Android, iOS, Windows, dan macOS via ${p.pinType}.</p>
+        </div>`;
+    }
+    if (cardsHtml) {
+      soundSection.innerHTML = `
+        <h4 class="font-display text-lg font-extrabold tracking-tight text-ink mb-4">
+          ${p.category === "accessories" ? "Keunggulan & Kompatibilitas" : "Karakter Audio & Performa"}
+        </h4>
+        <div class="grid gap-6 sm:grid-cols-2">${cardsHtml}</div>`;
+    }
+  }
+
+  // Mobile Sticky Bar & Tombol Add to Cart
   const mobilePriceEl = document.querySelector(".fixed.bottom-0 .font-mono.text-base.font-bold");
   if (mobilePriceEl) mobilePriceEl.textContent = formatRupiah(p.price);
 
   const mobileNameEl = document.querySelector(".fixed.bottom-0 .block.text-\\[11px\\]");
   if (mobileNameEl) mobileNameEl.textContent = p.name;
 
-  // Update Tombol Add to Cart
   const addToCartBtn = document.querySelector('button[onclick*="window.aupiioAddToCart"]');
   if (addToCartBtn) {
     addToCartBtn.setAttribute("onclick", `window.aupiioAddToCart('${p.id}', parseInt(document.getElementById('pQty').value))`);
@@ -540,20 +695,25 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileAddToCartBtn.setAttribute("onclick", `window.aupiioAddToCart('${p.id}', 1)`);
   }
 
-  // Update Foto Produk (dengan fallback ikon)
-  const mainImg = document.querySelector(".aspect-square img, .aspect-4\\/3 img");
-  if (mainImg) {
-    mainImg.src = p.image;
-    mainImg.alt = p.name;
-    mainImg.onerror = () => {
-      mainImg.classList.add("hidden");
-      const parent = mainImg.parentElement;
-      if (!parent.querySelector(".product-icon-fallback")) {
+  // Update Foto Produk Utama & Thumbnail (dengan fallback ikon)
+  const applyImageWithFallback = (imgEl, iconSizeClass) => {
+    if (!imgEl) return;
+    imgEl.src = p.image;
+    imgEl.alt = p.name;
+    imgEl.classList.remove("hidden");
+    imgEl.parentElement?.querySelector(".product-icon-fallback")?.remove();
+    imgEl.onerror = () => {
+      imgEl.classList.add("hidden");
+      const parent = imgEl.parentElement;
+      if (parent && !parent.querySelector(".product-icon-fallback")) {
         const iconDiv = document.createElement("div");
         iconDiv.className = "product-icon-fallback flex h-full w-full items-center justify-center text-ink-muted";
-        iconDiv.innerHTML = `<i class="bi ${p.category === 'dac-amp' ? 'bi-cpu' : p.category === 'accessories' ? 'bi-bezier2' : 'bi-headphones'} text-7xl text-accent"></i>`;
+        iconDiv.innerHTML = `<i class="bi ${catInfo.icon} ${iconSizeClass} text-accent"></i>`;
         parent.appendChild(iconDiv);
       }
     };
-  }
+  };
+
+  applyImageWithFallback(document.getElementById("detailMainImg"), "text-7xl");
+  applyImageWithFallback(document.getElementById("detailThumbImg"), "text-2xl");
 });
