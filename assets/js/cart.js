@@ -92,7 +92,7 @@ function updateCartUI() {
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
           <p class="text-xs">Keranjang Anda masih kosong.</p>
-          <a href="produk.html" class="inline-flex mt-4 items-center justify-center rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">Jelajahi Katalog</a>
+          <a href="catalog.html" class="inline-flex mt-4 items-center justify-center rounded-btn bg-accent px-4 py-2 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">Jelajahi Katalog</a>
         </div>
       `;
       if (miniCartSubtotal) miniCartSubtotal.textContent = "Rp 0";
