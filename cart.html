@@ -235,6 +235,31 @@
       </div>
     </main>
 
+    <!-- Mini-Cart Offcanvas (<dialog> + data-lenis-prevent) -->
+    <dialog class="fixed inset-y-0 m-0 h-dvh max-h-none w-[min(400px,100vw)] max-w-none flex-col p-0 open:flex right-0 left-auto border-l border-line bg-surface text-ink" id="miniCart" aria-labelledby="miniCartLabel" data-lenis-prevent>
+      <div class="flex items-center justify-between border-b border-line p-4">
+        <h3 id="miniCartLabel" class="font-display text-lg font-extrabold tracking-tight text-ink flex items-center gap-2"><i class="bi bi-bag text-accent"></i> Keranjang Belanja</h3>
+        <button type="button" class="flex h-9 w-9 items-center justify-center rounded-btn text-ink-muted transition hover:bg-surface-2 hover:text-ink" data-dismiss="offcanvas" aria-label="Tutup"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      </div>
+      <div class="grow overflow-y-auto flex flex-col justify-between p-4" data-lenis-prevent>
+        <div id="miniCartBody" class="flex flex-col gap-3"></div>
+        <div class="border-t border-line pt-4">
+          <div class="flex items-center justify-between mb-3 text-sm">
+            <span class="text-ink-muted">Subtotal:</span>
+            <span id="miniCartSubtotal" class="font-mono text-base font-semibold text-accent-strong">Rp 0</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a href="cart.html" class="inline-flex w-full items-center justify-center rounded-btn border-2 border-ink py-2.5 text-xs font-semibold text-ink transition hover:border-accent hover:text-accent-strong">
+              Buka Halaman Keranjang
+            </a>
+            <a href="checkout.html" class="inline-flex w-full items-center justify-center rounded-btn bg-accent py-2.5 text-xs font-semibold text-accent-ink transition hover:bg-accent-hover">
+              Langsung Checkout <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
     <!-- Footer (sama di semua halaman) -->
     <footer class="mt-16 bg-band text-band-muted">
       <div class="mx-auto max-w-[1600px] px-4 pt-14 sm:px-6">
